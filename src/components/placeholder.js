@@ -350,7 +350,7 @@ const Placeholder = () => {
         <Flex style={{ justifyContent: "center" }}>
         <header>
           <h4>
-            <a href="https://joypauls.github.io">joypauls.github.io</a> is napping
+            <a href="https://joypauls.dev/">joypauls.dev</a> is napping
             <span role="img" aria-label="snooze">&#128564;</span>
           </h4>
         </header>

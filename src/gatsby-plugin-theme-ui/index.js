@@ -38,20 +38,22 @@ export default merge(toTheme(noriega), {
         textShadow: "none",
     },
     lineHeights: {
-      body: 1,
-      heading: 1,
+      body: 1.5,
+      heading: 1.25,
+      buttons: 1,
     },
-    // fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
-    // space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+    fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
+    space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
     buttons: {
         primary: {
-            color: "secondary",
+            color: "primary",
             bg: "transparent",
-            borderColor: "secondary",
+            borderColor: "primary",
             "&:hover": {
                 color: "white",
-                bg: "secondary",
+                bg: "primary",
             },
+            lineHeight: "buttons",
         },
         secondary: {
             color: "text",
@@ -60,6 +62,28 @@ export default merge(toTheme(noriega), {
                 color: "secondary",
                 bg: "text",
             },
+            lineHeight: "buttons",
         },
-      },
+  },
+  cards: {
+    primary: {
+        color: "primary",
+        bg: "transparent",
+        borderColor: "primary",
+        "&:hover": {
+            color: "white",
+            bg: "primary",
+        },
+        lineHeight: "buttons",
+    },
+    secondary: {
+        color: "text",
+        bg: "secondary",
+        "&:hover": {
+            color: "secondary",
+            bg: "text",
+        },
+        lineHeight: "buttons",
+    },
+},
 });

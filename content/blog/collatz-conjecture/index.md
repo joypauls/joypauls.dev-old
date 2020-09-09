@@ -7,6 +7,8 @@ date: "2020-08-01"
 
 > "Mathematics is not ready for such problems." - Paul Erdos
 
+## What is the Collatz Conjecture?
+
 
 ---
 

@@ -44,9 +44,11 @@
     "katex": "^0.11.1",
     "prismjs": "^1.20.0",
     "react": "^16.12.0",
+    "react-dark-mode-toggle": "0.0.9",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.11.0",
+    "react-lottie-wrapper": "^1.1.8",
     "react-typography": "^0.16.19",
     "rebass": "^4.0.7",
     "theme-ui": "^0.3.1",
@@ -57,7 +59,8 @@
     "typography-theme-lincoln": "^0.16.19",
     "typography-theme-moraga": "^0.16.19",
     "typography-theme-noriega": "^0.16.19",
-    "typography-theme-wordpress-2016": "^0.16.19"
+    "typography-theme-wordpress-2016": "^0.16.19",
+    "use-dark-mode": "^2.3.1"
   },
   "devDependencies": {
     "gh-pages": "^3.1.0",

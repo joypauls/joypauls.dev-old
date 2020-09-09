@@ -7,7 +7,8 @@ import { rhythm, scale } from "../utils/typography";
 import { Button, Flex, Text, Box } from "rebass";
 import { IoMdStats } from "react-icons/io";
 
-import ModeSwitch from "./ModeSwitch/ModeSwitch.js";
+// import ModeSwitch from "./ModeSwitch/ModeSwitch.js";
+import DarkModeSwitch from "./DarkModeSwitch/DarkModeSwitch.js";
 import BLMBanner from "./banner.js";
 
 
@@ -20,8 +21,8 @@ const NavButton = ({ variant = "primary", ...props }) => {
         display: "inline-block",
         textAlign: "center",
         fontSize: "medium",
-        border: "3px solid",
-        // borderRadius: "2rem",
+        border: "2px solid",
+        borderRadius: 3,
         margin: "5px",
         variant: `buttons.${variant}`,
       }}
@@ -50,7 +51,8 @@ const MainHeader = ({...props}) => {
             { props.description }
           </h5>
         </Box>
-        <ModeSwitch mode={ props.colorMode } handleToggle={ () => props.setColorMode(props.nextColorMode) } />
+        {/* <ModeSwitch mode={ props.colorMode } handleToggle={ () => props.setColorMode(props.nextColorMode) } /> */}
+        <DarkModeSwitch colorMode={ props.colorMode } onChangeColorMode={ props.onChangeColorMode } />
       </Flex>
       <Flex alignItems="center" justifyContent="center" marginBottom="5rem">
         <NavButton text="Categories" />
@@ -86,7 +88,23 @@ const Layout = ({ location, title, description, children }) => {
 
   // component state
   const [colorMode, setColorMode] = useColorMode();
-  const nextColorMode = colorMode === 'default' ? 'dark' : 'default';
+  // const nextColorMode = colorMode === 'default' ? 'dark' : 'default';
+
+  // const isDarkMode = colorMode === 'dark' ? true : false;
+
+  // const [colorMode, setColorMode] = useState("default");
+
+  // const isDarkMode = colorMode === 'dark';
+
+  // const handleChange = (isChecked) => {
+  //   setColorMode(isChecked === true ? "dark" : "default");
+  // };
+
+  // takes a bool
+  const handleDarkMode = (isDark) => {
+    let mode = isDark === true ? 'dark' : 'default';
+    setColorMode(mode);
+  };
 
   if (location.pathname === rootPath) {
     // TODO: make this more elegant
@@ -94,9 +112,12 @@ const Layout = ({ location, title, description, children }) => {
       <MainHeader 
         title={title} 
         description={description} 
-        colorMode={colorMode} 
-        nextColorMode={nextColorMode} 
-        setColorMode={setColorMode}  
+        // colorMode={colorMode} 
+        colorMode={colorMode}
+        // nextColorMode={nextColorMode} 
+        // handleChange={handleChange}  
+        // setColorMode={setColorMode}
+        onChangeColorMode={handleDarkMode}
       />
     );
   } else {
@@ -106,7 +127,7 @@ const Layout = ({ location, title, description, children }) => {
   }
   return (
     <Fragment>
-      <BLMBanner />
+      {/* <BLMBanner /> */}
       <div
         style={{
           marginLeft: `auto`,

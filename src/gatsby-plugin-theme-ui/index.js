@@ -24,16 +24,16 @@ export default merge(toTheme(noriega), {
         }
       }
     },
-    // fonts: {
-    //   body: "Inter, sans-serif",
-    //   heading: "inherit",
-    //   monospace: "Menlo, monospace",
-    // },
-    // fontWeights: {
-    //   body: 400,
-    //   heading: 700,
-    //   bold: 700,
-    // },
+    fonts: {
+      body: "Noto Sans KR",
+      heading: "inherit",
+      monospace: "Menlo, monospace",
+    },
+    fontWeights: {
+      body: 400,
+      heading: 700,
+      bold: 700,
+    },
     shadows: {
         textShadow: "none",
         cardLight: "0 1px 4px rgba(0, 0, 0, .15)",
@@ -44,7 +44,7 @@ export default merge(toTheme(noriega), {
       heading: 1.25,
       buttons: 1,
     },
-    fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
+    fontSizes: [10, 12, 14, 16, 20, 24, 32, 48, 64, 72],
     space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
     buttons: {
         primary: {

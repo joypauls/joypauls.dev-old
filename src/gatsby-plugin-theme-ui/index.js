@@ -7,20 +7,20 @@ import merge from "deepmerge"
 export default merge(toTheme(noriega), {
     useLocalStorage: false, // this disables persisting color scheme for user
     colors: {
-      text: "#333",
-      background: "#f5f0f4",
-      primary: "#8b32eb",
+      text: "#333333",
+      background: "#F5F0F4",
+      primary: "#8B32EB",
       primaryDark: "#59377A",
       // secondary: "#e86d84",
-      secondary: "#e57780",
-      primaryLight: "#d9cae8",
+      secondary: "#E57780",
+      primaryLight: "#D9CAE8",
     //   accent: "#ff7891",
       modes: {
         dark: {
-          text: '#fff',
-          background: '#241a23',
-          primary: "#8b32eb",
-          secondary: "#ff7891",
+          text: "#FFFFFF",
+          background: "#3D2C3B",
+          primary: "#8B32EB",
+          secondary: "#FF7891",
         }
       }
     },
@@ -36,6 +36,8 @@ export default merge(toTheme(noriega), {
     // },
     shadows: {
         textShadow: "none",
+        cardLight: "0 1px 4px rgba(0, 0, 0, .15)",
+        cardDark: "0 2px 5px rgba(0, 0, 0, .6)",
     },
     lineHeights: {
       body: 1.5,
@@ -66,24 +68,11 @@ export default merge(toTheme(noriega), {
         },
   },
   cards: {
-    primary: {
-        color: "primary",
-        bg: "transparent",
-        borderColor: "primary",
-        "&:hover": {
-            color: "white",
-            bg: "primary",
-        },
-        lineHeight: "buttons",
+    default: {
+      boxShadow: "cardLight",
     },
-    secondary: {
-        color: "text",
-        bg: "secondary",
-        "&:hover": {
-            color: "secondary",
-            bg: "text",
-        },
-        lineHeight: "buttons",
+    dark: {
+      boxShadow: "cardDark",
     },
 },
 });

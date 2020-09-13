@@ -65,7 +65,7 @@ const MainHeader = ({...props}) => {
 
 const PageHeader = ({...props}) => {
   return (
-    <h3 style={{ marginTop: 0, }}>
+    <h3 sx={{ marginTop: 0, color: "text" }}>
       <Link style={{ boxShadow: `none`, color: `inherit`, }} to={`/`}>
         { props.title }
       </Link>
@@ -75,7 +75,7 @@ const PageHeader = ({...props}) => {
 
 const Footer = () => {
   return (
-    <h5>
+    <h5 sx={{ color: "text" }}>
       { "made with ❤ by " }
       <a href="https://github.com/joypauls">joypauls</a>
     </h5>
@@ -139,7 +139,7 @@ const Layout = ({ location, title, description, children }) => {
         
         <header>{header}</header>
         
-        <main style={{ display: "flex", flexDirection: "column", }}>
+        <main sx={{ display: "flex", flexDirection: "column", color: "text" }}>
           { children }
         </main>
         

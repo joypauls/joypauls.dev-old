@@ -1,3 +1,6 @@
+/** @jsx jsx */
+import { jsx } from "theme-ui";
+
 import React from "react"
 import { Link, graphql } from "gatsby"
 
@@ -23,40 +26,44 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       <article>
         <header>
           <h1
-            style={{
+            sx={{
               marginTop: rhythm(1),
               marginBottom: 0,
+              color: "text",
             }}
           >
             {post.frontmatter.title}
           </h1>
           <h3
-            style={{
+            sx={{
               marginTop: rhythm(1),
               marginBottom: 0,
+              color: "text",
             }}
           >
             {post.frontmatter.subtitle}
           </h3>
           <p
-            style={{
+            sx={{
               ...scale(-1 / 5),
               display: `block`,
               marginBottom: rhythm(1),
+              color: "text",
             }}
           >
             {post.frontmatter.date}
           </p>
         </header>
-        <section dangerouslySetInnerHTML={{ __html: post.html }} />
+        <section sx={{ color: "text" }} dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
-          style={{
+          sx={{
             marginBottom: rhythm(1),
+            color: "text",
           }}
         />
-        <footer>
+        {/* <footer>
           <Bio />
-        </footer>
+        </footer> */}
       </article>
 
       <nav>

@@ -32,6 +32,17 @@ const NavButton = ({ variant = "primary", ...props }) => {
   )
 };
 
+const NavLink = ({ variant="nav", href="/", text="" }) => {
+  return (
+    <Link
+      sx={{ variant: variant, marginRight: 2 }}
+      href={href}
+    >
+      {text}
+    </Link>
+  )
+};
+
 const MainHeader = ({...props}) => {
   return (
     <div>
@@ -43,22 +54,27 @@ const MainHeader = ({...props}) => {
         <Box style={{ margin: "1rem", }}>
           <h3 sx={{ display: "flex", alignItems: "center", color: "text", }}>
             <IoMdStats sx={{color: "secondary"}} size="2rem" style={{ marginRight: "1rem" }}/>
-            <Link style={{ boxShadow: `none`, color: `inherit`, }} to={`/`}>
+            <Link style={{ boxShadow: "none", color: "inherit", textDecoration: "none" }} to={"/"}>
               { props.title }
             </Link>
           </h3>
-          <h5 style={{ marginTop: 0, color: "inherit" }}>
+          {/* <h5 style={{ marginTop: 0, color: "inherit" }}>
             { props.description }
-          </h5>
+          </h5> */}
         </Box>
         {/* <ModeSwitch mode={ props.colorMode } handleToggle={ () => props.setColorMode(props.nextColorMode) } /> */}
-        <DarkModeSwitch colorMode={ props.colorMode } onChangeColorMode={ props.onChangeColorMode } />
+        <Flex style={{alignItems: "center"}}>
+          {/* <NavButton text="Categories" /> */}
+          <NavLink text="Categories" href="/" />
+          <NavLink text="About" href="/" />
+          <DarkModeSwitch colorMode={ props.colorMode } onChangeColorMode={ props.onChangeColorMode } />
+        </Flex>
       </Flex>
-      <Flex alignItems="center" justifyContent="center" marginBottom="5rem">
+      {/* <Flex alignItems="center" justifyContent="center" marginBottom="5rem">
         <NavButton text="Categories" />
         <NavButton text="Visualizations" />
         <NavButton text="About" />
-      </Flex>
+      </Flex> */}
     </div>
   );
 };

@@ -122,4 +122,12 @@ export default merge(toTheme(noriega), {
       boxShadow: "cardDark",
     },
   },
+  nav: {
+    color: "text",
+    textDecoration: "none",
+    "&:hover": {
+      borderBottom: "2px solid",
+      borderColor: "primary",
+    },
+  },
 });

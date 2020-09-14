@@ -26,6 +26,7 @@ const ReadMoreButton = ({ variant = "primary", ...props }) => {
         // margin: "5px",
         variant: `buttons.${variant}`,
       }}
+      p={2}
     >
       { props.text }
     </Button>

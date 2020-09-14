@@ -7,7 +7,7 @@ import { Button, Flex, Text, Box, Card } from "rebass";
 // import Bio from "../components/bio";
 // import Layout from "../components/layout";
 // import SEO from "../components/seo";
-import { rhythm } from "../../utils/typography";
+// import { rhythm } from "../../utils/typography";
 
 // import Placeholder from "../components/placeholder";
 
@@ -34,14 +34,14 @@ const ReadMoreButton = ({ variant = "primary", ...props }) => {
 
 
 const postCardStyle = {
-  p: rhythm(1/2),
+  p: "0.5rem",
   borderRadius: 3,
   // boxShadow: '0 0 8px rgba(0, 0, 0, .25)',
   // border: "solid 2px",
   // borderColor: "primary",
-  marginBottom: rhythm(2),
+  marginBottom: "2rem",
   width: "100%",
-  maxWidth: rhythm(24),
+  maxWidth: "60vw",
   alignSelf: "center", // should put this in css in layout as a selector of child elements
   variant: "cards.default"
 };
@@ -55,8 +55,8 @@ const PostCard = ({...props}) => {
         <header>
           <h2
             style={{
-              marginTop: rhythm(1 / 4),
-              marginBottom: rhythm(1 / 2),
+              marginTop: "0.25rem",
+              marginBottom: "0.5rem",
               fontWeight: "bold",
             }}
           >
@@ -69,7 +69,7 @@ const PostCard = ({...props}) => {
         <section>
           <p
             style={{
-              marginBottom: rhythm(1 / 2),
+              marginBottom: "0.5rem",
               fontSize: "14px",
               fontWeight: 300,
             }}

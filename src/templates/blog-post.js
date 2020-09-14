@@ -7,7 +7,7 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+// import { rhythm, scale } from "../utils/typography"
 
 // for katex
 require("katex/dist/katex.min.css")
@@ -27,7 +27,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         <header>
           <h1
             sx={{
-              marginTop: rhythm(1),
+              marginTop: "1rem",
               marginBottom: 0,
               color: "text",
             }}
@@ -36,7 +36,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </h1>
           <h3
             sx={{
-              marginTop: rhythm(1),
+              marginTop: "1rem",
               marginBottom: 0,
               color: "text",
             }}
@@ -45,19 +45,20 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </h3>
           <p
             sx={{
-              ...scale(-1 / 5),
+              // ...scale(-1 / 5),
               display: `block`,
-              marginBottom: rhythm(1),
-              color: "text",
+              marginBottom: "1rem",
+              // color: "text",
             }}
           >
             {post.frontmatter.date}
           </p>
         </header>
-        <section sx={{ color: "text" }} dangerouslySetInnerHTML={{ __html: post.html }} />
+        {/* <section sx={{ color: "text" }} dangerouslySetInnerHTML={{ __html: post.html }} /> */}
+        <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
           sx={{
-            marginBottom: rhythm(1),
+            marginBottom: "1rem",
             color: "text",
           }}
         />

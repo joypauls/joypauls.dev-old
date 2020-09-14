@@ -42,10 +42,29 @@ export default merge(toTheme(noriega), {
     lineHeights: {
       body: 1.5,
       heading: 1.25,
+      // custom
       buttons: 1,
     },
     fontSizes: [10, 12, 14, 16, 20, 24, 32, 48, 64, 72],
     space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+
+    // styles for 
+    styles: {
+      h1: {
+        color: "text",
+      },
+      h2: {
+        color: "text",
+      },
+      h3: {
+        color: "text",
+      },
+      h4: {
+        color: "text",
+      },
+    },
+
+    // component variants
     buttons: {
         primary: {
             color: "primary",
@@ -74,5 +93,5 @@ export default merge(toTheme(noriega), {
     dark: {
       boxShadow: "cardDark",
     },
-},
+  },
 });

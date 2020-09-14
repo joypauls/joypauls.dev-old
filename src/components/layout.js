@@ -3,7 +3,7 @@ import { jsx } from "theme-ui";
 import { useColorMode } from "theme-ui";
 import { React, useState, Fragment } from "react";
 import { Link } from "gatsby";
-import { rhythm, scale } from "../utils/typography";
+// import { rhythm, scale } from "../utils/typography";
 import { Button, Flex, Text, Box } from "rebass";
 import { IoMdStats } from "react-icons/io";
 
@@ -40,7 +40,7 @@ const MainHeader = ({...props}) => {
         justifyContent="space-between"
         padding="1rem"
       >
-        <Box style={{ margin: rhythm(1), }}>
+        <Box style={{ margin: "1rem", }}>
           <h3 sx={{ display: "flex", alignItems: "center", color: "text", }}>
             <IoMdStats sx={{color: "secondary"}} size="2rem" style={{ marginRight: "1rem" }}/>
             <Link style={{ boxShadow: `none`, color: `inherit`, }} to={`/`}>
@@ -132,8 +132,8 @@ const Layout = ({ location, title, description, children }) => {
         style={{
           marginLeft: `auto`,
           marginRight: `auto`,
-          maxWidth: rhythm(30),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+          maxWidth: "80vw",
+          // padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
         }}
       >
         

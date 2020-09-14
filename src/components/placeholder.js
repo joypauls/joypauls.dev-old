@@ -3,7 +3,7 @@ import { jsx } from "theme-ui";
 import { useColorMode } from "theme-ui";
 import React, { useState, useEffect, useRef, useCallback, Fragment } from "react";
 import { Link } from "gatsby";
-import { rhythm, scale } from "../utils/typography";
+// import { rhythm, scale } from "../utils/typography";
 import { Button, Flex, Text, Box } from "rebass";
 import { IoMdStats } from "react-icons/io";
 
@@ -343,8 +343,8 @@ const Placeholder = () => {
         style={{
           marginLeft: `auto`,
           marginRight: `auto`,
-          maxWidth: rhythm(30),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+          maxWidth: "60vw",
+          padding: `2rem 1rem`,
         }}
       >
         <Flex style={{ justifyContent: "center" }}>

@@ -60,9 +60,7 @@ const PostCard = ({...props}) => {
               fontWeight: "bold",
             }}
           >
-            <Link style={{ boxShadow: "none", backgroundImage: "none" }} to={props.slug}>
-              {props.title}
-            </Link>
+            {props.title}
           </h2>
           <small>{props.date}</small>
         </header>
@@ -81,7 +79,7 @@ const PostCard = ({...props}) => {
       </Box>
       <Box width={1/4} px={2} style={{display: "flex", flexDirection: "column", justifyContent: "space-between", alignItems: "flex-end"}}>
           <Box sx={{borderRadius: "20px", backgroundColor: "secondary", color: "background", fontSize: "0", fontWeight: "300"}} p={1}>Statistics</Box>
-          <ReadMoreButton text="Read More" />
+          <ReadMoreButton text="Read More" as="a" href={props.slug} />
       </Box>
       </Flex>
     </Card>

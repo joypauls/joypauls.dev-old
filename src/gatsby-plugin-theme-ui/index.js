@@ -62,6 +62,14 @@ export default merge(toTheme(noriega), {
       h4: {
         color: "text",
       },
+      a: {
+        color: "#000",
+      },
+      blockquote: {
+        borderLeft: `8px solid #000000`,
+        // color: "#000000",
+        // borderColor: "primary",
+      },
     },
 
     // component variants

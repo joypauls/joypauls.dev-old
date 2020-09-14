@@ -28,6 +28,7 @@ type Data = {
           title: string
           date: string
           description: string
+          tags: string
         }
         fields: {
           slug: string
@@ -119,6 +120,7 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
               description={node.frontmatter.description}
               excerpt={node.excerpt}
               date={node.frontmatter.date}
+              tags={node.frontmatter.tags}
             />
           );
         })}
@@ -158,6 +160,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            tags
           }
         }
       }

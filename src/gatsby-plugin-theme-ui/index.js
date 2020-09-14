@@ -8,7 +8,7 @@ export default merge(toTheme(noriega), {
   useLocalStorage: false, // this disables persisting color scheme for user
   colors: {
       text: "#333333",
-      background: "#F5F0F4",
+      background: "#F5EDF2",
       primary: "#8B32EB",
       primaryDark: "#59377A",
       // secondary: "#e86d84",
@@ -36,7 +36,7 @@ export default merge(toTheme(noriega), {
   },
   shadows: {
         textShadow: "none",
-        cardLight: "rgba(0, 0, 0, .15)",
+        cardLight: "0 1px 4px rgba(0, 0, 0, .3)",
         // cardLight: `0 1px 4px shadow`,
         cardDark: "0 2px 5px rgba(0, 0, 0, .6)",
   },

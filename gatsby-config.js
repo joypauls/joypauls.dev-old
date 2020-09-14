@@ -1,12 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `joypauls.github.io`,
+    title: `joypauls.dev`,
     author: {
       name: `Joy P`,
       summary: ` a person and stuff, does things occasionally`,
     },
     description: `Blogging about stats, math, and coding`,
-    siteUrl: `https://joypauls.github.io`,
+    siteUrl: `https://joypauls.dev`,
     social: {
       twitter: ``,
     },

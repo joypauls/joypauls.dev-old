@@ -77,8 +77,8 @@ const PostCard = ({...props}) => {
         </section>
       </article>
       </Box>
-      <Box width={1/4} px={2} style={{display: "flex", flexDirection: "column", justifyContent: "space-between", alignItems: "flex-end"}}>
-          <Box sx={{borderRadius: "20px", backgroundColor: "secondary", color: "background", fontSize: "0", fontWeight: "300"}} p={1}>Statistics</Box>
+      <Box width={1/4} px={1} m={1} style={{display: "flex", flexDirection: "column", justifyContent: "space-between", alignItems: "flex-end"}}>
+          <Box sx={{borderRadius: "20px", backgroundColor: "secondary", color: "background", fontSize: "14px", fontWeight: "300"}} p={1}>{props.tags[0]}</Box>
           <ReadMoreButton text="Read More" as="a" href={props.slug} />
       </Box>
       </Flex>

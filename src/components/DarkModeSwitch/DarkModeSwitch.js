@@ -16,7 +16,7 @@ const DarkModeSwitch = (props) => {
       // onChange={ handleToggle }
       onChange={ handleChange }
       checked={ props.colorMode == "dark" }
-      size={ 80 }
+      size={ 60 }
       speed={ 2 }
     />
   );

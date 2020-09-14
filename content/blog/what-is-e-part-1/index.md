@@ -2,6 +2,7 @@
 title: What is e?
 subtitle: Part 1 - Growth
 date: "2020-01-01"
+tags: ["Math"]
 ---
 
 > "The exponential function ... is the instrument used, in one form or another, to describe the behavior of growing things[^1]."

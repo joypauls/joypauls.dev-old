@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { jsx, Styled } from "theme-ui";
 import { Fragment } from "react";
 import { PageProps, Link, graphql } from "gatsby";
 import { Button, Flex, Text, Box, Card } from "rebass";
@@ -126,7 +126,9 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
     );
   } else {
     content = (
-      <SiteDownContent />
+      <Styled.root>
+        <SiteDownContent />
+      </Styled.root>
     );
   }
 

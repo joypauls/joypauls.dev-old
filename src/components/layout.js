@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { jsx, Styled } from "theme-ui";
 import { useColorMode } from "theme-ui";
 import { React, useState, Fragment } from "react";
 import { Link } from "gatsby";
@@ -128,14 +128,7 @@ const Layout = ({ location, title, description, children }) => {
   return (
     <Fragment>
       {/* <BLMBanner /> */}
-      <div
-        style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
-          maxWidth: "80vw",
-          // padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
+      <Styled.root>
         
         <header>{header}</header>
         
@@ -149,7 +142,7 @@ const Layout = ({ location, title, description, children }) => {
           <Footer />
         </footer>
       
-      </div>
+      </Styled.root>
     </Fragment>
   );
 }

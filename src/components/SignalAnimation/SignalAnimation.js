@@ -23,6 +23,9 @@ import * as d3 from "d3";
 // import { histogram } from "d3-array";
 
 
+import './SignalAnimation.css';
+
+
 
 
 // import React, { useState, useEffect, useRef } from 'react';
@@ -82,9 +85,9 @@ function makeBins(n) {
   return binCounts;
 };
 
-const WIDTH = 500;
+const WIDTH = 600;
 const WIDTH_PAD = 4;
-const HEIGHT = 200;
+const HEIGHT = 150;
 const HEIGHT_PAD = 10;
 const INNER_HEIGHT = HEIGHT - (2 * HEIGHT_PAD);
 // var BAR_WIDTH = 24;
@@ -381,7 +384,15 @@ const makePolyline = (y) => {
   let coordsString = coords.join(" ");
   // let coords2 = data.x.map((d, i) => (d.toString() + "," + data.noisyY[i].toString())).join(" ");
   console.log(coordsString);
-  return <polyline points={coordsString} fill="none" stroke="black" />
+  return <polyline points={coordsString} fill="none" stroke="#8B32EB" strokeWidth="1" className="othersquiggle"  />
+}
+
+const makePolylineAnimated = (y) => {
+  let coords = data.x.map((d, i) => (d.toString() + "," + y[i].toString()));
+  let coordsString = coords.join(" ");
+  // let coords2 = data.x.map((d, i) => (d.toString() + "," + data.noisyY[i].toString())).join(" ");
+  console.log(coordsString);
+  return <polyline points={coordsString} fill="none" stroke="#E57780" strokeWidth="4" className="squiggle" />
 }
 
 // makePolyline(10);
@@ -416,25 +427,23 @@ const Viz = () => {
   // }, 2000);
 
   return (
-    <Fragment>
-    <Flex style={{ justifyContent: "center" }}>
-      <svg width={ WIDTH.toString() } height={ HEIGHT.toString() }>
-        { makePolyline(data.noisyY) }
-        { makePolyline(data.y) }
-      </svg>
-    </Flex>
-    </Fragment>
+    <Box width="60vw" p={3} >
+    <svg viewBox={ "0 0 " + WIDTH.toString() + " " + HEIGHT.toString() }>
+      { makePolyline(data.noisyY) }
+      { makePolylineAnimated(data.y) }
+    </svg>
+    </Box>
   );
 }
 
 const SignalAnimation = () => {
 
   return (
-    <Fragment>
+    <Flex sx={{justifyContent: "center"}}>
 
     <Viz />
     
-    </Fragment>
+    </Flex>
   );
 }
 

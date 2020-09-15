@@ -9,6 +9,9 @@ import { IoMdStats } from "react-icons/io";
 
 // import ModeSwitch from "./ModeSwitch/ModeSwitch.js";
 import DarkModeSwitch from "./DarkModeSwitch/DarkModeSwitch.js";
+
+import SignalAnimation from "./SignalAnimation/SignalAnimation.js";
+
 import BLMBanner from "./banner.js";
 
 
@@ -147,6 +150,8 @@ const Layout = ({ location, title, description, children }) => {
       <Styled.root>
         
         <header>{header}</header>
+
+        <SignalAnimation />
         
         <main sx={{ display: "flex", flexDirection: "column", color: "text" }}>
           { children }

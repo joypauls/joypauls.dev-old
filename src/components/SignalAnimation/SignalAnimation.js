@@ -361,6 +361,14 @@ function noisifySignal(arr, mu=0, sigma=1) {
 //   .attr("class", "line")
 //   .attr("d", valueline);
 
+
+// kernel needs to be odd and length checked, scaled. etc.
+function smoother1D(arr, kernel=[0.2, 0.2, 0.2, 0.2, 0.2]) {
+  for (let i = 0; i < arr.length; i++) {
+
+  }
+}
+
 function generateSignalData(n=10, mu=0, sigma=1) {
   let x = [...Array(n).keys()];
   let y = x.map(el => (Math.sin((0.017 * el) - 1)) );
@@ -384,7 +392,7 @@ const makePolyline = (y) => {
   let coordsString = coords.join(" ");
   // let coords2 = data.x.map((d, i) => (d.toString() + "," + data.noisyY[i].toString())).join(" ");
   console.log(coordsString);
-  return <polyline points={coordsString} fill="none" stroke="#8B32EB" strokeWidth="1" className="othersquiggle"  />
+  return <polyline points={coordsString} fill="none" stroke="#8B32EB" strokeWidth="1.5" className="othersquiggle" opacity={0.9} />
 }
 
 const makePolylineAnimated = (y) => {
@@ -392,8 +400,19 @@ const makePolylineAnimated = (y) => {
   let coordsString = coords.join(" ");
   // let coords2 = data.x.map((d, i) => (d.toString() + "," + data.noisyY[i].toString())).join(" ");
   console.log(coordsString);
-  return <polyline points={coordsString} fill="none" stroke="#E57780" strokeWidth="4" className="squiggle" />
+  return <polyline points={coordsString} fill="none" stroke="#E57780" strokeWidth="5" className="squiggle" opacity={0.9} />
 }
+
+const makeSVGComponent = () => {
+  let data = generateSignalData(500);
+  return (
+    <svg viewBox={ "0 0 " + WIDTH.toString() + " " + HEIGHT.toString() }>
+        { makePolyline(data.noisyY) }
+        { makePolylineAnimated(data.y) }
+    </svg>
+  )
+}
+
 
 // makePolyline(10);
 
@@ -409,13 +428,19 @@ const barStyle = {
 
 const Viz = () => {
 
-  // const [data, setData] = useState(
-  //   generateBinCounts()
-  // );
+  const [data, setData] = useState(
+    makeSVGComponent()
+  );
 
-  // const handleClick = useCallback(() => {
-  //   setData(generateBinCounts());
-  // })
+  const [showAnimation, setShowAnimation] = useState(true);
+
+  const handleClick = useCallback(() => {
+    // setData(generateSignalData(500));
+    // setData(makeSVGComponent());
+    setShowAnimation(false);
+    setData(makeSVGComponent());
+    setShowAnimation(true);
+  });
 
   // const [rangeScale, setRangeScale] = useState(
   //   generateRangeScale(data)
@@ -427,11 +452,12 @@ const Viz = () => {
   // }, 2000);
 
   return (
-    <Box width="60vw" p={3} >
-    <svg viewBox={ "0 0 " + WIDTH.toString() + " " + HEIGHT.toString() }>
-      { makePolyline(data.noisyY) }
-      { makePolylineAnimated(data.y) }
-    </svg>
+    <Box width={["100vw", "80vw", "60vw"]} p={3} onClick={handleClick}>
+      { showAnimation ? data : <div></div> }
+      {/* <svg viewBox={ "0 0 " + WIDTH.toString() + " " + HEIGHT.toString() }>
+        { makePolyline(data.noisyY) }
+        { makePolylineAnimated(data.y) }
+      </svg> */}
     </Box>
   );
 }

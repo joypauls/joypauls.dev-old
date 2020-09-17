@@ -46,33 +46,32 @@ const NavLink = ({variant="nav", href="/", text=""}) => {
   )
 };
 
-const MainHeader = ({isPlaceholder=false, ...props}) => {
+const MainHeader = ({siteIsUp, ...props}) => {
   return (
     <div>
       <Flex
         alignItems="center"
         justifyContent="space-between"
         padding="1rem"
+        width={["100vw", "80vw", "80vw"]}
+        margin="auto"
       >
-        <Box sx={{ margin: "1rem", }} width={[ 1/2, 1/2, 1/2 ]}>
+        <Box width={[ 1/2, 1/2, 1/2 ]}>
           <h3 sx={{ display: "flex", alignItems: "center", color: "text", }}>
-            <IoMdStats sx={{color: "secondary"}} size="2rem" style={{ marginRight: "1rem" }}/>
+            {siteIsUp ? <IoMdStats sx={{color: "secondary"}} size="2rem" style={{ marginRight: "1rem" }}/> : null}
             <Link style={{ boxShadow: "none", color: "inherit", textDecoration: "none" }} to={"/"}>
               { props.title }
             </Link>
           </h3>
-          {/* <h5 style={{ marginTop: 0, color: "inherit" }}>
-            { props.description }
-          </h5> */}
         </Box>
         {/* <ModeSwitch mode={ props.colorMode } handleToggle={ () => props.setColorMode(props.nextColorMode) } /> */}
         <Flex width={[ 1/2, 1/2, 1/2 ]} alignItems="center" justifyContent="flex-end">
-          {isPlaceholder ? null : 
+          {siteIsUp ? (
             <Box>
-            <NavLink text="Categories" href="/" />
-            <NavLink text="About" href="/" />
+              <NavLink text="Categories" href="/" />
+              <NavLink text="About" href="/" />
             </Box>
-          }
+          )  : null}
           <DarkModeSwitch colorMode={ props.colorMode } onChangeColorMode={ props.onChangeColorMode } />
         </Flex>
       </Flex>
@@ -92,14 +91,18 @@ const PageHeader = ({...props}) => {
 
 const Footer = () => {
   return (
-    <h5 sx={{ color: "text" }}>
-      { "made with ❤ by " }
-      <a href="https://github.com/joypauls">joypauls</a>
-    </h5>
+    <Flex width={["100vw", "80vw", "80vw"]} margin="auto">
+      <Box px={2}>
+        <h5 sx={{ color: "text" }}>
+          { "made with ❤ by " }
+          <a href="https://github.com/joypauls">joypauls</a>
+        </h5>
+      </Box>
+    </Flex>
   );
 };
 
-const Layout = ({location, title, description, children, isPlaceholder}) => {
+const Layout = ({location, title, description, children, siteIsUp}) => {
   const rootPath = `${__PATH_PREFIX__}/`;
   let header;
 
@@ -155,9 +158,9 @@ const Layout = ({location, title, description, children, isPlaceholder}) => {
           { children }
         </main>
         
-        <hr />
+        {/* <hr /> */}
         
-        <footer>
+        <footer sx={{position: "absolute", bottom: 0}}>
           <Footer />
         </footer>
       

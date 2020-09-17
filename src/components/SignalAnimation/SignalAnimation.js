@@ -452,7 +452,7 @@ const Viz = () => {
   // }, 2000);
 
   return (
-    <Box width={["100vw", "80vw", "60vw"]} p={3} onClick={handleClick}>
+    <Box width={["100vw", "80vw", "60vw"]} px={2} paddingBottom={2} onClick={handleClick}>
       { showAnimation ? data : <div></div> }
       {/* <svg viewBox={ "0 0 " + WIDTH.toString() + " " + HEIGHT.toString() }>
         { makePolyline(data.noisyY) }

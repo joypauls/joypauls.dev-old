@@ -87,15 +87,15 @@ type Data = {
 
 // const BlogContent = () =>
 
-const SiteDownContent = () => {
-  return (
-    <Fragment>
+// const SiteDownContent = () => {
+//   return (
+//     <Fragment>
 
-      <Placeholder />
+//       <Placeholder />
 
-    </Fragment>
-  );
-};
+//     </Fragment>
+//   );
+// };
 
 const BlogIndex = ({ data, location }: PageProps<Data>) => {
 
@@ -108,7 +108,7 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
 
   if (siteIsUp) {
     content = (
-      <Layout location={location} title={siteTitle} description={siteDescription}>
+      <Layout location={location} title={siteTitle} description={siteDescription} siteIsUp={siteIsUp}>
         <SEO title="All posts" />
         {/* <Bio /> */}
         {posts.map(({ node }) => {
@@ -128,9 +128,18 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
     );
   } else {
     content = (
-      <Styled.root>
-        <SiteDownContent />
-      </Styled.root>
+      <Layout location={location} title={siteTitle} description={siteDescription} siteIsUp={siteIsUp}>
+        <Flex sx={{justifyContent: "center"}}>
+          <Box sx={{fontSize: "16px"}} p={2} marginTop={4}>
+            Sorry... napping <span role="img" aria-label="snooze">&#128564;</span>
+          </Box>
+        </Flex>
+        <Flex sx={{justifyContent: "center"}}>
+          <Box sx={{fontSize: "14px"}} px={2}>
+          I'm working on it - migrating over to React with a lot of cool math & stats content, check back soon!
+          </Box>
+        </Flex>
+      </Layout>
     );
   }
 

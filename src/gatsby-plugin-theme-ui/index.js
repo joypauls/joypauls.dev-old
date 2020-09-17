@@ -56,7 +56,8 @@ export default merge(toTheme(noriega), {
         fontWeight: "body",
         fontFamily: "body",
         lineHeight: "body",
-        maxWidth: "80vw",
+        maxWidth: "100vw",
+        minHeight: "100vh",
         marginLeft: "auto",
         marginRight: "auto",
         blockquote: {

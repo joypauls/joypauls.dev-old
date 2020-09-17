@@ -35,7 +35,7 @@ const NavButton = ({ variant = "primary", ...props }) => {
   )
 };
 
-const NavLink = ({ variant="nav", href="/", text="" }) => {
+const NavLink = ({variant="nav", href="/", text=""}) => {
   return (
     <Link
       sx={{ variant: variant, marginRight: 2 }}
@@ -46,7 +46,7 @@ const NavLink = ({ variant="nav", href="/", text="" }) => {
   )
 };
 
-const MainHeader = ({...props}) => {
+const MainHeader = ({isPlaceholder=false, ...props}) => {
   return (
     <div>
       <Flex
@@ -67,22 +67,15 @@ const MainHeader = ({...props}) => {
         </Box>
         {/* <ModeSwitch mode={ props.colorMode } handleToggle={ () => props.setColorMode(props.nextColorMode) } /> */}
         <Flex width={[ 1/2, 1/2, 1/2 ]} alignItems="center" justifyContent="flex-end">
-          {/* <NavButton text="Categories" /> */}
-          <Box>
+          {isPlaceholder ? null : 
+            <Box>
             <NavLink text="Categories" href="/" />
             <NavLink text="About" href="/" />
-          {/* <DarkModeSwitch colorMode={ props.colorMode } onChangeColorMode={ props.onChangeColorMode } /> */}
-          </Box>
-          {/* <Box> */}
-            <DarkModeSwitch colorMode={ props.colorMode } onChangeColorMode={ props.onChangeColorMode } />
-          {/* </Box> */}
+            </Box>
+          }
+          <DarkModeSwitch colorMode={ props.colorMode } onChangeColorMode={ props.onChangeColorMode } />
         </Flex>
       </Flex>
-      {/* <Flex alignItems="center" justifyContent="center" marginBottom="5rem">
-        <NavButton text="Categories" />
-        <NavButton text="Visualizations" />
-        <NavButton text="About" />
-      </Flex> */}
     </div>
   );
 };
@@ -106,7 +99,7 @@ const Footer = () => {
   );
 };
 
-const Layout = ({ location, title, description, children }) => {
+const Layout = ({location, title, description, children, isPlaceholder}) => {
   const rootPath = `${__PATH_PREFIX__}/`;
   let header;
 

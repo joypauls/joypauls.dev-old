@@ -3,6 +3,7 @@ title: Linear Regression Refresher
 subtitle: Part 1 - The Framework
 description: This is text to show on summary page instead of just taking the first lines of post
 date: "2020-01-01"
+tags: ["Statistics"]
 ---
 
 Feel like you know what linear regression **is** but didn't learn the math, or just forgot and need a refresher? Join the club! We've all been there, whether we admit it or not :) A little math knowledge is assumed but my hope is that the parts that may be unfamiliar aren't necessary to get the big picture.

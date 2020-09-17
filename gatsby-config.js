@@ -1,12 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `joypauls.github.io`,
+    title: `joypauls.dev`,
     author: {
       name: `Joy P`,
       summary: ` a person and stuff, does things occasionally`,
     },
     description: `Blogging about stats, math, and coding`,
-    siteUrl: `https://joypauls.github.io`,
+    siteUrl: `https://joypauls.dev`,
     social: {
       twitter: ``,
     },
@@ -53,7 +53,7 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          `gatsby-remark-prismjs`,
+          // `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
           {
@@ -83,23 +83,33 @@ module.exports = {
         name: `Gatsby Starter Blog`,
         short_name: `GatsbyJS`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        // background_color: `#ffffff`,
+        // theme_color: `#663399`,
+        // display: `minimal-ui`,
+        icon: `content/assets/flower_icon.png`,
       },
     },
     `gatsby-plugin-react-helmet`,
-    // {
-    //   resolve: `gatsby-plugin-typography`,
-    //   options: {
-    //     pathToConfigModule: `src/utils/typography`,
-    //   },
-    // },
     `gatsby-plugin-theme-ui`,
     
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Noto Sans KR`,
+            variants: [`100`,`300`,`400`,`500`,`700`,`900`]
+          },
+          // {
+          //   family: `Roboto`,
+          //   subsets: [`latin`]
+          // },
+        ],
+      },
+    },
   ],
 }

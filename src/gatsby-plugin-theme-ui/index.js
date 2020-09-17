@@ -5,53 +5,105 @@ import merge from "deepmerge"
 
 
 export default merge(toTheme(noriega), {
-    useLocalStorage: false, // this disables persisting color scheme for user
-    colors: {
-      text: "#333",
-      background: "#f5f0f4",
-      primary: "#8b32eb",
+  useLocalStorage: false, // this disables persisting color scheme for user
+  colors: {
+      text: "#333333",
+      background: "#F5EDF2",
+      primary: "#8B32EB",
       primaryDark: "#59377A",
       // secondary: "#e86d84",
-      secondary: "#e57780",
-      primaryLight: "#d9cae8",
+      secondary: "#E57780",
+      primaryLight: "#D9CAE8",
     //   accent: "#ff7891",
-      modes: {
-        dark: {
-          text: '#fff',
-          background: '#241a23',
-          primary: "#8b32eb",
-          secondary: "#ff7891",
-        }
+    modes: {
+      dark: {
+          text: "#FFFFFF",
+          background: "#3D2C3B",
+          primary: "#8B32EB",
+          secondary: "#FF7891",
       }
-    },
-    // fonts: {
-    //   body: "Inter, sans-serif",
-    //   heading: "inherit",
-    //   monospace: "Menlo, monospace",
-    // },
-    // fontWeights: {
-    //   body: 400,
-    //   heading: 700,
-    //   bold: 700,
-    // },
-    shadows: {
+    }
+  },
+  fonts: {
+      body: "Noto Sans KR",
+      heading: "inherit",
+      monospace: "Menlo, monospace",
+  },
+  fontWeights: {
+      body: 400,
+      heading: 700,
+      bold: 700,
+  },
+  shadows: {
         textShadow: "none",
-    },
-    lineHeights: {
-      body: 1,
-      heading: 1,
-    },
-    // fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
-    // space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-    buttons: {
+        cardLight: "0 1px 4px rgba(0, 0, 0, .3)",
+        // cardLight: `0 1px 4px shadow`,
+        cardDark: "0 2px 5px rgba(0, 0, 0, .6)",
+  },
+  lineHeights: {
+      body: 1.5,
+      heading: 1.25,
+      // custom
+      buttons: 1,
+  },
+  fontSizes: [10, 12, 14, 16, 20, 24, 32, 48, 64, 72],
+  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+
+  // styles for 
+  styles: {
+      // need this
+      root: {
+        fontWeight: "body",
+        fontFamily: "body",
+        lineHeight: "body",
+        maxWidth: "100vw",
+        minHeight: "100vh",
+        marginLeft: "auto",
+        marginRight: "auto",
+        blockquote: {
+          // from https://github.com/system-ui/theme-ui/issues/478
+          borderLeft: t => `15px solid ${t.colors.primary}`,
+          // backgroundColor: t => `${t.colors.primaryLight}`,
+          p: { 
+            padding: 2, 
+          },
+          // color: "#000000",
+          // borderColor: "primary",
+        },
+      },
+      h1: {
+        color: "text",
+      },
+      h2: {
+        color: "text",
+      },
+      h3: {
+        color: "text",
+      },
+      h4: {
+        color: "text",
+      },
+      a: {
+        color: "#000",
+      },
+      // blockquote: {
+      //   borderLeft: `8px solid #000000`,
+      //   // color: "#000000",
+      //   // borderColor: "primary",
+      // },
+  },
+
+  // component variants
+  buttons: {
         primary: {
-            color: "secondary",
+            color: "primary",
             bg: "transparent",
-            borderColor: "secondary",
+            borderColor: "primary",
             "&:hover": {
                 color: "white",
-                bg: "secondary",
+                bg: "primary",
             },
+            lineHeight: "buttons",
         },
         secondary: {
             color: "text",
@@ -60,6 +112,23 @@ export default merge(toTheme(noriega), {
                 color: "secondary",
                 bg: "text",
             },
+            lineHeight: "buttons",
         },
-      },
+  },
+  cards: {
+    default: {
+      boxShadow: "cardLight",
+    },
+    dark: {
+      boxShadow: "cardDark",
+    },
+  },
+  nav: {
+    color: "text",
+    textDecoration: "none",
+    "&:hover": {
+      borderBottom: "2px solid",
+      borderColor: "primary",
+    },
+  },
 });

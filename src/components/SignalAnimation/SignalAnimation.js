@@ -23,6 +23,9 @@ import * as d3 from "d3";
 // import { histogram } from "d3-array";
 
 
+import './SignalAnimation.css';
+
+
 
 
 // import React, { useState, useEffect, useRef } from 'react';
@@ -82,13 +85,13 @@ function makeBins(n) {
   return binCounts;
 };
 
-const WIDTH = 300;
+const WIDTH = 600;
 const WIDTH_PAD = 4;
-const HEIGHT = 250;
+const HEIGHT = 150;
 const HEIGHT_PAD = 10;
 const INNER_HEIGHT = HEIGHT - (2 * HEIGHT_PAD);
-var BAR_WIDTH = 24;
-var BAR_GAP = 8;
+// var BAR_WIDTH = 24;
+// var BAR_GAP = 8;
 
 function preprocess(data) {
   // data = d3.shuffle([...data]);s
@@ -107,7 +110,7 @@ const SAMPLE_SIZE = 200;
 var binCounts = makeBins(SAMPLE_SIZE);
 var histData = preprocess(binCounts);
 
-BAR_WIDTH = Math.floor((WIDTH - (2 * WIDTH_PAD)) / binCounts.length) - BAR_GAP
+// BAR_WIDTH = Math.floor((WIDTH - (2 * WIDTH_PAD)) / binCounts.length) - BAR_GAP
 
 
 
@@ -265,6 +268,155 @@ const generateRangeScale = (data) => {
 
 
 
+
+
+
+// function originalSignal(n=10) {
+//   let x = [...Array(n).keys()];
+//   let y = x.map(el => (Math.sin((0.017 * el) - 1)) );
+//   let data = [];
+//   for (let i = 0; i < n; i++) {
+//       data.push({x: x[i], y: y[i]});
+//   }
+//   return data;
+// }
+
+function gaussianNoise(n, mu=0, sigma=1) {
+  let gen = d3.randomNormal(mu, sigma);
+  let data = [];
+  for (let i = 0; i < n; i++) {
+      data.push(gen());
+  }
+  return data;
+}
+
+function noisifySignal(arr, mu=0, sigma=1) {
+  let noise = gaussianNoise(arr.length, mu, sigma)
+  let noisySignal = arr.map((el, i) => ({x: el.x, y: el.y + noise[i]}))
+  return noisySignal;
+}
+
+
+
+
+// set the dimensions and margins of the graph
+
+
+
+
+// var data = simpleRandomWalk()
+
+// var data2 = simpleRandomWalk()
+
+// var originalData = originalSignal(n=500);
+// var noisyData = noisifySignal(originalData);
+
+
+// var data_array = [];
+// var min = [];
+// var max = [];
+// for (let i = 1; i < 10; i++) {
+//     let data = simpleRandomWalk()
+  
+//     // let y = data.forEach(function(el) {
+//     //     return el.y;
+//     // });
+
+//     min.push(d3.min(data, function(d) { return d.y; }));
+//     max.push(d3.max(data, function(d) { return d.y; }));
+
+//     data_array.push(data);
+// }
+
+
+// // Scale the range of the data
+// x.domain(d3.extent(originalData, function(d) { return d.x; }));
+// y.domain([d3.min(noisyData, function(d) { return d.y; }), d3.max(noisyData, function(d) { return d.y; })]);
+
+
+
+
+// // Add the valueline paths
+// data_array.forEach(function(el) {
+//     svg.append("path")
+//     .data([el])
+//     .attr("class", "line")
+//     .attr("d", valueline);
+// });
+
+// // define the line
+// var valueline = d3.line()
+//   .x(function(d) { return x(d.x); })
+//   .y(function(d) { return y(d.y); });
+
+
+// // Add the valueline paths
+// svg.append("path")
+//   .data([originalData])
+//   .attr("class", "line")
+//   .attr("d", valueline);
+
+// svg.append("path")
+//   .data([noisyData])
+//   .attr("class", "line")
+//   .attr("d", valueline);
+
+
+// kernel needs to be odd and length checked, scaled. etc.
+function smoother1D(arr, kernel=[0.2, 0.2, 0.2, 0.2, 0.2]) {
+  for (let i = 0; i < arr.length; i++) {
+
+  }
+}
+
+function generateSignalData(n=10, mu=0, sigma=1) {
+  let x = [...Array(n).keys()];
+  let y = x.map(el => (Math.sin((0.017 * el) - 1)) );
+  let noise = gaussianNoise(y.length, mu, sigma)
+  let noisyY = y.map((el, i) => (el + noise[i]))
+
+  let rangeScale = d3.scaleLinear().domain([d3.min(noisyY), d3.max(noisyY)]).range([0, INNER_HEIGHT]);
+  let domainScale = d3.scaleLinear().domain([d3.min(x), d3.max(x)]).range([0, WIDTH]);
+  let scaledY = y.map((d) => (HEIGHT - rangeScale(d) - HEIGHT_PAD));
+  let scaledNoisyY = noisyY.map((d) => (HEIGHT - rangeScale(d) - HEIGHT_PAD));
+  let scaledX = x.map((d) => domainScale(d));
+
+  return {x: scaledX, y: scaledY, noisyY: scaledNoisyY};
+}
+
+
+let data = generateSignalData(500);
+
+const makePolyline = (y) => {
+  let coords = data.x.map((d, i) => (d.toString() + "," + y[i].toString()));
+  let coordsString = coords.join(" ");
+  // let coords2 = data.x.map((d, i) => (d.toString() + "," + data.noisyY[i].toString())).join(" ");
+  console.log(coordsString);
+  return <polyline points={coordsString} fill="none" stroke="#8B32EB" strokeWidth="1.5" className="othersquiggle" opacity={0.9} />
+}
+
+const makePolylineAnimated = (y) => {
+  let coords = data.x.map((d, i) => (d.toString() + "," + y[i].toString()));
+  let coordsString = coords.join(" ");
+  // let coords2 = data.x.map((d, i) => (d.toString() + "," + data.noisyY[i].toString())).join(" ");
+  console.log(coordsString);
+  return <polyline points={coordsString} fill="none" stroke="#E57780" strokeWidth="5" className="squiggle" opacity={0.9} />
+}
+
+const makeSVGComponent = () => {
+  let data = generateSignalData(500);
+  return (
+    <svg viewBox={ "0 0 " + WIDTH.toString() + " " + HEIGHT.toString() }>
+        { makePolyline(data.noisyY) }
+        { makePolylineAnimated(data.y) }
+    </svg>
+  )
+}
+
+
+// makePolyline(10);
+
+
 const barStyle = {
   fill: "#8b32eb", 
   fillOpacity: 0.5,
@@ -273,35 +425,22 @@ const barStyle = {
   // rx: 2,
 }
 
-const VizButton = ({ variant = "primary", ...props }) => {
-  return (
-    <Button 
-      {...props} 
-      sx={{
-        appearance: "none",
-        display: "inline-block",
-        textAlign: "center",
-        fontSize: "medium",
-        border: "2px solid",
-        borderRadius: "0",
-        margin: "5px",
-        variant: `buttons.${variant}`,
-      }}
-    >
-      { props.text }
-    </Button>
-  )
-};
 
 const Viz = () => {
 
   const [data, setData] = useState(
-    generateBinCounts()
+    makeSVGComponent()
   );
 
+  const [showAnimation, setShowAnimation] = useState(true);
+
   const handleClick = useCallback(() => {
-    setData(generateBinCounts());
-  })
+    // setData(generateSignalData(500));
+    // setData(makeSVGComponent());
+    setShowAnimation(false);
+    setData(makeSVGComponent());
+    setShowAnimation(true);
+  });
 
   // const [rangeScale, setRangeScale] = useState(
   //   generateRangeScale(data)
@@ -313,60 +452,25 @@ const Viz = () => {
   // }, 2000);
 
   return (
-    <Fragment>
-    <Flex style={{ justifyContent: "center" }}>
-      <VizButton text="Sample" onClick={ handleClick } />
-    </Flex>
-    <Flex style={{ justifyContent: "center" }}>
-      <svg width={ WIDTH.toString() } height={ HEIGHT.toString() }>
-        { data.map((d, i) => (
-          <rect
-            style={ barStyle }
-            width={ BAR_WIDTH }
-            height={ d }
-            y={ (HEIGHT - d) - HEIGHT_PAD }
-            x={ (i * (BAR_WIDTH + BAR_GAP)) + WIDTH_PAD }
-          />
-        )) }
-      </svg>
-    </Flex>
-    </Fragment>
+    <Box width={["100vw", "80vw", "60vw"]} px={2} paddingBottom={2} onClick={handleClick}>
+      { showAnimation ? data : <div></div> }
+      {/* <svg viewBox={ "0 0 " + WIDTH.toString() + " " + HEIGHT.toString() }>
+        { makePolyline(data.noisyY) }
+        { makePolylineAnimated(data.y) }
+      </svg> */}
+    </Box>
   );
 }
 
-const Placeholder = () => {
+const SignalAnimation = () => {
 
   return (
-    <Fragment>
-    <Flex style={{ justifyContent: "center" }}>
-      <Box
-        style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
-          maxWidth: "60vw",
-          padding: `2rem 1rem`,
-        }}
-      >
-        <Flex style={{ justifyContent: "center" }}>
-        <header>
-          <h4>
-            <a href="https://joypauls.dev/">joypauls.dev</a> is napping
-            <span role="img" aria-label="snooze">&#128564;</span>
-          </h4>
-        </header>
-        </Flex>
-        <Flex style={{ justifyContent: "center" }}>
-        <main style={{ display: "flex", justifyContent: "center" }}>
-          <h5><a href="https://github.com/joypauls">I'm</a> working on it! Migrating this site over to React (<a href="https://www.gatsbyjs.com/">Gatsby</a> specifically) to be like the cool frontend kids. Check back later!</h5>
-        </main>
-        </Flex>
-      </Box>
-    </Flex>
+    <Flex sx={{justifyContent: "center"}}>
 
     <Viz />
     
-    </Fragment>
+    </Flex>
   );
 }
 
-export default Placeholder;
+export default SignalAnimation;

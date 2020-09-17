@@ -2,6 +2,7 @@
 title: Why Use Squared Errors?
 subtitle: 
 date: "2020-01-01"
+tags: ["Statistics"]
 ---
 
 ## Gist

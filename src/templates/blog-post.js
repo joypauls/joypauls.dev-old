@@ -1,10 +1,13 @@
+/** @jsx jsx */
+import { jsx } from "theme-ui";
+
 import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+// import { rhythm, scale } from "../utils/typography"
 
 // for katex
 require("katex/dist/katex.min.css")
@@ -23,40 +26,45 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       <article>
         <header>
           <h1
-            style={{
-              marginTop: rhythm(1),
+            sx={{
+              marginTop: "1rem",
               marginBottom: 0,
+              color: "text",
             }}
           >
             {post.frontmatter.title}
           </h1>
           <h3
-            style={{
-              marginTop: rhythm(1),
+            sx={{
+              marginTop: "1rem",
               marginBottom: 0,
+              color: "text",
             }}
           >
             {post.frontmatter.subtitle}
           </h3>
           <p
-            style={{
-              ...scale(-1 / 5),
+            sx={{
+              // ...scale(-1 / 5),
               display: `block`,
-              marginBottom: rhythm(1),
+              marginBottom: "1rem",
+              // color: "text",
             }}
           >
             {post.frontmatter.date}
           </p>
         </header>
+        {/* <section sx={{ color: "text" }} dangerouslySetInnerHTML={{ __html: post.html }} /> */}
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
-          style={{
-            marginBottom: rhythm(1),
+          sx={{
+            marginBottom: "1rem",
+            color: "text",
           }}
         />
-        <footer>
+        {/* <footer>
           <Bio />
-        </footer>
+        </footer> */}
       </article>
 
       <nav>
@@ -107,6 +115,7 @@ export const pageQuery = graphql`
         subtitle
         date(formatString: "MMMM DD, YYYY")
         description
+        tags
       }
     }
   }

@@ -392,7 +392,7 @@ const makePolyline = (y) => {
   let coordsString = coords.join(" ");
   // let coords2 = data.x.map((d, i) => (d.toString() + "," + data.noisyY[i].toString())).join(" ");
   console.log(coordsString);
-  return <polyline points={coordsString} fill="none" stroke="#8B32EB" strokeWidth="1.5" className="othersquiggle" opacity={0.9} />
+  return <polyline points={coordsString} fill="none" stroke="#9459d4" strokeWidth="1.5" className="othersquiggle" opacity={0.9} />
 }
 
 const makePolylineAnimated = (y) => {
@@ -404,7 +404,7 @@ const makePolylineAnimated = (y) => {
 }
 
 const makeSVGComponent = () => {
-  let data = generateSignalData(500);
+  let data = generateSignalData(700);
   return (
     <svg viewBox={ "0 0 " + WIDTH.toString() + " " + HEIGHT.toString() }>
         { makePolyline(data.noisyY) }
@@ -413,17 +413,6 @@ const makeSVGComponent = () => {
   )
 }
 
-
-// makePolyline(10);
-
-
-const barStyle = {
-  fill: "#8b32eb", 
-  fillOpacity: 0.5,
-  stroke: "#8b32eb",
-  strokeWidth: "0",
-  // rx: 2,
-}
 
 
 const Viz = () => {

@@ -42,7 +42,7 @@ const postCardStyle = {
   // borderColor: "primary",
   marginBottom: "2rem",
   width: "100%",
-  maxWidth: "60vw",
+  // maxWidth: "80vw",
   alignSelf: "center", // should put this in css in layout as a selector of child elements
   variant: "cards.default"
 };
@@ -55,10 +55,11 @@ const PostCard = ({...props}) => {
       <article key={props.slug}>
         <header>
           <h2
-            style={{
+            sx={{
               marginTop: "0.25rem",
               marginBottom: "0.5rem",
               fontWeight: "bold",
+              color: "text"
             }}
           >
             {props.title}
@@ -67,10 +68,11 @@ const PostCard = ({...props}) => {
         </header>
         <section>
           <p
-            style={{
+            sx={{
               marginBottom: "0.5rem",
               fontSize: "14px",
               fontWeight: 300,
+              color: "text"
             }}
           >
             { props.description || props.excerpt }

@@ -7,9 +7,9 @@ import merge from "deepmerge"
 export default merge(toTheme(noriega), {
   useLocalStorage: false, // this disables persisting color scheme for user
   colors: {
-      text: "#333333",
+      text: "#3D2C3B",
       background: "#F5EDF2",
-      primary: "#8B32EB",
+      primary: "#9459d4",
       primaryDark: "#59377A",
       // secondary: "#e86d84",
       secondary: "#E57780",
@@ -19,7 +19,8 @@ export default merge(toTheme(noriega), {
       dark: {
           text: "#FFFFFF",
           background: "#3D2C3B",
-          primary: "#8B32EB",
+          // primary: "#8B32EB",
+          primary: "#9459d4",
           secondary: "#FF7891",
       }
     }

@@ -290,11 +290,11 @@ function gaussianNoise(n, mu=0, sigma=1) {
   return data;
 }
 
-function noisifySignal(arr, mu=0, sigma=1) {
-  let noise = gaussianNoise(arr.length, mu, sigma)
-  let noisySignal = arr.map((el, i) => ({x: el.x, y: el.y + noise[i]}))
-  return noisySignal;
-}
+// function noisifySignal(arr, mu=0, sigma=1) {
+//   let noise = gaussianNoise(arr.length, mu, sigma)
+//   let noisySignal = arr.map((el, i) => ({x: el.x, y: el.y + noise[i]}))
+//   return noisySignal;
+// }
 
 
 
@@ -362,11 +362,24 @@ function noisifySignal(arr, mu=0, sigma=1) {
 //   .attr("d", valueline);
 
 
-// kernel needs to be odd and length checked, scaled. etc.
-function smoother1D(arr, kernel=[0.2, 0.2, 0.2, 0.2, 0.2]) {
-  for (let i = 0; i < arr.length; i++) {
+// // kernel needs to be odd and length checked, scaled. etc.
+// function smoother1D(arr, kernel=[0.2, 0.2, 0.2, 0.2, 0.2]) {
+//   for (let i = 0; i < arr.length; i++) {
 
+//   }
+// }
+
+// kernel should be odd and length checked, scaled. etc.
+// same with input array
+// args to keep/not keep boundary points?
+// for now returns array of same length
+function convolve1D(arr, kernel=[0.2, 0.2, 0.2, 0.2, 0.2]) {
+  let n = arr.length;
+  let newArr = new Array(n);
+  for (let i = 0; i < n; i++) {
+    // iterate over original array and pass kernel over creating new array
   }
+  return arr;
 }
 
 function generateSignalData(n=10, mu=0, sigma=1) {

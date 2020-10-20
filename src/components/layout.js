@@ -48,7 +48,7 @@ const NavLink = ({variant="nav", href="/", text=""}) => {
 
 const MainHeader = ({siteIsUp, ...props}) => {
   return (
-    <div>
+    // <div>
       <Flex
         alignItems="center"
         justifyContent="space-between"
@@ -59,7 +59,7 @@ const MainHeader = ({siteIsUp, ...props}) => {
         <Box width={[ 1/2, 1/2, 1/2 ]}>
           <h3 sx={{ display: "flex", alignItems: "center", color: "text", }}>
             {siteIsUp ? <IoMdStats sx={{color: "secondary"}} size="2rem" style={{ marginRight: "1rem" }}/> : null}
-            <Link style={{ boxShadow: "none", color: "inherit", textDecoration: "none" }} to={"/"}>
+            <Link sx={{ boxShadow: "none", color: "text", textDecoration: "none" }} to={"/"}>
               { props.title }
             </Link>
           </h3>
@@ -75,17 +75,25 @@ const MainHeader = ({siteIsUp, ...props}) => {
           <DarkModeSwitch colorMode={ props.colorMode } onChangeColorMode={ props.onChangeColorMode } />
         </Flex>
       </Flex>
-    </div>
+    // </div>
   );
 };
 
 const PageHeader = ({...props}) => {
   return (
+    <Flex
+        alignItems="center"
+        justifyContent="space-between"
+        padding="1rem"
+        width={["100vw", "80vw", "80vw"]}
+        margin="auto"
+    >
     <h3 sx={{ marginTop: 0, color: "text" }}>
       <Link style={{ boxShadow: `none`, color: `inherit`, }} to={`/`}>
         { props.title }
       </Link>
     </h3>
+    </Flex>
   );
 };
 
@@ -154,13 +162,13 @@ const Layout = ({location, title, description, children, siteIsUp}) => {
 
         <SignalAnimation />
         
-        <main sx={{ display: "flex", flexDirection: "column", color: "text" }}>
-          { children }
+        <main style={{ flex: "1 0 auto" }}>
+          <Flex sx={{ flexDirection: "column", color: "text", margin: "auto", padding: "1rem" }} width={["100vw", "80vw", "60vw"]}>
+            { children }
+          </Flex>
         </main>
         
-        {/* <hr /> */}
-        
-        <footer sx={{position: "absolute", bottom: 0}}>
+        <footer>
           <Footer />
         </footer>
       

@@ -26,6 +26,9 @@ import * as d3 from "d3";
 import './SignalAnimation.css';
 
 
+// TODO: refactor this mess jesus christ
+
+
 
 
 // import React, { useState, useEffect, useRef } from 'react';
@@ -281,11 +284,21 @@ const generateRangeScale = (data) => {
 //   return data;
 // }
 
-function gaussianNoise(n, mu=0, sigma=1) {
+function gaussianNoise(n, mu=0, sigma=1, clip=true) {
   let gen = d3.randomNormal(mu, sigma);
   let data = [];
   for (let i = 0; i < n; i++) {
-      data.push(gen());
+    let sample = gen();
+    // apply clipping at 2.5*sigma
+    if (clip === true) {
+      let bound = 2.5*sigma;
+      if (sample > bound) {
+        sample = bound;
+      } else if (sample < -bound) {
+        sample = -bound;
+      }
+    }  
+    data.push(sample);
   }
   return data;
 }

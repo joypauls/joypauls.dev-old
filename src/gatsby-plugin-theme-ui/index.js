@@ -61,6 +61,8 @@ export default merge(toTheme(noriega), {
         minHeight: "100vh",
         marginLeft: "auto",
         marginRight: "auto",
+        display: "flex",
+        flexDirection: "column",
         blockquote: {
           // from https://github.com/system-ui/theme-ui/issues/478
           borderLeft: t => `15px solid ${t.colors.primary}`,

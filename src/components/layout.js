@@ -162,13 +162,11 @@ const Layout = ({location, title, description, children, siteIsUp}) => {
 
         <SignalAnimation />
         
-        <main>
+        <main style={{ flex: "1 0 auto" }}>
           <Flex sx={{ flexDirection: "column", color: "text", margin: "auto", padding: "1rem" }} width={["100vw", "80vw", "60vw"]}>
             { children }
           </Flex>
         </main>
-        
-        <hr />
         
         <footer>
           <Footer />

@@ -10,8 +10,8 @@ module.exports = {
     social: {
       twitter: ``,
     },
-    isUp: true,
-    // isUp: false,
+    // isUp: true,
+    isUp: false,
   },
   plugins: [
     {

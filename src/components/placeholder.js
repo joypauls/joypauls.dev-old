@@ -357,7 +357,7 @@ const Placeholder = () => {
         </Flex>
         <Flex style={{ justifyContent: "center" }}>
         <main style={{ display: "flex", justifyContent: "center" }}>
-          <h5><a href="https://github.com/joypauls">I'm</a> working on it! Migrating this site over to React (<a href="https://www.gatsbyjs.com/">Gatsby</a> specifically) to be like the cool frontend kids. Check back later!</h5>
+          <h5>Migrating this site over to <a href="https://www.gatsbyjs.com/">Gatsby</a>... slowly</h5>
         </main>
         </Flex>
       </Box>

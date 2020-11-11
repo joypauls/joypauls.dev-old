@@ -136,7 +136,7 @@ const BlogIndex = ({ data, location }: PageProps<Data>) => {
         </Flex>
         <Flex sx={{justifyContent: "center"}}>
           <Box sx={{fontSize: "14px"}} px={2}>
-            Migrating this site over to <a href="https://www.gatsbyjs.com/">Gatsby</a>... slowly
+             Migrating this site over to <a href="https://www.gatsbyjs.com/">Gatsby</a>... slowly
           </Box>
         </Flex>
       </Layout>

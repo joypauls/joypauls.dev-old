@@ -3,35 +3,14 @@ import { jsx } from "theme-ui";
 import { useColorMode } from "theme-ui";
 import React, { useState, useEffect, useRef, useCallback, Fragment } from "react";
 import { Link } from "gatsby";
-// import { rhythm, scale } from "../utils/typography";
 import { Button, Flex, Text, Box } from "rebass";
 import { IoMdStats } from "react-icons/io";
-
-// import { select, selectAll } from 'd3-selection';
-
-// import { scaleLinear } from 'd3-scale';
-// import { randomNormal } from "d3-random";
-
-// import { select, selectAll } from 'd3-selection';
-
 import * as d3 from "d3";
-
-// import { select, selectAll } from 'd3-selection';
-// import transition from 'd3-transition';
-// import { scaleLinear, range } from 'd3-scale';
-// import { randomNormal } from "d3-random";
-// import { histogram } from "d3-array";
-
 
 import './SignalAnimation.css';
 
-
 // TODO: refactor this mess jesus christ
 
-
-
-
-// import React, { useState, useEffect, useRef } from 'react';
 
 function useInterval(callback, delay) {
   const savedCallback = useRef();
@@ -113,125 +92,6 @@ const SAMPLE_SIZE = 200;
 var binCounts = makeBins(SAMPLE_SIZE);
 var histData = preprocess(binCounts);
 
-// BAR_WIDTH = Math.floor((WIDTH - (2 * WIDTH_PAD)) / binCounts.length) - BAR_GAP
-
-
-
-// class Placeholder extends React.Component {
-
-//   constructor(props) {
-//     super(props);
-    
-//     // initialize array of hexData in state
-//     this.state = {  };
-//   }
-
-//   componentDidMount() {
-//       // D3 Code to create the chart
-//       // using this._rootNode as container
-
-//       // this.hist = d3.select(this._rootNode).append("svg")
-//       //   .attr("width", WIDTH)
-//       //   .attr("height", HEIGHT)
-//       //   .append("g");
-
-//       var hist = d3.select("#d3-svg")
-//         .attr("width", WIDTH)
-//         .attr("height", HEIGHT)
-//         .append("g");
-
-//       const t = d3.transition()
-//         .duration(1000)
-//         .transition()
-//         .ease(d3.easeBackInOut);
-
-//       const bar = hist.selectAll("g").data(histData, d => d.id);
-//       // EXIT section
-//       bar.exit().remove();
-
-//       console.log(bar)
-    
-//       var scale = d3.scaleLinear().domain([0, d3.max(binCounts)]).range([0, INNER_HEIGHT]);
-
-//       // UPDATE section
-//       bar.transition(t).attr(
-//         "transform", 
-//         (d, i) => `translate(${i * (BAR_WIDTH + BAR_GAP)},${y(d, scale)})`
-//       );
-
-//       bar.select("rect").transition(t).attr("height", (d) => (height(d, scale)));
-      
-//       // ENTER section
-//       const barEnter = bar.enter()
-//         .append("g")
-//         .attr(
-//           "transform", 
-//           (d, i) => `translate(${i * (BAR_WIDTH + BAR_GAP)},${INNER_HEIGHT})`
-//         );
-    
-//       barEnter
-//         // .transition(t)
-//         .attr(
-//           "transform", 
-//           (d, i) => `translate(${i * (BAR_WIDTH + BAR_GAP)},${y(d, scale)})`
-//         );
-      
-//       const rect = barEnter.append("rect")
-//           .attr("x", 0)
-//           .attr("y", 0)
-//           .attr("width", BAR_WIDTH)
-//           .attr("height", 0);
-      
-//       rect.attr("height", (d) => (height(d, scale)));
-//   }
-
-//   shouldComponentUpdate() {
-//       // Prevents component re-rendering
-//       return false;
-//   }
-
-//   // _setRef(componentNode) {
-//   //     this._rootNode = componentNode;
-//   // }
-
-//   render() {
-//     // return <svg ref={(elem) => { this.svg = elem; }} />;
-//     return <svg id="d3-svg"></svg>;
-//   }
-// }
-
-
-// const generateDataset = () => (
-//   Array(10).fill(0).map(() => ([
-//     Math.random() * 80 + 10,
-//     Math.random() * 35 + 10,
-//   ]))
-// );
-
-// const Placeholder = () => {
-
-//   const [dataset, setDataset] = useState(
-//     generateDataset()
-//   );
-
-//   useInterval(() => {
-//     const newDataset = generateDataset();
-//     setDataset(newDataset);
-//   }, 2000);
-
-//   return (
-//     <svg viewBox="0 0 100 50">
-//       {dataset.map(([x, y], i) => (
-//         <circle
-//           cx={x}
-//           cy={y}
-//           r="3"
-//         />
-//       ))}
-//     </svg>
-//   );
-// }
-
 
 const generateDataset = () => (
   Array(10).fill(0).map(() => ([
@@ -241,10 +101,8 @@ const generateDataset = () => (
 );
 
 
-
 var rangeScale = d3.scaleLinear().domain([0, d3.max(binCounts)]).range([0, INNER_HEIGHT]);
 console.log(rangeScale(binCounts[4]));
-
 
 
 const generateBinCounts = () => {
@@ -270,20 +128,6 @@ const generateRangeScale = (data) => {
 }
 
 
-
-
-
-
-// function originalSignal(n=10) {
-//   let x = [...Array(n).keys()];
-//   let y = x.map(el => (Math.sin((0.017 * el) - 1)) );
-//   let data = [];
-//   for (let i = 0; i < n; i++) {
-//       data.push({x: x[i], y: y[i]});
-//   }
-//   return data;
-// }
-
 function gaussianNoise(n, mu=0, sigma=1, clip=true) {
   let gen = d3.randomNormal(mu, sigma);
   let data = [];
@@ -303,90 +147,13 @@ function gaussianNoise(n, mu=0, sigma=1, clip=true) {
   return data;
 }
 
-// function noisifySignal(arr, mu=0, sigma=1) {
-//   let noise = gaussianNoise(arr.length, mu, sigma)
-//   let noisySignal = arr.map((el, i) => ({x: el.x, y: el.y + noise[i]}))
-//   return noisySignal;
-// }
-
-
-
-
-// set the dimensions and margins of the graph
-
-
-
-
-// var data = simpleRandomWalk()
-
-// var data2 = simpleRandomWalk()
-
-// var originalData = originalSignal(n=500);
-// var noisyData = noisifySignal(originalData);
-
-
-// var data_array = [];
-// var min = [];
-// var max = [];
-// for (let i = 1; i < 10; i++) {
-//     let data = simpleRandomWalk()
-  
-//     // let y = data.forEach(function(el) {
-//     //     return el.y;
-//     // });
-
-//     min.push(d3.min(data, function(d) { return d.y; }));
-//     max.push(d3.max(data, function(d) { return d.y; }));
-
-//     data_array.push(data);
-// }
-
-
-// // Scale the range of the data
-// x.domain(d3.extent(originalData, function(d) { return d.x; }));
-// y.domain([d3.min(noisyData, function(d) { return d.y; }), d3.max(noisyData, function(d) { return d.y; })]);
-
-
-
-
-// // Add the valueline paths
-// data_array.forEach(function(el) {
-//     svg.append("path")
-//     .data([el])
-//     .attr("class", "line")
-//     .attr("d", valueline);
-// });
-
-// // define the line
-// var valueline = d3.line()
-//   .x(function(d) { return x(d.x); })
-//   .y(function(d) { return y(d.y); });
-
-
-// // Add the valueline paths
-// svg.append("path")
-//   .data([originalData])
-//   .attr("class", "line")
-//   .attr("d", valueline);
-
-// svg.append("path")
-//   .data([noisyData])
-//   .attr("class", "line")
-//   .attr("d", valueline);
-
-
-// // kernel needs to be odd and length checked, scaled. etc.
-// function smoother1D(arr, kernel=[0.2, 0.2, 0.2, 0.2, 0.2]) {
-//   for (let i = 0; i < arr.length; i++) {
-
-//   }
-// }
 
 // kernel should be odd and length checked, scaled. etc.
 // same with input array
 // args to keep/not keep boundary points?
 // for now returns array of same length
 function convolve1D(arr, kernel=[0.2, 0.2, 0.2, 0.2, 0.2]) {
+  /* 1-dimensional convolution with fixed size kernel */
   let n = arr.length;
   let offset = Math.floor(kernel.length / 2)
   let newArr = [...arr];
@@ -420,39 +187,51 @@ function generateSignalData(n=10, mu=0, sigma=1) {
 }
 
 
-let data = generateSignalData(500);
+// let data = generateSignalData(500);
 
-const makePolyline = (y) => {
+// const makePolyline = (y) => {
+//   let coords = data.x.map((d, i) => (d.toString() + "," + y[i].toString()));
+//   let coordsString = coords.join(" ");
+//   // let coords2 = data.x.map((d, i) => (d.toString() + "," + data.noisyY[i].toString())).join(" ");
+//   console.log(coordsString);
+//   return <polyline points={coordsString} fill="none" stroke="#9459d4" strokeWidth="1" className="othersquiggle" opacity={0.9} />
+// }
+
+// const makePolylineAnimated = (y) => {
+//   let coords = data.x.map((d, i) => (d.toString() + "," + y[i].toString()));
+//   let coordsString = coords.join(" ");
+//   // let coords2 = data.x.map((d, i) => (d.toString() + "," + data.noisyY[i].toString())).join(" ");
+//   console.log(coordsString);
+//   return <polyline points={coordsString} fill="none" stroke="#E57780" strokeWidth="5" className="squiggle" opacity={0.9} />
+// }
+
+// const makePolylineAnimated2 = (y) => {
+//   let coords = data.x.map((d, i) => (d.toString() + "," + y[i].toString()));
+//   let coordsString = coords.join(" ");
+//   // let coords2 = data.x.map((d, i) => (d.toString() + "," + data.noisyY[i].toString())).join(" ");
+//   console.log(coordsString);
+//   return <polyline points={coordsString} fill="none" stroke="#E57780" strokeWidth="1.5" className="othersquiggle2" opacity={0.9} />
+// }
+
+
+const generatePolyline = (y, data, strokeColor, strokeWidth, className) => {
   let coords = data.x.map((d, i) => (d.toString() + "," + y[i].toString()));
   let coordsString = coords.join(" ");
-  // let coords2 = data.x.map((d, i) => (d.toString() + "," + data.noisyY[i].toString())).join(" ");
-  console.log(coordsString);
-  return <polyline points={coordsString} fill="none" stroke="#9459d4" strokeWidth="1" className="othersquiggle" opacity={0.9} />
+  return <polyline points={coordsString} fill="none" stroke={strokeColor} strokeWidth={strokeWidth} className={className} opacity={0.9} />
 }
 
-const makePolylineAnimated = (y) => {
-  let coords = data.x.map((d, i) => (d.toString() + "," + y[i].toString()));
-  let coordsString = coords.join(" ");
-  // let coords2 = data.x.map((d, i) => (d.toString() + "," + data.noisyY[i].toString())).join(" ");
-  console.log(coordsString);
-  return <polyline points={coordsString} fill="none" stroke="#E57780" strokeWidth="5" className="squiggle" opacity={0.9} />
-}
 
-const makePolylineAnimated2 = (y) => {
-  let coords = data.x.map((d, i) => (d.toString() + "," + y[i].toString()));
-  let coordsString = coords.join(" ");
-  // let coords2 = data.x.map((d, i) => (d.toString() + "," + data.noisyY[i].toString())).join(" ");
-  console.log(coordsString);
-  return <polyline points={coordsString} fill="none" stroke="#E57780" strokeWidth="1.5" className="othersquiggle2" opacity={0.9} />
-}
-
-const makeSVGComponent = () => {
-  let data = generateSignalData(700);
+const generateSignalSVG = () => {
+  let noiseColor = "#9459D4";
+  let smoothColor = "#E57780";
+  // object with multiple arrays
+  let data = generateSignalData(500);
+  // let data = generateSignalData(700);
   return (
     <svg viewBox={ "0 0 " + WIDTH.toString() + " " + HEIGHT.toString() }>
-        { makePolyline(data.noisyY) }
-        { makePolylineAnimated2(data.smoothedY) }
-        { makePolylineAnimated(data.y) }
+        { generatePolyline(data.noisyY, data, noiseColor, "1", "othersquiggle") }
+        { generatePolyline(data.smoothedY, data, smoothColor, "1.5", "othersquiggle2") }
+        { generatePolyline(data.y, data, smoothColor, "5", "squiggle") }
     </svg>
   )
 }
@@ -462,7 +241,7 @@ const makeSVGComponent = () => {
 const Viz = () => {
 
   const [data, setData] = useState(
-    makeSVGComponent()
+    generateSignalSVG()
   );
 
   const [showAnimation, setShowAnimation] = useState(true);
@@ -471,7 +250,7 @@ const Viz = () => {
     // setData(generateSignalData(500));
     // setData(makeSVGComponent());
     setShowAnimation(false);
-    setData(makeSVGComponent());
+    setData(generateSignalSVG());
     setShowAnimation(true);
   });
 

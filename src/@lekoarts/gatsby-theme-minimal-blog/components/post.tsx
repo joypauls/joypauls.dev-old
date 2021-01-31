@@ -6,6 +6,7 @@ import Layout from "@lekoarts/gatsby-theme-minimal-blog/src/components/layout"
 import ItemTags from "@lekoarts/gatsby-theme-minimal-blog/src/components/item-tags"
 import SEO from "@lekoarts/gatsby-theme-minimal-blog/src/components/seo"
 
+
 type PostProps = {
   data: {
     post: {

@@ -8,6 +8,7 @@ import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/
 import replaceSlashes from "@lekoarts/gatsby-theme-minimal-blog/src/utils/replaceSlashes"
 import SEO from "@lekoarts/gatsby-theme-minimal-blog/src/components/seo"
 
+
 type PostsProps = {
   posts: {
     slug: string

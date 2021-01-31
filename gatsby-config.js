@@ -7,7 +7,7 @@ const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 module.exports = {
   siteMetadata: {
     // Used for the title template on pages other than the index site
-    siteTitle: `Lupin`,
+    siteTitle: `Random Ramblings`,
     // Default title of the page
     siteTitleAlt: `Minimal Blog - @lekoarts/gatsby-theme-minimal-blog`,
     // Can be used for e.g. JSONLD
@@ -51,12 +51,12 @@ module.exports = {
         mdx: false,
       },
     },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_ID,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     trackingId: process.env.GOOGLE_ANALYTICS_ID,
+    //   },
+    // },
     `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -93,45 +93,28 @@ module.exports = {
       },
     },
     // disabling in parent them to override here
-    { 
-      resolve: `gatsby-plugin-mdx`, 
-      options: { 
-        extensions: [`.mdx`, `.md`], 
-        gatsbyRemarkPlugins: [ 
-          { 
-            resolve: `gatsby-remark-images`, 
-            options: { 
-              maxWidth: 960, 
-              quality: 90, 
-              linkImagesToOriginal: false, 
-            },
-          },
-          {
-            resolve: 'gatsby-remark-katex',
-            options: {
-              // Add any KaTeX options from https://github.com/KaTeX/KaTeX/blob/master/docs/options.md here
-              strict: `ignore`
-            }
-          },
-        ], 
-        plugins: [ 
-          { 
-            resolve: `gatsby-remark-images`, 
-            options: { 
-              maxWidth: 960, 
-              quality: 90, 
-              linkImagesToOriginal: false, 
-            }, 
-          },
-          {
-            resolve: 'gatsby-remark-katex',
-            options: {
-              // Add any KaTeX options from https://github.com/KaTeX/KaTeX/blob/master/docs/options.md here
-              strict: `ignore`
-            }
-          },
-        ], 
-      }, 
-    },
+    // {
+    //   resolve: `gatsby-plugin-mdx`,
+    //   options: {
+    //     remarkPlugins: [require(`remark-math`)],
+    //     rehypePlugins: [require(`rehype-katex`)]
+    //   }
+    // },
+    // {
+    //   resolve: `gatsby-remark-katex`,
+    //   options: {
+    //     // Add any KaTeX options from https://github.com/KaTeX/KaTeX/blob/master/docs/options.md here
+    //     strict: `ignore`
+    //   }
+    // },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        remarkPlugins: [
+          require('remark-math'),
+          require('remark-html-katex'),
+        ],
+      },
+    }
   ].filter(Boolean),
 }

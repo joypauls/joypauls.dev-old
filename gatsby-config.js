@@ -6,7 +6,22 @@ const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 
 module.exports = {
   siteMetadata: {
-    siteTitleAlt: `Minimal Blog - Gatsby Theme`,
+    // Used for the title template on pages other than the index site
+    siteTitle: `Lupin`,
+    // Default title of the page
+    siteTitleAlt: `Minimal Blog - @lekoarts/gatsby-theme-minimal-blog`,
+    // Can be used for e.g. JSONLD
+    siteHeadline: `Minimal Blog - Gatsby Theme from @lekoarts`,
+    // Will be used to generate absolute URLs for og:image etc.
+    siteUrl: `https://minimal-blog.lekoarts.de`,
+    // Used for SEO
+    siteDescription: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and line highlighting.`,
+    // Will be set on the <html /> tag
+    siteLanguage: `en`,
+    // Used for og:image and must be placed inside the `static` folder
+    siteImage: `/banner.jpg`,
+    // Twitter Handle
+    author: `@lekoarts_de`,
   },
   plugins: [
     {
@@ -33,6 +48,7 @@ module.exports = {
             url: `https://www.instagram.com/lekoarts.de/`,
           },
         ],
+        mdx: false,
       },
     },
     {
@@ -75,6 +91,47 @@ module.exports = {
         reportFilename: `_bundle.html`,
         openAnalyzer: false,
       },
+    },
+    // disabling in parent them to override here
+    { 
+      resolve: `gatsby-plugin-mdx`, 
+      options: { 
+        extensions: [`.mdx`, `.md`], 
+        gatsbyRemarkPlugins: [ 
+          { 
+            resolve: `gatsby-remark-images`, 
+            options: { 
+              maxWidth: 960, 
+              quality: 90, 
+              linkImagesToOriginal: false, 
+            },
+          },
+          {
+            resolve: 'gatsby-remark-katex',
+            options: {
+              // Add any KaTeX options from https://github.com/KaTeX/KaTeX/blob/master/docs/options.md here
+              strict: `ignore`
+            }
+          },
+        ], 
+        plugins: [ 
+          { 
+            resolve: `gatsby-remark-images`, 
+            options: { 
+              maxWidth: 960, 
+              quality: 90, 
+              linkImagesToOriginal: false, 
+            }, 
+          },
+          {
+            resolve: 'gatsby-remark-katex',
+            options: {
+              // Add any KaTeX options from https://github.com/KaTeX/KaTeX/blob/master/docs/options.md here
+              strict: `ignore`
+            }
+          },
+        ], 
+      }, 
     },
   ].filter(Boolean),
 }

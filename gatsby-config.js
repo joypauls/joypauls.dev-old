@@ -7,21 +7,21 @@ const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 module.exports = {
   siteMetadata: {
     // Used for the title template on pages other than the index site
-    siteTitle: `Random Ramblings`,
+    siteTitle: `Ramblings at Random`,
     // Default title of the page
-    siteTitleAlt: `Minimal Blog - @lekoarts/gatsby-theme-minimal-blog`,
+    siteTitleAlt: `Blog`,
     // Can be used for e.g. JSONLD
-    siteHeadline: `Minimal Blog - Gatsby Theme from @lekoarts`,
+    siteHeadline: `Blog`,
     // Will be used to generate absolute URLs for og:image etc.
-    siteUrl: `https://minimal-blog.lekoarts.de`,
+    siteUrl: `https://joypauls.dev`,
     // Used for SEO
-    siteDescription: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and line highlighting.`,
+    siteDescription: `A blog about topics in statistics and mathematics`,
     // Will be set on the <html /> tag
     siteLanguage: `en`,
     // Used for og:image and must be placed inside the `static` folder
     siteImage: `/banner.jpg`,
     // Twitter Handle
-    author: `@lekoarts_de`,
+    author: `Joy Paulsen`,
   },
   plugins: [
     {
@@ -37,15 +37,19 @@ module.exports = {
             title: `About`,
             slug: `/about`,
           },
+          {
+            title: `Orgs to Support`,
+            slug: `/support`,
+          },
         ],
         externalLinks: [
           {
-            name: `Twitter`,
-            url: `https://twitter.com/lekoarts_de`,
+            name: `Github`,
+            url: `https://github.com/joypauls`,
           },
           {
-            name: `Instagram`,
-            url: `https://www.instagram.com/lekoarts.de/`,
+            name: `LinkedIn`,
+            url: `https://www.linkedin.com/in/joy-paulsen-0bb55419b`,
           },
         ],
         mdx: false,
@@ -61,9 +65,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `minimal-blog - @lekoarts/gatsby-theme-minimal-blog`,
-        short_name: `minimal-blog`,
-        description: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and code highlighting.`,
+        name: `blog`,
+        short_name: `blog`,
+        description: `A blog about topics in statistics and mathematics`,
         start_url: `/`,
         background_color: `#fff`,
         theme_color: `#6B46C1`,

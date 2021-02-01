@@ -70,7 +70,7 @@ module.exports = {
         description: `A blog about topics in statistics and mathematics`,
         start_url: `/`,
         background_color: `#fff`,
-        theme_color: `#6B46C1`,
+        theme_color: `#FFF`,
         display: `standalone`,
         icons: [
           {

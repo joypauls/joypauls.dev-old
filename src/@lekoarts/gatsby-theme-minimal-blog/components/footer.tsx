@@ -21,7 +21,10 @@ const Footer = () => {
       }}
     >
       <div>
-        &copy; {new Date().getFullYear()} by {siteTitle}. All rights reserved.
+        &copy; {new Date().getFullYear()} by {siteTitle}
+        <Link style={{ marginLeft: `10px` }} rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/">
+            <img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/80x15.png" />
+        </Link>
       </div>
       <div>
         Theme by

@@ -1,6 +1,6 @@
-import { merge } from "theme-ui"
-import { transparentize } from "@theme-ui/color"
-import { tailwind } from "@theme-ui/presets"
+import { merge } from "theme-ui";
+import { transparentize } from "@theme-ui/color";
+import { tailwind } from "@theme-ui/presets";
 
 const theme = merge(tailwind, {
   initialColorModeName: `light`,
@@ -11,8 +11,8 @@ const theme = merge(tailwind, {
     toggleIcon: tailwind.colors.gray[8],
     heading: tailwind.colors.black,
     divide: tailwind.colors.gray[4],
-    tagText: tailwind.colors.gray[3],
-    tagBackground: `#a1229a`,
+    tagText: tailwind.colors.gray[1],
+    tagBackground: `#dec2ff`,
     modes: {
       dark: {
         text: tailwind.colors.gray[4],
@@ -21,11 +21,10 @@ const theme = merge(tailwind, {
         toggleIcon: tailwind.colors.gray[4],
         background: `#3d2640`,
         heading: `#ffc6c4`,
-        // heading: `#fcaaa7`,
         divide: tailwind.colors.gray[6],
         muted: tailwind.colors.gray[8],
-        tagText: tailwind.colors.gray[3],
-        tagBackground: `#a1229a`,
+        tagText: tailwind.colors.gray[1],
+        tagBackground: `#dec2ff`,
       },
     },
   },
@@ -204,6 +203,6 @@ const theme = merge(tailwind, {
       color: `text`,
     },
   },
-})
+});
 
 export default theme;

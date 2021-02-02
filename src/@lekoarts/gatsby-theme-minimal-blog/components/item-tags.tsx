@@ -1,8 +1,8 @@
-import React from "react"
-import { Link as TLink } from "theme-ui"
-import { Link } from "gatsby"
-import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-minimal-blog-config"
-import replaceSlashes from "@lekoarts/gatsby-theme-minimal-blog/src/utils/replaceSlashes"
+import React from "react";
+import { Link as TLink } from "theme-ui";
+import { Link } from "gatsby";
+import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-minimal-blog-config";
+import replaceSlashes from "@lekoarts/gatsby-theme-minimal-blog/src/utils/replaceSlashes";
 
 type TagsProps = {
   tags: {
@@ -22,7 +22,7 @@ const tagStyle = {
 }
 
 const ItemTags = ({ tags }: TagsProps) => {
-  const { tagsPath, basePath } = useMinimalBlogConfig()
+  const { tagsPath, basePath } = useMinimalBlogConfig();
 
   return (
     <React.Fragment>
@@ -35,7 +35,7 @@ const ItemTags = ({ tags }: TagsProps) => {
         </React.Fragment>
       ))}
     </React.Fragment>
-  )
+  );
 }
 
 export default ItemTags;

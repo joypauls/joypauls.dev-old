@@ -1,9 +1,9 @@
 /** @jsx jsx */
-import React from "react"
-import { jsx, Link as TLink } from "theme-ui"
-import { Box } from "@theme-ui/components"
-import { Link } from "gatsby"
-import ItemTags from "@lekoarts/gatsby-theme-minimal-blog/src/components/item-tags"
+import React from "react";
+import { jsx, Link as TLink } from "theme-ui";
+import { Box } from "@theme-ui/components";
+import { Link } from "gatsby";
+import ItemTags from "@lekoarts/gatsby-theme-minimal-blog/src/components/item-tags";
 
 type BlogListItemProps = {
   post: {
@@ -35,6 +35,6 @@ const BlogListItem = ({ post, showTags = true }: BlogListItemProps) => (
       )}
     </p>
   </Box>
-)
+);
 
 export default BlogListItem;

@@ -39,7 +39,7 @@ module.exports = {
           },
           {
             title: `Orgs to Support`,
-            slug: `/support`,
+            slug: `/orgs-to-support`,
           },
         ],
         externalLinks: [

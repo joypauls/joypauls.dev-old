@@ -6,10 +6,10 @@ import { Box } from "@theme-ui/components";
 import { Link } from "gatsby";
 
 
-const OrgListItem = (post) => (
+const OrgListItem = (org) => (
   <Box mb={4}>
-    <TLink as={Link} to={post.slug} sx={{ fontSize: [1, 2, 3], color: `heading` }}>
-      {post.title}
+    <TLink as={Link} to={org.link} sx={{ fontSize: [1, 2, 3], color: `heading` }}>
+      {org.name}
     </TLink>
     <p sx={{ color: `secondary`, mt: 1, fontSize: [1, 1, 2] }}>
       {/* {post.tags && showTags && (

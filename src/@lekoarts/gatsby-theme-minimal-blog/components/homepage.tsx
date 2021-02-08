@@ -1,4 +1,3 @@
-  
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import { Link } from "gatsby";
@@ -6,7 +5,7 @@ import Layout from "@lekoarts/gatsby-theme-minimal-blog/src/components/layout";
 import Title from "@lekoarts/gatsby-theme-minimal-blog/src/components/title";
 import Listing from "@lekoarts/gatsby-theme-minimal-blog/src/components/listing";
 import List from "@lekoarts/gatsby-theme-minimal-blog/src/components/list";
-import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-minimal-blog-config";
+// import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-minimal-blog-config";
 import useSiteMetadata from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-site-metadata";
 import replaceSlashes from "@lekoarts/gatsby-theme-minimal-blog/src/utils/replaceSlashes";
 import { visuallyHidden } from "@lekoarts/gatsby-theme-minimal-blog/src/styles/utils";
@@ -14,6 +13,9 @@ import { visuallyHidden } from "@lekoarts/gatsby-theme-minimal-blog/src/styles/u
 import Hero from "@lekoarts/gatsby-theme-minimal-blog/src/texts/hero";
 // @ts-ignore
 import Bottom from "@lekoarts/gatsby-theme-minimal-blog/src/texts/bottom";
+
+import useBlogConfig from "../../../hooks/use-blog-config";
+
 
 type PostsProps = {
   posts: {
@@ -32,7 +34,7 @@ type PostsProps = {
 }
 
 const Homepage = ({ posts }: PostsProps) => {
-  const { basePath, blogPath } = useMinimalBlogConfig();
+  const { basePath, blogPath } = useBlogConfig();
   const { siteTitle } = useSiteMetadata();
 
   return (

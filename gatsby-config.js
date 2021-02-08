@@ -4,6 +4,9 @@ require(`dotenv`).config({
 
 const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE;
 
+//
+// const siteUp = false;
+
 module.exports = {
   siteMetadata: {
     // Used for the title template on pages other than the index site
@@ -29,22 +32,22 @@ module.exports = {
       // See the theme's README for all available options
       options: {
         navigation: [
-          {
-            title: `Blog`,
-            slug: `/blog`,
-          },
+          // {
+          //   title: `Blog`,
+          //   slug: `/blog`,
+          // },
           {
             title: `About`,
             slug: `/about`,
           },
-          {
-            title: `Orgs to Support`,
-            slug: `/orgs-to-support`,
-          },
+          // {
+          //   title: `Orgs to Support`,
+          //   slug: `/orgs-to-support`,
+          // },
         ],
         externalLinks: [
           {
-            name: `Github`,
+            name: `GitHub`,
             url: `https://github.com/joypauls`,
           },
           {
@@ -54,6 +57,7 @@ module.exports = {
         ],
         mdx: false,
         formatString: `MM/DD/YYYY`,
+        siteIsUp: true,
       },
     },
     // {

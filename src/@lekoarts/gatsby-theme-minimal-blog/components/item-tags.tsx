@@ -19,6 +19,7 @@ const tagStyle = {
   paddingRight: "7px",
   textDecoration: "none",
   ":hover": { textDecoration: "none", },
+  // fontWeight: "lighter",
 }
 
 const ItemTags = ({ tags }: TagsProps) => {

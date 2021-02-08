@@ -48,6 +48,9 @@ const Post = ({ data: { post } }: PostProps) => (
     <Heading as="h1" variant="styles.h1">
       {post.title}
     </Heading>
+    <Heading as="h5" variant="styles.h5">
+      {post.description}
+    </Heading>
     <p sx={{ color: `secondary`, mt: 3, fontSize: [1, 1, 2] }}>
       <time>{post.date}</time>
       {post.tags && (
@@ -56,8 +59,8 @@ const Post = ({ data: { post } }: PostProps) => (
           <ItemTags tags={post.tags} />
         </React.Fragment>
       )}
-      {post.timeToRead && ` — `}
-      {post.timeToRead && <span>{post.timeToRead} min read</span>}
+      {/* {post.timeToRead && ` — `}
+      {post.timeToRead && <span>{post.timeToRead} min read</span>} */}
     </p>
     <section
       sx={{

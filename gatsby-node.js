@@ -3,7 +3,7 @@ const kebabCase = require(`lodash.kebabcase`);
 const withDefaults = require(`./utils/default-options`);
 
 const mdxResolverPassthrough = (fieldName) => async (source, args, context, info) => {
-  const type = info.schema.getType(`Mdx`)
+  const type = info.schema.getType(`JMdx`)
   const mdxNode = context.nodeModel.getNodeById({
     id: source.parent,
   })
@@ -28,7 +28,7 @@ exports.createSchemaCustomization = ({ actions, schema }, themeOptions) => {
   }
 
   createFieldExtension({
-    name: `slugify`,
+    name: `jslugify`,
     extend() {
       return {
         resolve: slugify,
@@ -37,7 +37,7 @@ exports.createSchemaCustomization = ({ actions, schema }, themeOptions) => {
   })
 
   createFieldExtension({
-    name: `mdxpassthrough`,
+    name: `jmdxpassthrough`,
     args: {
       fieldName: `String!`,
     },
@@ -49,69 +49,69 @@ exports.createSchemaCustomization = ({ actions, schema }, themeOptions) => {
   })
 
   createTypes(`
-    interface Post @nodeInterface {
-      id: ID!
-      slug: String! @slugify
-      title: String!
-      date: Date! @dateformat
-      excerpt(pruneLength: Int = 160): String!
-      body: String!
-      html: String
-      timeToRead: Int
-      tags: [PostTag]
-      banner: File @fileByRelativePath
-      description: String
-      canonicalUrl: String
-    }
-    type PostTag {
-      name: String
-      slug: String
-    }
-    interface Page @nodeInterface {
-      id: ID!
-      slug: String!
-      title: String!
-      excerpt(pruneLength: Int = 160): String!
-      body: String!
-    }
-    type MdxPost implements Node & Post {
-      slug: String! @slugify
-      title: String!
-      date: Date! @dateformat
-      excerpt(pruneLength: Int = 140): String! @mdxpassthrough(fieldName: "excerpt")
-      body: String! @mdxpassthrough(fieldName: "body")
-      html: String! @mdxpassthrough(fieldName: "html")
-      timeToRead: Int @mdxpassthrough(fieldName: "timeToRead")
-      tags: [PostTag]
-      banner: File @fileByRelativePath
-      description: String
-      canonicalUrl: String
-    }
-    type MdxPage implements Node & Page {
-      slug: String!
-      title: String!
-      excerpt(pruneLength: Int = 140): String! @mdxpassthrough(fieldName: "excerpt")
-      body: String! @mdxpassthrough(fieldName: "body")
-    }
-    type MinimalBlogConfig implements Node {
-      basePath: String
-      blogPath: String
-      postsPath: String
-      pagesPath: String
-      tagsPath: String
-      externalLinks: [ExternalLink]
-      navigation: [NavigationEntry]
-      showLineNumbers: Boolean
-      showCopyButton: Boolean
-    }
-    type ExternalLink {
-      name: String!
-      url: String!
-    }
-    type NavigationEntry {
-      title: String!
-      slug: String!
-    }
+  interface JPost @nodeInterface {
+    id: ID!
+    slug: String! @jslugify
+    title: String!
+    date: Date! @dateformat
+    excerpt(pruneLength: Int = 160): String!
+    body: String!
+    html: String
+    timeToRead: Int
+    tags: [PostTag]
+    banner: File @fileByRelativePath
+    description: String
+    canonicalUrl: String
+  }
+  type JPostTag {
+    name: String
+    slug: String
+  }
+  interface JPage @nodeInterface {
+    id: ID!
+    slug: String!
+    title: String!
+    excerpt(pruneLength: Int = 160): String!
+    body: String!
+  }
+  type JMdxPost implements Node & JPost {
+    slug: String! @jslugify
+    title: String!
+    date: Date! @dateformat
+    excerpt(pruneLength: Int = 140): String! @jmdxpassthrough(fieldName: "excerpt")
+    body: String! @jmdxpassthrough(fieldName: "body")
+    html: String! @jmdxpassthrough(fieldName: "html")
+    timeToRead: Int @jmdxpassthrough(fieldName: "timeToRead")
+    tags: [PostTag]
+    banner: File @fileByRelativePath
+    description: String
+    canonicalUrl: String
+  }
+  type JMdxPage implements Node & JPage {
+    slug: String!
+    title: String!
+    excerpt(pruneLength: Int = 140): String! @jmdxpassthrough(fieldName: "excerpt")
+    body: String! @jmdxpassthrough(fieldName: "body")
+  }
+  type StandardBlogConfig implements Node {
+    basePath: String
+    blogPath: String
+    postsPath: String
+    pagesPath: String
+    tagsPath: String
+    externalLinks: [ExternalLink]
+    navigation: [NavigationEntry]
+    showLineNumbers: Boolean
+    showCopyButton: Boolean
+  }
+  type ExternalLink {
+    name: String!
+    url: String!
+  }
+  type NavigationEntry {
+    title: String!
+    slug: String!
+  }
   `)
 }
 
@@ -130,7 +130,7 @@ exports.sourceNodes = ({ actions, createContentDigest }, themeOptions) => {
     siteIsUp,
   } = withDefaults(themeOptions)
 
-  const minimalBlogConfig = {
+  const standardBlogConfig = {
     basePath,
     blogPath,
     postsPath,
@@ -144,15 +144,15 @@ exports.sourceNodes = ({ actions, createContentDigest }, themeOptions) => {
   }
 
   createNode({
-    ...minimalBlogConfig,
-    id: `@lekoarts/gatsby-theme-minimal-blog-core-config`,
+    ...standardBlogConfig,
+    id: `joypauls-standard-config`,
     parent: null,
     children: [],
     internal: {
-      type: `MinimalBlogConfig`,
-      contentDigest: createContentDigest(minimalBlogConfig),
-      content: JSON.stringify(minimalBlogConfig),
-      description: `Options for @lekoarts/gatsby-theme-minimal-blog-core`,
+      type: `StandardBlogConfig`,
+      contentDigest: createContentDigest(standardBlogConfig),
+      content: JSON.stringify(standardBlogConfig),
+      description: `Options for joypauls.dev`,
     },
   })
 }
@@ -163,7 +163,7 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
   const { postsPath, pagesPath } = withDefaults(themeOptions)
 
   // Make sure that it's an MDX node
-  if (node.internal.type !== `Mdx`) {
+  if (node.internal.type !== `JMdx`) {
     return
   }
 
@@ -174,7 +174,7 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
   const source = fileNode.sourceInstanceName
 
   // Check for "posts" and create the "Post" type
-  if (node.internal.type === `Mdx` && source === postsPath) {
+  if (node.internal.type === `JMdx` && source === postsPath) {
     let modifiedTags
 
     if (node.frontmatter.tags) {
@@ -196,7 +196,7 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
       canonicalUrl: node.frontmatter.canonicalUrl,
     }
 
-    const mdxPostId = createNodeId(`${node.id} >>> MdxPost`)
+    const mdxPostId = createNodeId(`${node.id} >>> JMdxPost`)
 
     createNode({
       ...fieldData,
@@ -205,7 +205,7 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
       parent: node.id,
       children: [],
       internal: {
-        type: `MdxPost`,
+        type: `JMdxPost`,
         contentDigest: createContentDigest(fieldData),
         content: JSON.stringify(fieldData),
         description: `Mdx implementation of the Post interface`,
@@ -216,13 +216,13 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
   }
 
   // Check for "pages" and create the "Page" type
-  if (node.internal.type === `Mdx` && source === pagesPath) {
+  if (node.internal.type === `JMdx` && source === pagesPath) {
     const fieldData = {
       title: node.frontmatter.title,
       slug: node.frontmatter.slug,
     }
 
-    const mdxPageId = createNodeId(`${node.id} >>> MdxPage`)
+    const mdxPageId = createNodeId(`${node.id} >>> JMdxPage`)
 
     createNode({
       ...fieldData,
@@ -231,7 +231,7 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
       parent: node.id,
       children: [],
       internal: {
-        type: `MdxPage`,
+        type: `JMdxPage`,
         contentDigest: createContentDigest(fieldData),
         content: JSON.stringify(fieldData),
         description: `Mdx implementation of the Page interface`,

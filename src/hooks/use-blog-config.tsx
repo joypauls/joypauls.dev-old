@@ -2,7 +2,7 @@
 import { graphql, useStaticQuery } from "gatsby";
 
 type UseBlogConfigProps = {
-  minimalBlogConfig: {
+  standardBlogConfig: {
     basePath: string
     blogPath: string
     postsPath: string
@@ -25,7 +25,7 @@ type UseBlogConfigProps = {
 const useBlogConfig = () => {
   const data = useStaticQuery<UseBlogConfigProps>(graphql`
     query {
-      minimalBlogConfig {
+      standardBlogConfig {
         basePath
         blogPath
         postsPath
@@ -46,7 +46,7 @@ const useBlogConfig = () => {
     }
   `);
 
-  return data.minimalBlogConfig;
+  return data.standardBlogConfig;
 }
 
 export default useBlogConfig;

@@ -1,7 +1,7 @@
-import { graphql } from "gatsby"
-import TagComponent from "../components/tag"
+import { graphql } from "gatsby";
+import TagComponent from "@lekoarts/gatsby-theme-minimal-blog/src/components/tag";
 
-export default TagComponent
+export default TagComponent;
 
 export const query = graphql`
   query($slug: String!, $formatString: String!) {
@@ -20,4 +20,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

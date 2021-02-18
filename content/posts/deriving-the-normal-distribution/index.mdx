@@ -1,14 +1,55 @@
 ---
-title: Deriving the Normal Distribution
-description: A deep dive into the journey that led Gauss to his derivation of the normal distribution
-date: 2021-01-31
+title: Deriving the Normal Distribution with Gauss
+description: A deep dive into the journey that led Carl Friedrich Gauss to his (although not the first!) derivation of the normal distribution
+date: 2021-02-31
 tags:
   - Statistics
 ---
 
 
-## The Normal Distribution
+### The Normal Distribution
 
 
-## Once Upon a Time, Before Modern Statistics...
+insert plot
+
+
+The famous *normal distribution* is a two-parameter family with the density function:
+
+$$
+f(x|\mu,\sigma) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2} (\frac{x-\mu}{\sigma})^2}
+$$
+
+It has always struck me as a contradiction - a beautiful, intuitive curve and a gnarly, convoluted equation.
+
+
+When we look at the curve, it just makes sense doesn't it? Most of the density huddles around a central point, $\mu$, 
+while it decays to $0$ as we venture further from the center, depending on $\sigma$. It might be easy to take for granted, but 
+it took more time than it may seem to arrive at this formulation.
+
+
+### Once Upon a Time, Before Modern Statistics...
+
+Chronologically speaking, the origins of everyone's favorite distribution start with de Moivre. He was interested in finding a continuous 
+approximation of the discrete binomial distribution.
+
+Now this may start a fight... but I think the story of how Gauss discovered the distribution is far more interesting! Let's dive in.
+
+#### Gauss, Ceres, and Least Squares
+
+Story of gauss astronomical errors and least squares
+
+
+### Gauss's Guidelines for an Error Distribution
+
+
+1. Non-uniformity
+    - Small errors are more likely than large errors
+2. Symmetry
+    - Given any $\epsilon \in \mathbb{R}$, the errors $\epsilon$ and $-\epsilon$ are equally likely
+3. Average as the Maximum Likelihood Estimator
+    - The most likely value of the quantity repeatedly measured is the average of the measurements
+
+
+### Derivation
+
 

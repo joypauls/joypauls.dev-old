@@ -32,18 +32,18 @@ module.exports = {
       // See the theme's README for all available options
       options: {
         navigation: [
-          // {
-          //   title: `Blog`,
-          //   slug: `/blog`,
-          // },
+          {
+            title: `Blog`,
+            slug: `/blog`,
+          },
           {
             title: `About`,
             slug: `/about`,
           },
-          // {
-          //   title: `Orgs to Support`,
-          //   slug: `/orgs-to-support`,
-          // },
+          {
+            title: `Orgs to Support`,
+            slug: `/orgs-to-support`,
+          },
         ],
         externalLinks: [
           {

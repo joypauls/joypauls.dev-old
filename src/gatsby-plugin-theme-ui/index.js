@@ -6,8 +6,10 @@ const theme = merge(tailwind, {
   initialColorModeName: `light`,
   useCustomProperties: true,
   colors: {
+    // text: tailwind.colors.gray[8],
+    text: "FFF",
     primary: tailwind.colors.purple[7],
-    secondary: `#5f6c80`,
+    secondary: tailwind.colors.gray[8],
     toggleIcon: tailwind.colors.gray[8],
     background: `#f5edf0`,
     heading: `#823350`,
@@ -94,6 +96,11 @@ const theme = merge(tailwind, {
       fontSize: [1, 2, 2, 3],
       mt: 3,
     },
+    h5Alt: {
+      variant: `text.headingAlt`,
+      fontSize: [1, 2, 2, 3],
+      mt: 3,
+    },
     h6: {
       variant: `text.heading`,
       fontSize: 1,
@@ -146,6 +153,12 @@ const theme = merge(tailwind, {
     heading: {
       fontFamily: `heading`,
       fontWeight: `heading`,
+      lineHeight: `heading`,
+      color: `heading`,
+    },
+    headingAlt: {
+      fontFamily: `heading`,
+      fontWeight: `light`,
       lineHeight: `heading`,
       color: `heading`,
     },

@@ -48,7 +48,7 @@ const Post = ({ data: { post } }: PostProps) => (
     <Heading as="h1" variant="styles.h1">
       {post.title}
     </Heading>
-    <Heading as="h5" variant="styles.h5">
+    <Heading as="h5" variant="styles.h5Alt">
       {post.description}
     </Heading>
     <p sx={{ color: `secondary`, mt: 3, fontSize: [1, 1, 2] }}>

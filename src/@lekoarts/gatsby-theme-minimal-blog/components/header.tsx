@@ -34,7 +34,7 @@ const Header = () => {
           a: { color: `secondary`, ":hover": { color: `heading` } },
           flexFlow: `wrap`,
           fontFamily: `IBM Plex Mono`,
-          fontStyle: `italic`,
+        //   fontStyle: `italic`,
         }}
       >
         <Navigation nav={nav} />

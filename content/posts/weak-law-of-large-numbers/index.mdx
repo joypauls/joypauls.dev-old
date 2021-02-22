@@ -1,0 +1,74 @@
+---
+title: The Weak Law of Large Numbers
+description: Taking a look at bounds? expected values?
+date: 2021-02-31
+tags:
+  - Statistics
+---
+
+
+The weak law of large numbers puts theory to a very intuitive idea at the heart of statistics.
+
+> With a large enough sample size, the sample mean we observe gets extremely close to the true mean.
+
+Here's what that this means[^1]:
+
+
+### Markov's Inequality
+
+We start with a random variable $X$ with only nonnegative values, and a number $a \in \mathbb{R}^{+}$. Then Markov's Inequality is:
+
+$$
+\tag{1} P(X \geq a) \leq \frac{E(X)}{a}
+$$
+
+
+#### Proof
+
+
+### Chebyshev's Inequality
+
+$$
+\tag{2} P(|X - \mu| \geq \epsilon) \leq \frac{\sigma^{2}}{\epsilon^{2}}
+$$
+
+
+#### Proof (Using Markov's Inequality)
+
+#### Proof (Using Other)
+
+
+### Weak Law of Large Numbers
+
+#### What Are Estimators Again?
+
+estimating a parameter with a sample $n$. simple example is sample mean. 
+
+#### Consistent Estimators
+
+
+
+$$
+\lim_{n \to \infty} P(|\hat{\theta}_{n} - \theta| < \epsilon) = 1
+$$
+
+#### Consistent Estimator for the Mean
+
+We are looking for something like the equation below, so that we know when our sample size $n$ gets higher and higher,
+the probability that we have a really solid estimate for the mean becomes a certainty!
+
+$$
+\lim_{n \to \infty} P(|\hat{\mu}_{n} - \mu| < \epsilon) = 1
+$$
+
+Surprise surprise - we now can establish this fact.
+
+
+
+
+[^1]: pun absolutely intended
+
+
+
+
+

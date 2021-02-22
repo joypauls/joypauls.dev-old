@@ -18,9 +18,21 @@ const Navigation = ({ nav }: NavigationProps) => {
   return (
     <React.Fragment>
       {nav && nav.length > 0 && (
-        <nav sx={{ "a:not(:last-of-type)": { mr: 3 }, fontSize: [1, `18px`], ".active": { color: `heading` } }}>
+        <nav sx={{ 
+            "a:not(:last-of-type)": { mr: 3 }, 
+            fontSize: [1, `18px`], 
+            ".active": { 
+                color: `heading`,
+            },
+        }}>
           {nav.map((item) => (
-            <TLink key={item.slug} as={Link} activeClassName="active" to={replaceSlashes(`/${basePath}/${item.slug}`)}>
+            <TLink key={item.slug} as={Link} activeClassName="active" to={replaceSlashes(`/${basePath}/${item.slug}`)} sx={{
+                ":hover": {
+                    color: `#FFF`,
+                    // textDecoration: `underline`,
+                    // backgroundColor: `heading`,
+                },
+            }}>
               {item.title}
             </TLink>
           ))}

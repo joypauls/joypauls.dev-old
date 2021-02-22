@@ -19,8 +19,8 @@ const HeaderTitle = () => {
         my: 0, 
         fontWeight: `medium`, 
         fontSize: [3, 4], 
-        fontFamily: `IBM Plex Mono`, 
-        // fontStyle: `italic` 
+        fontFamily: `IBM Plex Mono`,
+        // fontStyle: `italic`, 
       }}>
         {siteTitle}
         {`  `}

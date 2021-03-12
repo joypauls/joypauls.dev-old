@@ -116,6 +116,7 @@ module.exports = {
     //     strict: `ignore`
     //   }
     // },
+    `gatsby-remark-images`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -123,7 +124,15 @@ module.exports = {
           require('remark-math'),
           require('remark-html-katex'),
         ],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+            },
+          },
+        ],
       },
-    }
+    },
   ].filter(Boolean),
 }

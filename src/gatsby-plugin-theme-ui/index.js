@@ -10,9 +10,9 @@ const theme = merge(tailwind, {
     primary: tailwind.colors.purple[7],
     secondary: tailwind.colors.gray[7],
     toggleIcon: tailwind.colors.gray[8],
-    background: `#f5edf0`,
+    background: `#fcf7ff`,
     backgroundLight: `#503254`,
-    heading: `#823350`,
+    heading: `#6f337d`,
     divide: tailwind.colors.gray[7],
     tagText: tailwind.colors.gray[1],
     tagBackground: `#ace3c5`,
@@ -24,7 +24,8 @@ const theme = merge(tailwind, {
         toggleIcon: tailwind.colors.gray[4],
         background: `#3d2640`,
         backgroundLight: `#503254`,
-        heading: `#ffc6c4`,
+        // heading: `#ffc6c4`,
+        heading: `#fac3c3`,
         divide: tailwind.colors.gray[1],
         muted: tailwind.colors.gray[6],
         tagText: tailwind.colors.gray[1],
@@ -35,6 +36,7 @@ const theme = merge(tailwind, {
   fonts: {
     body: `"IBM Plex Sans", -apple-system, BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"`,
   },
+  fontSizes: [12, 14, 16, 20, 24, 32, 48, 56, 64, 72],
   styles: {
     root: {
       color: `text`,
@@ -110,7 +112,7 @@ const theme = merge(tailwind, {
     blockquote: {
       borderLeftColor: `#b68ee6`,
       borderLeftStyle: `solid`,
-      borderLeftWidth: `1rem`,
+      borderLeftWidth: `0.7rem`,
       backgroundColor: `backgroundLight`,
       mx: 0,
       ml: 4,
@@ -122,6 +124,9 @@ const theme = merge(tailwind, {
       // p: {
       //   fontStyle: `italic`,
       // },
+    },
+    footnotes: {
+      fontSize: 3,
     },
     table: {
       width: `100%`,
@@ -147,6 +152,7 @@ const theme = merge(tailwind, {
       borderBottomWidth: `1px`,
     },
     hr: {
+      backgroundColor: `divide`,
       mx: 0,
     },
   },

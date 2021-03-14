@@ -19,12 +19,12 @@ const HeaderTitle = () => {
         my: 0, 
         fontWeight: `medium`, 
         fontSize: [3, 4], 
-        fontFamily: `IBM Plex Mono`,
+        // fontFamily: `IBM Plex Mono`,
         // fontStyle: `italic`, 
       }}>
         {siteTitle}
         {`  `}
-        <span role="img" aria-label="hibiscus">🌺</span>
+        {/* <span role="img" aria-label="hibiscus">🌺</span> */}
       </div>
     </Link>
   );

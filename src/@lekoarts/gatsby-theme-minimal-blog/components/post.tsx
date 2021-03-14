@@ -67,6 +67,8 @@ const Post = ({ data: { post } }: PostProps) => (
         my: 5,
         ".gatsby-resp-image-wrapper": { my: [4, 4, 5], boxShadow: shadow.join(`, `) },
         variant: `layout.content`,
+        ".footnotes>ol>li": { fontSize: "1rem" },
+        // ".footnotes>hr": { color: `#FFF` },
       }}
     >
       <MDXRenderer>{post.body}</MDXRenderer>

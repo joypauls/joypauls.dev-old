@@ -33,7 +33,7 @@ const Header = () => {
           color: `secondary`,
           a: { color: `secondary`, ":hover": { color: `heading` } },
           flexFlow: `wrap`,
-          fontFamily: `IBM Plex Mono`,
+          // fontFamily: `IBM Plex Mono`,
         //   fontStyle: `italic`,
         }}
       >

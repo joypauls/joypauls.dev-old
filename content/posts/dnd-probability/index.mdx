@@ -1,0 +1,52 @@
+---
+title: D&D Probability
+description: The math behind the dice rolls
+date: 2021-06-31
+tags:
+  - Statistics
+---
+
+
+## Rolling the Dice
+
+put stuff about pmf etc. here
+
+$$
+D_{20} = \text{a single roll of a 20-sided die}
+$$
+
+pmf
+
+$$
+p(D_{20} = k) = \frac{1}{20} 
+$$
+
+where $k=1,2,...,20$.
+
+### Expected Value
+
+So we now know that for any single d20 roll, all outcomes are equally probable. But what about after many rolls - what is the average roll we expect in a session?
+To answer this question we turn to the concept of expected value.
+
+$$
+E[X] = \sum^{n}_{k=1} k p(k)
+$$
+
+Here is what it looks like for the d20
+
+$$
+E[D_{20}] = \sum_{k=1}^{20} k p(k) = \sum_{k=1}^{20} k (\frac{1}{20}) = 1(\frac{1}{20}) + 2(\frac{1}{20}) + \cdots + 20(\frac{1}{20}) = 10.5
+$$
+
+
+
+
+
+
+
+
+
+
+
+
+

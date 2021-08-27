@@ -40,9 +40,13 @@ module.exports = {
             title: `About`,
             slug: `/about`,
           },
+          // {
+          //   title: `Support`,
+          //   slug: `/support`,
+          // },
           {
-            title: `Orgs to Support`,
-            slug: `/orgs-to-support`,
+            title: `Contact`,
+            slug: `/contact`,
           },
         ],
         externalLinks: [
@@ -57,7 +61,8 @@ module.exports = {
         ],
         mdx: false,
         formatString: `MM/DD/YYYY`,
-        siteIsUp: true,
+        postsPath: `src/posts`,
+        pagesPath: `src/pages`,
       },
     },
     // {
@@ -120,6 +125,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        // defaultLayouts: {
+        //   default: require.resolve("./src/components/default-layout.js"),
+        // },
         remarkPlugins: [
           require('remark-math'),
           require('remark-html-katex'),

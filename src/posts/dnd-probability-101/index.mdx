@@ -1,0 +1,69 @@
+---
+title: D&D Probability 101
+description: An introduction to what probabiity tells us about rolling dice in tabletop RPG's like Dungeons and Dragons!
+date: 2021-06-31
+tags:
+  - Probability
+---
+
+## Intuition
+
+*If you know some probabiity already, feel free to skip this introduction!*
+
+------
+
+What do we know about rolling a single die like the 20-sided d20 (I'll be using $$D_{20}$$ from now on)? Besides our special 
+lucky dice that can always be counted on for a natural 20, we know that every number on the die has an *equal probability of
+being rolled*. A 20 is no more likely than a 1, or 7, or a 13. Let's look at the probability of a natural 1 on a single roll:
+
+$$
+\frac{\text{number of ways to roll a }1}{\text{total number of possibilities}} = \frac{1}{20}
+$$
+
+Notice that the specific value we are looking for doesn't actually matter! Whether we do the calculation for 1 or 20, the 
+probability will still be $$\frac{1}{20}$$
+
+
+## Rolling the Dice... Mathematically
+
+put stuff about pmf etc. here
+
+$$
+D_{20} = \text{a single roll of a 20-sided die}
+$$
+
+pmf
+
+$$
+p(D_{20} = k) = \frac{1}{20} 
+$$
+
+where $k=1,2,...,20$.
+
+### Expected Value
+
+So we now know that for any single d20 roll, all outcomes are equally probable. But what about after many rolls - what is the average roll we expect in a session?
+To answer this question we turn to the concept of expected value.
+
+$$
+E[X] = \sum^{n}_{k=1} k p(k)
+$$
+
+Here is what it looks like for the d20
+
+$$
+E[D_{20}] = \sum_{k=1}^{20} k p(k) = \sum_{k=1}^{20} k (\frac{1}{20}) = 1(\frac{1}{20}) + 2(\frac{1}{20}) + \cdots + 20(\frac{1}{20}) = 10.5
+$$
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -13,20 +13,20 @@ const theme = merge(tailwind, {
     background: `#fcf7ff`,
     backgroundLight: `#503254`,
     heading: `#6f337d`,
-    divide: tailwind.colors.gray[7],
+    divide: tailwind.colors.gray[4],
     tagText: tailwind.colors.gray[1],
     tagBackground: `#ace3c5`,
     modes: {
       dark: {
-        text: tailwind.colors.gray[1],
+        text: tailwind.colors.white,
         primary: tailwind.colors.purple[5],
-        secondary: tailwind.colors.gray[1],
+        secondary: tailwind.colors.white,
         toggleIcon: tailwind.colors.gray[4],
-        background: `#3d2640`,
+        background: `#271729`,
         backgroundLight: `#503254`,
         // heading: `#ffc6c4`,
         heading: `#fac3c3`,
-        divide: tailwind.colors.gray[1],
+        divide: tailwind.colors.gray[2],
         muted: tailwind.colors.gray[6],
         tagText: tailwind.colors.gray[1],
         tagBackground: `#b68ee6`,
@@ -34,7 +34,8 @@ const theme = merge(tailwind, {
     },
   },
   fonts: {
-    body: `"IBM Plex Sans", -apple-system, BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"`,
+    body: `Mulish,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`
+    // body: `"IBM Plex Sans", -apple-system, BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"`,
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 56, 64, 72],
   styles: {
@@ -113,7 +114,7 @@ const theme = merge(tailwind, {
       borderLeftColor: `#b68ee6`,
       borderLeftStyle: `solid`,
       borderLeftWidth: `0.7rem`,
-      backgroundColor: `backgroundLight`,
+      backgroundColor: `#503254`,
       mx: 0,
       ml: 4,
       mr: 4,
@@ -121,6 +122,7 @@ const theme = merge(tailwind, {
       pt: 1,
       pb: 1,
       fontWeight: `light`,
+      color: `#fcf7ff`
       // p: {
       //   fontStyle: `italic`,
       // },

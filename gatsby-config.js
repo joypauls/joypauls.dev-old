@@ -61,9 +61,9 @@ module.exports = {
         ],
         mdx: false,
         formatString: `MMMM DD, YYYY`,
-        postsPath: `src/posts`,
-        pagesPath: `src/pages`,
-        basePath: `/`
+        // postsPath: `src/posts`,
+        // pagesPath: `src/pages`,
+        // basePath: `/`
       },
     },
     // {
@@ -79,7 +79,7 @@ module.exports = {
         name: `blog`,
         short_name: `blog`,
         description: `A blog about topics in statistics and mathematics`,
-        start_url: `/`,
+        // start_url: `/`,
         background_color: `#fff`,
         theme_color: `#6B46C1`,
         display: `standalone`,

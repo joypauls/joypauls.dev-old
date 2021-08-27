@@ -31,7 +31,6 @@ const Blog = ({ posts }: PostsProps) => {
   const { tagsPath, basePath } = useMinimalBlogConfig();
 
   return (
-    <div sx={{flex: 1}}>
     <Layout>
       <SEO title="Blog" />
       <SignalAnimation />
@@ -49,7 +48,6 @@ const Blog = ({ posts }: PostsProps) => {
       </Flex>
       <Listing posts={posts} sx={{ mt: [4, 5], ml: [0, 0, 4]}} /> */}
     </Layout>
-    </div>
   );
 }
 

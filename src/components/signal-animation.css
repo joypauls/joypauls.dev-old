@@ -1,24 +1,41 @@
 .squiggle {
-    stroke-dasharray: 650;
-    stroke-dashoffset: 650;
+    stroke-dasharray: 700;
+    stroke-dashoffset: 700;
     animation: draw 2s linear forwards;
-  }
+}
   
-  .othersquiggle {
-    stroke-dasharray: 20000;
-    stroke-dashoffset: 20000;
+.othersquiggle {
+    stroke-dasharray: 30000;
+    stroke-dashoffset: 30000;
     animation: draw 2s linear forwards;
-  }
-  
-  .othersquiggle2 {
-    stroke-dasharray: 5000;
-    stroke-dashoffset: 5000;
-    animation: draw 3.5s linear forwards;
-  }
-  
-  @keyframes draw {
-    to {
-      stroke-dashoffset: 0;
+}
+
+.secondaryLine {
+    stroke-dasharray: 100;
+    /* stroke-dashoffset: 0; */
+    animation: draw2 2s linear forwards;
+}
+
+.primaryLine {
+    stroke-dasharray: 100;
+    animation: draw 2s linear forwards;
+}
+
+@keyframes draw {
+    from {
+        stroke-dashoffset: 100;
     }
-  }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes draw2 {
+    from {
+        stroke-dashoffset: 100;
+    }
+    to {
+        stroke-dashoffset: 200;
+    }
+}
   

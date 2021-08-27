@@ -156,13 +156,10 @@ const theme = merge(tailwind, {
       backgroundColor: `divide`,
       mx: 0,
     },
-    footer: {
-      fontSize: [1, 2, 3],
-    },
   },
   layout: {
     container: {
-      padding: [3, 4],
+      padding: [2, 3],
       maxWidth: `1024px`,
       minHeight: `100vh`,
       display: `flex`,

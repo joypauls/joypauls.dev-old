@@ -18,21 +18,22 @@ const Footer = () => {
         },
         flexDirection: [`column`, `column`, `row`],
         variant: `dividers.top`,
+        fontSize: [0, 1, 1],
       }}
     >
       <div>
-        &copy; {new Date().getFullYear()} by {siteTitle}
+        &copy;{new Date().getFullYear()} by {siteTitle}
         <Link style={{ marginLeft: `10px` }} rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/">
             <img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/80x15.png" />
         </Link>
       </div>
-      <div>
+      {/* <div>
         Theme by
         {` `}
         <Link aria-label="Link to the site author's github profile" href="https://github.com/joypauls">
           joypauls
         </Link>
-      </div>
+      </div> */}
     </footer>
   );
 }

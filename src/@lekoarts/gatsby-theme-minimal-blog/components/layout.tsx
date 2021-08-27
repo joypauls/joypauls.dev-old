@@ -44,7 +44,7 @@ const Layout = ({ children, className = `` }: LayoutProps) => (
     <SkipNavLink>Skip to content</SkipNavLink>
     <Container>
       <Header />
-      <Box id="skip-nav" sx={{ ...CodeStyles, flex: 1}} className={className}>
+      <Box id="skip-nav" sx={{ ...CodeStyles, px: [1, 2, 3], flex: 1, flexDirection: "column", display: "flex", justifyContent: "center"}} className={className}>
         {children}
       </Box>
       <Footer />

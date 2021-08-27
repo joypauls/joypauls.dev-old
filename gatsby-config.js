@@ -33,7 +33,7 @@ module.exports = {
       options: {
         navigation: [
           {
-            title: `Blog`,
+            title: `Writing`,
             slug: `/blog`,
           },
           {
@@ -79,7 +79,7 @@ module.exports = {
         name: `blog`,
         short_name: `blog`,
         description: `A blog about topics in statistics and mathematics`,
-        start_url: `/blog`,
+        start_url: `/`,
         background_color: `#fff`,
         theme_color: `#6B46C1`,
         display: `standalone`,

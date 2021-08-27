@@ -30,7 +30,7 @@ const Navigation = ({ nav }: NavigationProps) => {
             <TLink key={item.slug} as={Link} activeClassName="active" to={replaceSlashes(`/${basePath}/${item.slug}`)} sx={{
                 ":hover": {
                     color: `#FFF`,
-                    fontWeight: `bold`
+                    // fontWeight: `bold`
                     // textDecoration: `underline`,
                     // backgroundColor: `heading`,
                 },

@@ -31,6 +31,13 @@ import './signal-animation.css';
 // TODO: refactor this mess jesus christ
 
 
+const WIDTH = 600;
+const WIDTH_PAD = 5;
+const INNER_WIDTH = WIDTH - (2 * WIDTH_PAD);
+const HEIGHT = 120;
+const HEIGHT_PAD = 10;
+const INNER_HEIGHT = HEIGHT - (2 * HEIGHT_PAD);
+
 
 
 // import React, { useState, useEffect, useRef } from 'react';
@@ -90,11 +97,6 @@ function makeBins(n) {
   return binCounts;
 };
 
-const WIDTH = 600;
-const WIDTH_PAD = 4;
-const HEIGHT = 150;
-const HEIGHT_PAD = 10;
-const INNER_HEIGHT = HEIGHT - (2 * HEIGHT_PAD);
 // var BAR_WIDTH = 24;
 // var BAR_GAP = 8;
 
@@ -245,7 +247,7 @@ const generateDataset = () => (
 
 
 var rangeScale = d3.scaleLinear().domain([0, d3.max(binCounts)]).range([0, INNER_HEIGHT]);
-console.log(rangeScale(binCounts[4]));
+// console.log(rangeScale(binCounts[4]));
 
 
 
@@ -388,7 +390,7 @@ function gaussianNoise(n, mu=0, sigma=1, clip=true) {
 // same with input array
 // args to keep/not keep boundary points?
 // for now returns array of same length
-function convolve1D(arr, kernel=[0.2, 0.2, 0.2, 0.2, 0.2]) {
+function convolve1D(arr, kernel=[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]) {
   let n = arr.length;
   let offset = Math.floor(kernel.length / 2)
   let newArr = [...arr];
@@ -407,57 +409,71 @@ function convolve1D(arr, kernel=[0.2, 0.2, 0.2, 0.2, 0.2]) {
 function generateSignalData(n=10, mu=0, sigma=1) {
   let x = [...Array(n).keys()];
   let y = x.map(el => (Math.sin((0.017 * el) - 1)) );
-  let noise = gaussianNoise(y.length, mu, sigma)
-  let noisyY = y.map((el, i) => (el + noise[i]))
-  let smoothedY = convolve1D(noisyY);
+  let yPrime = x.map(el => -1 * (Math.sin((0.017 * el) - 1)) );
 
-  let rangeScale = d3.scaleLinear().domain([d3.min(noisyY), d3.max(noisyY)]).range([0, INNER_HEIGHT]);
-  let domainScale = d3.scaleLinear().domain([d3.min(x), d3.max(x)]).range([0, WIDTH]);
+
+//   let noise = gaussianNoise(y.length, mu, sigma)
+//   let noisyY = y.map((el, i) => (el + noise[i]))
+//   let smoothedY = convolve1D(noisyY);
+
+  let rangeScale = d3.scaleLinear().domain([d3.min(y), d3.max(y)]).range([0, INNER_HEIGHT]);
+  let domainScale = d3.scaleLinear().domain([d3.min(x), d3.max(x)]).range([0, INNER_WIDTH]);
   let scaledY = y.map((d) => (HEIGHT - rangeScale(d) - HEIGHT_PAD));
-  let scaledNoisyY = noisyY.map((d) => (HEIGHT - rangeScale(d) - HEIGHT_PAD));
-  let scaledSmoothedY = smoothedY.map((d) => (HEIGHT - rangeScale(d) - HEIGHT_PAD));
-  let scaledX = x.map((d) => domainScale(d));
+  let scaledYPrime = yPrime.map((d) => (HEIGHT - rangeScale(d) - HEIGHT_PAD));
+//   let scaledNoisyY = noisyY.map((d) => (HEIGHT - rangeScale(d) - HEIGHT_PAD));
+//   let scaledSmoothedY = smoothedY.map((d) => (HEIGHT - rangeScale(d) - HEIGHT_PAD));
+  let scaledX = x.map((d) => (WIDTH - domainScale(d) - WIDTH_PAD));
 
-  return {x: scaledX, y: scaledY, noisyY: scaledNoisyY, smoothedY: scaledSmoothedY};
+  return {x: scaledX, y: scaledY, yPrime: scaledYPrime};
 }
 
 
 let data = generateSignalData(500);
 
-// noisiest
-const makePolyline = (y) => {
+// // noisiest
+// const makePolyline = (y) => {
+//   let coords = data.x.map((d, i) => (d.toString() + "," + y[i].toString()));
+//   let coordsString = coords.join(" ");
+//   // let coords2 = data.x.map((d, i) => (d.toString() + "," + data.noisyY[i].toString())).join(" ");
+// //   console.log(coordsString);
+//   return <polyline sx={{stroke: "tagBackground"}} points={coordsString} fill="none" strokeWidth="1" className="othersquiggle" opacity={1} />
+// }
+
+// smooothed noise
+const makePrimaryLine = (y) => {
   let coords = data.x.map((d, i) => (d.toString() + "," + y[i].toString()));
   let coordsString = coords.join(" ");
   // let coords2 = data.x.map((d, i) => (d.toString() + "," + data.noisyY[i].toString())).join(" ");
-  console.log(coordsString);
-  return <polyline sx={{stroke: "tagBackground"}} points={coordsString} fill="none" strokeWidth="1" className="othersquiggle" opacity={1} />
+//   console.log(coordsString);
+  return <polyline pathLength="100" sx={{stroke: "tagBackground"}} points={coordsString} fill="none" strokeWidth="8" className="primaryLine" opacity={0.8} />
 }
 
 // smooothed noise
-const makePolylineAnimated = (y) => {
-  let coords = data.x.map((d, i) => (d.toString() + "," + y[i].toString()));
-  let coordsString = coords.join(" ");
-  // let coords2 = data.x.map((d, i) => (d.toString() + "," + data.noisyY[i].toString())).join(" ");
-  console.log(coordsString);
-  return <polyline sx={{stroke: "heading"}} points={coordsString} fill="none" strokeWidth="5" className="squiggle" opacity={0.7} />
-}
+const makeSecondaryLine = (y) => {
+    let coords = data.x.map((d, i) => (d.toString() + "," + y[i].toString()));
+    let coordsString = coords.join(" ");
+    // let coords2 = data.x.map((d, i) => (d.toString() + "," + data.noisyY[i].toString())).join(" ");
+  //   console.log(coordsString);
+    return <polyline pathLength="100" sx={{stroke: "heading"}} points={coordsString} fill="none" strokeWidth="8" className="secondaryLine" opacity={0.8} />
+  }
 
-// second noisiest
-const makePolylineAnimated2 = (y) => {
-  let coords = data.x.map((d, i) => (d.toString() + "," + y[i].toString()));
-  let coordsString = coords.join(" ");
-  // let coords2 = data.x.map((d, i) => (d.toString() + "," + data.noisyY[i].toString())).join(" ");
-  console.log(coordsString);
-  return <polyline sx={{stroke: "heading"}} points={coordsString} fill="none" strokeWidth="1.5" className="othersquiggle2" opacity={0.9} />
-}
+// // second noisiest
+// const makePolylineAnimated2 = (y) => {
+//   let coords = data.x.map((d, i) => (d.toString() + "," + y[i].toString()));
+//   let coordsString = coords.join(" ");
+//   // let coords2 = data.x.map((d, i) => (d.toString() + "," + data.noisyY[i].toString())).join(" ");
+// //   console.log(coordsString);
+//   return <polyline sx={{stroke: "heading"}} points={coordsString} fill="none" strokeWidth="1.5" className="primaryLine" opacity={0.8} />
+// }
 
 const makeSVGComponent = () => {
-  let data = generateSignalData(700);
+  let data = generateSignalData(700, 0, 1.1);
   return (
     <svg viewBox={ "0 0 " + WIDTH.toString() + " " + HEIGHT.toString() }>
-        { makePolyline(data.noisyY) }
-        { makePolylineAnimated2(data.smoothedY) }
-        { makePolylineAnimated(data.y) }
+        {/* { makePolyline(data.noisyY) } */}
+        {/* { makePolylineAnimated2(data.smoothedY) } */}
+        { makePrimaryLine(data.y) }
+        { makeSecondaryLine(data.yPrime) }
     </svg>
   )
 }
@@ -490,7 +506,7 @@ const Viz = () => {
   // }, 2000);
 
   return (
-    <Box width={["100vw", "80vw", "60vw"]} mx={[0, 2, 5]} px={2} paddingBottom={2} onClick={handleClick} flex={1}>
+    <Box mx={[0, 3, 5]} px={2} paddingBottom={2} onClick={handleClick} flex={1} alignSelf="center">
       { showAnimation ? data : <div></div> }
       {/* <svg viewBox={ "0 0 " + WIDTH.toString() + " " + HEIGHT.toString() }>
         { makePolyline(data.noisyY) }

@@ -22,7 +22,7 @@ const theme = merge(tailwind, {
         primary: tailwind.colors.purple[5],
         secondary: tailwind.colors.white,
         toggleIcon: tailwind.colors.white,
-        background: `#271729`,
+        background: `#221524`,
         backgroundLight: `#503254`,
         // heading: `#ffc6c4`,
         heading: `#fcbbbb`,
@@ -232,6 +232,12 @@ const theme = merge(tailwind, {
     listItem: {
       fontSize: [1, 2, 3],
       color: `text`,
+    },
+  },
+  buttons: {
+    primary: {
+      color: 'background',
+      bg: 'heading',
     },
   },
 });

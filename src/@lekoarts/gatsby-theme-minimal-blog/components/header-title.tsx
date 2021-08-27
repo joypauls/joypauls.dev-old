@@ -11,7 +11,7 @@ const HeaderTitle = () => {
 
   return (
     <Link
-      to={replaceSlashes(`/${basePath}`)}
+      // to={replaceSlashes(`/${basePath}`)}
       aria-label={`${siteTitle} - Back to home`}
       sx={{ color: `heading`, textDecoration: `none` }}
     >
@@ -19,7 +19,7 @@ const HeaderTitle = () => {
         my: 0, 
         fontWeight: `bold`, 
         fontSize: [3, 4], 
-        // fontFamily: `IBM Plex Mono`,
+        fontFamily: `Lato`,
         // fontStyle: `italic`, 
       }}>
         {siteTitle}

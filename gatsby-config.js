@@ -60,7 +60,7 @@ module.exports = {
           },
         ],
         mdx: false,
-        formatString: `MM/DD/YYYY`,
+        formatString: `MMMM DD, YYYY`,
         postsPath: `src/posts`,
         pagesPath: `src/pages`,
       },

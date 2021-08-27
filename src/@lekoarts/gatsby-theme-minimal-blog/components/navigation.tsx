@@ -21,6 +21,7 @@ const Navigation = ({ nav }: NavigationProps) => {
         <nav sx={{ 
             "a:not(:last-of-type)": { mr: 3 }, 
             fontSize: [1, `18px`], 
+            fontFamily: `Lato`,
             ".active": { 
                 color: `heading`,
             },
@@ -29,6 +30,7 @@ const Navigation = ({ nav }: NavigationProps) => {
             <TLink key={item.slug} as={Link} activeClassName="active" to={replaceSlashes(`/${basePath}/${item.slug}`)} sx={{
                 ":hover": {
                     color: `#FFF`,
+                    fontWeight: `bold`
                     // textDecoration: `underline`,
                     // backgroundColor: `heading`,
                 },

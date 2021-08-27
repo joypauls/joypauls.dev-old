@@ -65,6 +65,8 @@ const Post = ({ data: { post } }: PostProps) => (
     <section
       sx={{
         my: 5,
+        ml: 4, 
+        mr: 4,
         ".gatsby-resp-image-wrapper": { my: [4, 4, 5], boxShadow: shadow.join(`, `) },
         variant: `layout.content`,
         ".footnotes>ol>li": { fontSize: "1rem" },

@@ -16,13 +16,17 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@emotion/react": "^11.4.1",
     "@fontsource/ibm-plex-mono": "^4.2.1",
     "@fontsource/ibm-plex-sans": "^4.2.1",
     "@fontsource/ibm-plex-sans-condensed": "^4.2.1",
+    "@fontsource/lato": "^4.5.0",
     "@fontsource/mulish": "^4.5.1",
     "@lekoarts/gatsby-theme-minimal-blog": "^2.7.3",
     "babel-jest": "^26.6.3",
     "babel-preset-gatsby": "^0.11.0",
+    "d3": "^7.0.1",
+    "font-awesome": "^4.7.0",
     "fontsource-ibm-plex-sans": "^4.0.0",
     "fontsource-ibm-plex-sans-condensed": "^4.0.0",
     "gatsby": "^2.25.3",

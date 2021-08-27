@@ -1,8 +1,8 @@
 ---
 title: Online Algorithms for the Sample Mean and Variance
+description: Some simple variants of the basic summary statistic calculations
 date: 2021-02-07
 tags:
-  - Statistics
   - Algorithms
   - Python
 ---
@@ -11,7 +11,7 @@ To me it's kind of like viewing a building from multiple perspectives and gettin
 
 ### Mean
 
-#### Plain Old Mean Formula
+#### Unseasoned Mean Formula
 
 Given a sequence of $$n$$ real numbers $$x=\{x_{1}, x_{2}, ..., x_{n}\}$$, we define the arithmetic mean as:
 
@@ -36,11 +36,29 @@ $$
 \text{new mean} = \text{current mean} + \frac{1}{\text{\# of observations}}(\text{new observation} - \text{current mean})
 $$
 
-One way to think about this formula is that it is directly answering the question *how much will a new value influence the current average?*, and the answer is the right-hand side expression!
+One way to think about this formula is that it is directly answering the question *how much will a new value 
+influence the current average?*, and the answer is the right-hand side expression! Personally, I like to think 
+of the right-hand expression as a correction term; there is some mythical true (population) mean out there, and 
+as we get more data, we are getting supposedly getting better and better estimates of that true value. So when 
+presented with a new data point, we need to correct our current estimate using the new data point and now we know 
+exactly how to do that.
+
+Taking a look at the form of that last expression written out in words, it is actually just a really general concept.
+Of course here we were specifically interested in the sample mean, but there are a lot of algorithms that work in the 
+same way.
+
+1. Come up with estimate
+2. Get new data
+3. Update estimate given new data
+
+And for the most part, the trick is in determining how to perform that update. In some ML contexts, we see this 
+pop up when talking about *learning rates*. Typically it is a parameter we try to set so that we do a good job 
+converging to the optimal value of whatever quantity we are estimating.
+
 
 ### Variance
 
-#### Plain Old Variance Formula
+#### Unseasoned Variance Formula
 
 
 #### Online Variance Formula (Welford's Algorithm)

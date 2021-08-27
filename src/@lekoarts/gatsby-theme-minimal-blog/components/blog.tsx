@@ -8,6 +8,8 @@ import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/
 import replaceSlashes from "@lekoarts/gatsby-theme-minimal-blog/src/utils/replaceSlashes";
 import SEO from "@lekoarts/gatsby-theme-minimal-blog/src/components/seo";
 
+import SignalAnimation from "../../../components/signal-animation";
+
 
 type PostsProps = {
   posts: {
@@ -29,11 +31,13 @@ const Blog = ({ posts }: PostsProps) => {
   const { tagsPath, basePath } = useMinimalBlogConfig();
 
   return (
+    <div sx={{flex: 1}}>
     <Layout>
       <SEO title="Blog" />
-      <Flex sx={{ alignItems: `center`, justifyContent: `space-between`, flexFlow: `wrap` }}>
+      <SignalAnimation />
+      {/* <Flex sx={{ alignItems: `center`, justifyContent: `space-between`, flexFlow: `wrap` }}>
         <Heading as="h1" variant="styles.h1" sx={{ marginY: 2 }}>
-          Recent Posts
+          All Posts
         </Heading>
         <TLink
           as={Link}
@@ -43,8 +47,9 @@ const Blog = ({ posts }: PostsProps) => {
           All Tags
         </TLink>
       </Flex>
-      <Listing posts={posts} sx={{ mt: [4, 5] }} />
+      <Listing posts={posts} sx={{ mt: [4, 5], ml: [0, 0, 4]}} /> */}
     </Layout>
+    </div>
   );
 }
 

@@ -1,24 +1,12 @@
-.squiggle {
-    stroke-dasharray: 700;
-    stroke-dashoffset: 700;
-    animation: draw 2s linear forwards;
-}
-  
-.othersquiggle {
-    stroke-dasharray: 30000;
-    stroke-dashoffset: 30000;
-    animation: draw 2s linear forwards;
-}
-
 .secondaryLine {
     stroke-dasharray: 100;
     /* stroke-dashoffset: 0; */
-    animation: draw2 2s linear forwards;
+    animation: draw2 1.5s linear forwards;
 }
 
 .primaryLine {
     stroke-dasharray: 100;
-    animation: draw 2s linear forwards;
+    animation: draw 1.5s linear forwards;
 }
 
 @keyframes draw {

@@ -32,9 +32,9 @@ const Blog = ({ posts }: PostsProps) => {
 
   return (
     <Layout>
-      <SEO title="Blog" />
-      <SignalAnimation />
-      {/* <Flex sx={{ alignItems: `center`, justifyContent: `space-between`, flexFlow: `wrap` }}>
+      <SEO title="Writing" />
+      {/* <SignalAnimation /> */}
+      <Flex sx={{ alignItems: `center`, justifyContent: `space-between`, flexFlow: `wrap` }}>
         <Heading as="h1" variant="styles.h1" sx={{ marginY: 2 }}>
           All Posts
         </Heading>
@@ -46,7 +46,7 @@ const Blog = ({ posts }: PostsProps) => {
           All Tags
         </TLink>
       </Flex>
-      <Listing posts={posts} sx={{ mt: [4, 5], ml: [0, 0, 4]}} /> */}
+      <Listing posts={posts} sx={{ mt: [4, 5], ml: [0, 0, 4]}} />
     </Layout>
   );
 }

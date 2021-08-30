@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { jsx, Flex, Heading} from "theme-ui";
 import { Link } from "gatsby";
 import Layout from "@lekoarts/gatsby-theme-minimal-blog/src/components/layout";
 import Title from "@lekoarts/gatsby-theme-minimal-blog/src/components/title";
@@ -40,36 +40,24 @@ const Homepage = ({ posts }: PostsProps) => {
   const { siteTitle } = useSiteMetadata();
 
   return (
-    <Layout>
-      <SEO title="Blog" />
-      <SignalAnimation />
-      {/* <Flex sx={{ alignItems: `center`, justifyContent: `space-between`, flexFlow: `wrap` }}>
-        <Heading as="h1" variant="styles.h1" sx={{ marginY: 2 }}>
-          All Posts
-        </Heading>
-        <TLink
-          as={Link}
-          sx={{ variant: `links.secondary`, marginY: 2 }}
-          to={replaceSlashes(`/${basePath}/${tagsPath}`)}
-        >
-          All Tags
-        </TLink>
-      </Flex>
-      <Listing posts={posts} sx={{ mt: [4, 5], ml: [0, 0, 4]}} /> */}
-    </Layout>
     // <Layout>
-    //   <h1 sx={visuallyHidden}>{siteTitle}</h1>
-    //   <section sx={{ mb: [5, 6, 7], p: { fontSize: [1, 2, 3], mt: 2 }, variant: `section_hero` }}>
-    //     <Hero />
-    //   </section>
-    //   <Title text="Latest Posts">
-    //     <Link to={replaceSlashes(`/${basePath}/${blogPath}`)}>Read all posts</Link>
-    //   </Title>
-    //   <Listing posts={posts} showTags={false} />
-    //   <List sx={{ variant: `section_bottom` }}>
-    //     <Bottom />
-    //   </List>
+    //   <SEO title="Blog" />
+    //   <SignalAnimation />
     // </Layout>
+    <Layout>
+      <h1 sx={visuallyHidden}>{siteTitle}</h1>
+      <SignalAnimation />
+      <section sx={{ my: [3, 4, 5], p: { fontSize: [1, 2, 3], mt: 2 }, variant: `section_hero` }}>
+        <Hero />
+      </section>
+      <Title text="Latest Posts">
+        <Link to={replaceSlashes(`/${basePath}/${blogPath}`)}>Read all posts</Link>
+      </Title>
+      <Listing posts={posts} showTags={false} />
+      {/* <List sx={{ variant: `section_bottom` }}>
+        <Bottom />
+      </List> */}
+    </Layout>
   );
 }
 

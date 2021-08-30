@@ -45,11 +45,11 @@ const ContactForm = () => {
           resetForm();
         })
         .catch(error => alert(error));
-      e.preventDefault();
       // alert(`Name: ${name}\nEmail: ${email}\nComment: ${comment}\n\nNot implemented oops!\nSee why here https://youtu.be/dQw4w9WgXcQ`);
     } else {
-      // alert("That doesn't look like a valid email");
+      alert("That doesn't look like a valid email");
     }
+    e.preventDefault();
   }
 
   return(

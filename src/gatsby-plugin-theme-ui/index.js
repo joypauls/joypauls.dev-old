@@ -12,7 +12,7 @@ const theme = merge(tailwind, {
     toggleIcon: tailwind.colors.black,
     background: `#f6f5f7`,
     backgroundLight: `#503254`,
-    heading: `#823d70`,
+    heading: `#945383`,
     divide: tailwind.colors.gray[4],
     tagText: tailwind.colors.gray[1],
     tagBackground: `#a9d1bb`,

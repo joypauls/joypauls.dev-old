@@ -34,7 +34,7 @@ import './signal-animation.css';
 const WIDTH = 600;
 const WIDTH_PAD = 5;
 const INNER_WIDTH = WIDTH - (2 * WIDTH_PAD);
-const HEIGHT = 120;
+const HEIGHT = 100;
 const HEIGHT_PAD = 10;
 const INNER_HEIGHT = HEIGHT - (2 * HEIGHT_PAD);
 
@@ -445,7 +445,7 @@ const makePrimaryLine = (y) => {
   let coordsString = coords.join(" ");
   // let coords2 = data.x.map((d, i) => (d.toString() + "," + data.noisyY[i].toString())).join(" ");
 //   console.log(coordsString);
-  return <polyline pathLength="100" sx={{stroke: "tagBackground"}} points={coordsString} fill="none" strokeWidth="8" className="primaryLine" opacity={0.8} />
+  return <polyline sx={{stroke: "tagBackground", strokeLinecap: "round"}} pathLength="100" points={coordsString} fill="none" strokeWidth="8" className="primaryLine" opacity={0.8} />
 }
 
 // smooothed noise
@@ -454,7 +454,7 @@ const makeSecondaryLine = (y) => {
     let coordsString = coords.join(" ");
     // let coords2 = data.x.map((d, i) => (d.toString() + "," + data.noisyY[i].toString())).join(" ");
   //   console.log(coordsString);
-    return <polyline pathLength="100" sx={{stroke: "heading"}} points={coordsString} fill="none" strokeWidth="8" className="secondaryLine" opacity={0.8} />
+    return <polyline sx={{stroke: "heading", strokeLinecap: "round"}} pathLength="100" points={coordsString} fill="none" strokeWidth="9" className="secondaryLine" opacity={0.8} />
   }
 
 // // second noisiest
@@ -520,9 +520,7 @@ const SignalAnimation = () => {
 
   return (
     <Flex sx={{justifyContent: "center", flexDirection: "column",flex: 1}}>
-
-    <Viz />
-    
+      <Viz/>
     </Flex>
   );
 }

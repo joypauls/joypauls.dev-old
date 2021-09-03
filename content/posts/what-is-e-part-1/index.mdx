@@ -1,0 +1,201 @@
+---
+title: What is e? (Chapter 1)
+description: The number e, also called Euler's Number, comes up everywhere. With some investigation we can learn why!
+date: 2021-01-01
+tags: 
+  - Math
+---
+
+> *The exponential function ... is the instrument used, in one form or another, to describe the behavior of growing things.*[^1]
+
+## Before We Dive In
+
+$$
+e = 2.71828...
+$$
+
+**Euler's Number**, the number $$e$$, appears almost everywhere in mathematics and I mean that literally! 
+We are taught to just accept $$e$$ as one of those weird special numbers living in the same plane of 
+existence as $$\pi$$. Like $$\pi$$, $$e$$ is a **transcendental number**, meaning that it is not algebraic. 
+Now that actually isn't really all that special - the set of transcendental numbers numbers is 
+uncountably infinite whereas the set of algebraic numbers is countable, so there are actually more 
+transcendental numbers than not[^1]! 
+
+So why does $$e$$ get all this special treatment? Why is it everywhere? By the end of this series we will 
+see fascinating lines drawn from differential calculus to complex analysis to combinatorics, and even our 
+second favorite transcendental number, $$\pi$$, will make an appearance! All these connections courtesy of $$e$$.
+
+To begin to understand what makes it special, humor me and try to forget everything you know about Euler's number.
+
+## Exponential Growth From Scratch
+
+Let's start by considering the simplest family of functions with parameter $$a$$ that grow exponentially with 
+respect to time $$t$$,
+
+$$
+f(t) = a^t
+$$
+
+where $$a \in \mathbb{R}^+$$ just to make it easy on us. You may find it difficult to just automatically 
+envision what happens here, but this is a case where a picture make it crystal clear. Let's look at a 
+plot showing $$f$$ for a few different values of $$a$$ to build some inuition:
+
+PLOT HERE
+
+We can group the dynamics of this family into 3 categories:
+
+- When $$0<a<1$$, we have **exponential decay**
+- When $$a=1$$, $$f$$ is constant
+- When $$a>1$$, we have **exponential growth**
+
+### Important Principle: $$f^{\prime}(t) \propto f(t)$$
+
+If we inspect the plot closer, it looks pretty clear that while our inital value $$f(0)$$ is always $$1$$, 
+the derivative at $$0$$, $$f^{\prime}(0)$$, varies wildly. How does this impact the dynamics of $$f$$?
+
+$$
+\begin{aligned} 
+f^{\prime}(t) &= \frac{d}{dt} a^t \\
+&= \lim_{h \to 0} \frac{a^{t + h} - a^{t}}{h} \\
+&= \lim_{h \to 0} \frac{a^t (a^{h} - 1)}{h} \\
+&= a^t \lim_{h \to 0} \frac{a^{h} - 1}{h} \\
+&= f^{\prime}(0) a^t 
+\end{aligned}
+$$
+
+
+I think it's worth stopping here for a second because this really is a special property of exponential growth. 
+What this tells us is that to know the dervative at any point in time $$t_i$$, all we need to know is $$f(t_i)$$ and 
+$$f^{\prime}(0)$$. **Its rate of change is proportional to itself**. If we let $$k = f^{\prime}(0)$$, 
+we can express that in notation,
+
+$$
+f^{\prime}(t) = k a^t \implies f^{\prime}(t) \propto f(t)
+$$ 
+
+where $$k$$ is a unique constant given the choice of parameter $$a$$.
+
+Another way that puts this concept in perspective is looking at this expression after solving for $$a$$:
+
+$$
+f'(1) = f'(0)a^{1} \implies a = \frac{f'(1)}{f'(0)}
+$$
+
+So the parameter $$a$$, that we choose up front, describes how quickly the rate of growth moves from 
+its starting level to the level at time 1. In other words, $$k$$ is the initial shove the system gets, 
+the rate of change at the start; if 
+the shove is too small then the system shrinks down. But if it's strong enough, it will grow! The 
+consequence of that shove is $$a$$, which dictates the growth of the system from there on out since 
+the rate of growth is proportional to itself.
+
+
+### Where the Magic Happens: $$k=1$$
+
+Now that we know how critical the initial shock $$k$$ is to understanding the dynamics if $$f$$, 
+what else can we learn? Let's use a time tested strategy - plug in an easy value and see what 
+happens! If we give $$f$$ the inital shock of $$k=1$$, what is the corresponding $$a$$ needed to 
+write out the expression for $$f(t)$$? Remembering the last question this is the same as asking 
+what the consequence of an initial shock $$1$$ is.
+
+Well, without doing any math, we can already see this relationship is pretty cool: 
+
+$$
+f^{\prime}(t) = f(t)
+$$
+
+When the initial shock to $$f$$ is $$1$$, the rate of change is **exactly the same as $$f$$ itself**. 
+Try to wrack your brain to think of other example of this - you'll find none! I don't think it is too 
+ridiculous to say that this is like looking at the archetype of growth. If that's true, we need to meet 
+this special $$f$$ face to face so we can thank her. To do that we need to find $$a$$.
+
+Let $$k=1$$:
+
+$$
+f^{\prime}(t) = 1 a^t
+$$
+
+So then at time $$t=0$$, using the limit definition of the derivative,
+
+$$
+\begin{aligned} 
+f^{\prime}(0) = a^{0} &\implies \lim_{h \to 0} \frac{a^{0+h} - a^{0}}{h} = a^{0} \\
+&\implies \lim_{h \to 0} \frac{a^{h} - 1}{h} = 1
+\end{aligned} 
+$$
+
+and as $$h$$ gets smaller and smaller, and finally approaches 0, we have
+
+$$
+a^h - 1 = h \implies a = (h+1)^{\frac{1}{h}}
+$$
+
+so that $$a = \lim_{h \to 0} (h+1)^{\frac{1}{h}}$$. Hold on, this is the "archetype of growth", 
+we can't sit idly by while $$a$$ remains as a limit...
+let's at least give it an approximation! Plugging in a really small $$h$$:
+
+$$
+\begin{aligned}
+a &\approx (1 + 0.000001)^{\frac{1}{0.000001}} \\
+&\approx 2.71828... \\
+&\approx e
+\end{aligned}
+$$
+
+That looks familiar! Indeed, once others knew that this special value of $$a$$ was important, a name had to be 
+given to it. Now our first definition of Euler's number is revealed:
+
+$$
+e = \lim_{h \to 0} (h+1)^{\frac{1}{h}}
+$$
+
+
+### A Quick Look at the Convergence Characteristsics
+
+## So Why is $$e^t$$ Everywhere?
+
+We know have the necessary intuition to understand one of the reasons why the function $$e^{t}$$ is so important early 
+on in learning calculus: *it is the most useful prototype model for exponential growth*. Using the base $$e$$ lets 
+us take advantage of it's properties even when extending the model to a more useful form, $$e^{rt}$$ where 
+$$r \in \mathbb{R}$$. Here's why. 
+
+### Example
+
+Suppose we are told that a real-world growth process can be modelled as $$3^{0.7t}$$. We could work with the 
+derivative of this function by finding $$k$$ with the limit definition like we did earlier, but that's no 
+fun... we can do better! Let's write this with base $$e$$[^3]:
+
+$$
+\begin{aligned}
+3^{0.7t} = e^{rt} &\implies (3^{0.7})^{t} = (e^r)^t  \\
+&\implies r = \ln 3^{0.7} \approx 0.769
+\end{aligned}
+$$
+
+so we can model the process as $$e^{0.769t}$$ (or with a more precise approximation of $$r$$) and still take 
+advantage of all the nifty differentiation properties! Given that
+
+$$
+\frac{d}{dt}e^{rt} = re^{rt}
+$$
+
+We already know that the function $$0.769e^{0.769t}$$ tells us how this function grows.
+
+So in short $$e$$ is used because we can.
+
+## Before Part 2
+
+Even if you are someone who has known the rule $$\frac{d}{dt} e^t = e^t$$ for a long time and used it over 
+in calc courses, I still think it is useful to see why this is actually the case; it is simply the 
+nature exponential growth. 
+
+However, at this point feel somewhat unsatisfied, don't you? Sure, we now have a way to calculate $$e$$ to a 
+very high number of decimal places, but a limit definition like $$e = \lim_{h \to 0} (h+1)^{\frac{1}{h}}$$ is 
+rather uninteresting. It surely doesn't deliver on my initial promise! So let's dig deeper in **Part 2**. 
+
+
+<br/>
+
+[^1]: Edward Kasner, James R. Newman, Mathematics and the Imagination (1940)
+[^2]: should probably site this?
+[^3]: much of these results apply to the more general model $$C a^{rt}$$ as well
+[^4]: we could actually use any positive real number base for this, it is not a special property of $$e$$

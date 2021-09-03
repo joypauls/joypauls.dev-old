@@ -13,7 +13,7 @@ type TagsProps = {
 
 const tagStyle = {
   backgroundColor: "tagBackground",
-  borderRadius: "15px",
+  borderRadius: "10px",
   color: "tagText",
   paddingLeft: "7px",
   paddingRight: "7px",

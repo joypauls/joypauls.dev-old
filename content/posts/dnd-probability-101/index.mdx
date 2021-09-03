@@ -1,13 +1,19 @@
 ---
-title: D&D Probability 101 🎲
-description: An introduction to what a little probabiity theory can tell us about rolling dice in tabletop RPGs like Dungeons & Dragons!
+title: D&D Probability 101
+description: A survey of what a little probabiity theory can tell us about dice rolls in tabletop RPGs like Dungeons & Dragons!
 date: 2021-06-31
 tags:
   - Probability
   - Intro
 ---
 
-## Intuition
+## Key Lessons
+
+1. Single die roll
+2. Central Limit Theorem
+3. Simulation
+
+## Intuition 🎲
 
 *If you know some probabiity already, feel free to skip this introduction!*
 
@@ -22,39 +28,118 @@ $$
 $$
 
 Notice that the specific value we are looking for doesn't actually matter! Whether we do the calculation for 1 or 20, the 
-probability will still be $$\frac{1}{20}$$
+probability will still be $$\frac{1}{20}$$.
 
 
-## Rolling the Dice... Mathematically
+## Mathematically Rolling the Dice
 
-put stuff about pmf etc. here
-
+We just realized that a roll of a $$D_{20}$$ has a *uniform distribution* - that is, each outcome is equally probable.
 $$
 D_{20} = \text{a single roll of a 20-sided die}
 $$
 
-pmf
-
+So then the probabiity density function is simply:
 $$
 p(D_{20} = k) = \frac{1}{20} 
 $$
+where $k$ can be any of the 20 individual die face values ($k=1,2,...,20$).
 
-where $k=1,2,...,20$.
+The probability density functions tells us what we already knew by intuition:
+$$
+p(1) = p(20) = \frac{1}{20} 
+$$
 
 ### Expected Value
 
-So we now know that for any single d20 roll, all outcomes are equally probable. But what about after many rolls - what is the average roll we expect in a session?
-To answer this question we turn to the concept of expected value.
+Okay, now know that for any single roll, all outcomes are equally probable. 
+For any random variable, i.e. the $$D_{20}$$, it is defined as:
 
 $$
-E[X] = \sum^{n}_{k=1} k p(k)
+E(X) = \sum^{n}_{k=1} k p(k)
 $$
 
-Here is what it looks like for the d20
+Remember - here $$k$$ is any of the 20 sides of the die, so what this says is that 
+the expected value is the sum of all possibilities *weighted by how likely they are*.
+
+We can use this to find the expected value of our $$D_{20}$$:
 
 $$
-E[D_{20}] = \sum_{k=1}^{20} k p(k) = \sum_{k=1}^{20} k (\frac{1}{20}) = 1(\frac{1}{20}) + 2(\frac{1}{20}) + \cdots + 20(\frac{1}{20}) = 10.5
+\begin{aligned}
+E(D_{20}) &= \sum_{k=1}^{20} k p(k) \\
+&= \sum_{k=1}^{20} k (\frac{1}{20}) \\
+&= 1(\frac{1}{20}) + 2(\frac{1}{20}) + \cdots + 20(\frac{1}{20}) \\
+&= 10.5
+\end{aligned}
 $$
+
+So in our case it turns out to be a simple average of the numbers 1 through 20, but our probabiity density 
+function $$p$$ is really simple! This all is much more useful when $$p$$ is a complicated function.
+
+But what about many rolls? What is the *average* we expect in a session? After 1000 rolls? 1 million?
+First, we need to define our random variable. We defined $$D_{20}$$ as a single roll, so here's how 
+we could write out what we are interested in here:
+
+$$
+\overline{D}_{20,n} = \frac{1}{n} (D_{20,1} + D_{20,2} + \cdots + D_{20,n})
+$$
+
+This is the definition of a **sample average** - we take a random sample by rolling $$n$$ dice, add them up, 
+and divide by $$n$$. Now we have all the pieces to calculate what the long-term average of many, or even infinite, 
+dice rolls are - it is the expected value $$E(\overline{D}_{20,n})$$. Let's do it:
+
+$$
+\begin{aligned}
+E(Y) &= E[\frac{1}{n} (D_{20,1} + D_{20,2} + \cdots + D_{20,n})] \\
+&= \frac{1}{n}[E(D_{20,1} + D_{20,2} + \cdots + D_{20,n})] \\
+&= \frac{1}{n}[E(D_{20,1}) + E(D_{20,2}) + \cdots + E(D_{20,n})] \\
+&= \frac{1}{n}[10.5n] \\
+&= 10.5
+\end{aligned}
+$$
+
+Linearity of expectation.
+
+That's right, the average of many rolls is the same as the expected value of a single roll! This is true for 
+almost any random variable we see in real life.
+
+mean? mu?
+
+Does this mean that the average will always be 10.5? Not exactly. This is only true if we can do infinity rolls. 
+When we only are alive long enough to do a finite number of rolls, we need to think about variance.
+
+
+### Variance
+
+So if the expected value tells us something about infinitely many rolls, is it useless for real life? 
+No! We do however need to introduce the **variance** when dealing with the finite, beautifully messy world.
+
+$$
+\begin{aligned}
+\operatorname{Var}(X) &= E[X - E(X)]^{2} \\
+&= E(X^{2})-[E(X)]^{2}
+\end{aligned}
+$$
+
+#### Example
+
+Q: After 100 rolls what is the expected value of $$D_{20}$$?
+A: 10.5, the same! Remember, this is true for any number of rolls.
+
+Q: After 100 rolls what is the variance of $$D_{20}$$?
+A:
+
+
+
+
+
+## Simulation
+
+We can observe these concepts easily.
+
+## What Does a Lucky Dice Look Like? 
+
+
+## Central Limit Theorem
 
 
 

@@ -17,7 +17,7 @@ const HeaderTitle = () => {
     >
       <div sx={{ 
         my: 0, 
-        fontWeight: `bold`, 
+        // fontWeight: `bold`, 
         fontSize: [3, 4], 
         fontFamily: `Lato`,
         // fontStyle: `italic`, 

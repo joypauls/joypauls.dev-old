@@ -3,7 +3,7 @@ import { transparentize } from "@theme-ui/color";
 import { tailwind } from "@theme-ui/presets";
 
 const theme = merge(tailwind, {
-  initialColorModeName: `light`,
+  initialColorModeName: `dark`,
   useCustomProperties: true,
   colors: {
     text: tailwind.colors.black,
@@ -12,10 +12,14 @@ const theme = merge(tailwind, {
     toggleIcon: tailwind.colors.black,
     background: `#f6f5f7`,
     backgroundLight: `#503254`,
-    heading: `#945383`,
+    heading: `#5a35b8`,
     divide: tailwind.colors.gray[4],
     tagText: tailwind.colors.gray[1],
-    tagBackground: `#a9d1bb`,
+    // tagBackground: `#a9d1bb`,
+    tagBackground: `#65b897`,
+    graphicPrimary: `#5a35b8`,
+    graphicSecondary: `#65b897`,
+    primarySoft: `#ded7f7`,
     modes: {
       dark: {
         text: tailwind.colors.white,
@@ -30,6 +34,9 @@ const theme = merge(tailwind, {
         muted: tailwind.colors.gray[6],
         tagText: tailwind.colors.gray[1],
         tagBackground: `#876ccc`, // MAIN
+        graphicPrimary: `#fcbbbb`,
+        graphicSecondary: `#876ccc`,
+        primarySoft: `#58425c`,
       },
     },
   },
@@ -60,20 +67,20 @@ const theme = merge(tailwind, {
     },
     ul: {
       li: {
-        fontSize: [1, 1, 2],
-        letterSpacing: `-0.003em`,
+        fontSize: [1, 2, 3],
+        // letterSpacing: `-0.003em`,
         lineHeight: `body`,
-        "--baseline-multiplier": 0.179,
-        "--x-height-multiplier": 0.35,
+        // "--baseline-multiplier": 0.179,
+        // "--x-height-multiplier": 0.35,
       },
     },
     ol: {
       li: {
-        fontSize: [1, 1, 2],
-        letterSpacing: `-0.003em`,
+        fontSize: [1, 2, 3],
+        // letterSpacing: `-0.003em`,
         lineHeight: `body`,
-        "--baseline-multiplier": 0.179,
-        "--x-height-multiplier": 0.35,
+        // "--baseline-multiplier": 0.179,
+        // "--x-height-multiplier": 0.35,
       },
     },
     h1: {
@@ -112,19 +119,18 @@ const theme = merge(tailwind, {
       mb: 2,
     },
     blockquote: {
-      borderLeftColor: `#b68ee6`,
+      borderLeftColor: `heading`,
       borderLeftStyle: `solid`,
       borderLeftWidth: `0.7rem`,
-      backgroundColor: `#503254`,
+      backgroundColor: `primarySoft`,
       mx: [0, 4, 5],
-      pl: 4,
+      my: [1, 3, 4],
+      pl: [2, 2, 4],
+      pr: [2, 2, 4],
       pt: 1,
       pb: 1,
       fontWeight: `light`,
-      color: `#fcf7ff`
-      // p: {
-      //   fontStyle: `italic`,
-      // },
+      color: `text`,
     },
     footnotes: {
       fontSize: 3,
@@ -153,7 +159,9 @@ const theme = merge(tailwind, {
       borderBottomWidth: `1px`,
     },
     hr: {
-      backgroundColor: `divide`,
+      borderTopStyle: `solid`,
+      borderTopWidth: `3px`,
+      borderTopColor: `tagBackground`,
       mx: 0,
     },
   },
@@ -169,7 +177,7 @@ const theme = merge(tailwind, {
   text: {
     heading: {
       fontFamily: `heading`,
-      fontWeight: `heading`,
+      fontWeight: `bold`,
       lineHeight: `heading`,
       color: `heading`,
     },
@@ -206,13 +214,13 @@ const theme = merge(tailwind, {
   dividers: {
     bottom: {
       borderBottomStyle: `solid`,
-      borderBottomWidth: `3x`,
+      borderBottomWidth: `4px`,
       borderBottomColor: `tagBackground`,
       pb: 3,
     },
     top: {
       borderTopStyle: `solid`,
-      borderTopWidth: `3px`,
+      borderTopWidth: `4px`,
       borderTopColor: `tagBackground`,
       pt: 3,
     },

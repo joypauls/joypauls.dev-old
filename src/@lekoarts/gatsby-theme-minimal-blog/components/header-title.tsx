@@ -15,16 +15,17 @@ const HeaderTitle = () => {
       aria-label={`${siteTitle} - Back to home`}
       sx={{ color: `heading`, textDecoration: `none` }}
     >
-      <div sx={{ 
+      <div sx={{
         my: 0, 
-        // fontWeight: `bold`, 
-        fontSize: [3, 4], 
-        fontFamily: `Lato`,
+        fontWeight: `bold`,
+        fontSize: [2, 3, 3], 
+        // fontFamily: `Montserrat`,
+        // fontFamily: `Karma`,
         // fontStyle: `italic`, 
       }}>
         {siteTitle}
         {`  `}
-        {/* <span role="img" aria-label="hibiscus">🌺</span> */}
+        {/* <span role="img" aria-label="blossom">🌼</span> */}
       </div>
     </Link>
   );

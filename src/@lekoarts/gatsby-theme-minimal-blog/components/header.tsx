@@ -34,12 +34,12 @@ const Header = () => {
           color: `secondary`,
           a: { color: `secondary`, ":hover": { color: `heading` } },
           flexFlow: `wrap`,
-          // fontFamily: `IBM Plex Mono`,
+          // fontFamily: `Gabriela`,
         //   fontStyle: `italic`,
         }}
       >
         <Navigation nav={nav} />
-        <HeaderExternalLinks sx={{ fontFamily: `Lato` }} />
+        <HeaderExternalLinks />
       </div>
     </header>
   );

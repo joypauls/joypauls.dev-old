@@ -10,7 +10,7 @@ const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE;
 module.exports = {
   siteMetadata: {
     // Used for the title template on pages other than the index site
-    siteTitle: `joypauls.dev`,
+    siteTitle: `Form & Function`,
     // Default title of the page
     siteTitleAlt: `Blog`,
     // Can be used for e.g. JSONLD
@@ -141,7 +141,12 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1200,
+              maxWidth: 1000,
+              showCaptions: true,
+              backgroundColor: `none`,
+              quality: 100,
+              // wrapperStyle: `margin-left: 0 !important; margin-right: 0 !important`,
+              // markdownCaptions: true, // this doesn't work
             },
           },
         ],

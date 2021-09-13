@@ -191,7 +191,6 @@ const Viz = () => {
 }
 
 const SignalAnimation = () => {
-
   return (
     <Flex sx={{justifyContent: "center", flexDirection: "column",flex: 1}}>
       <Viz/>

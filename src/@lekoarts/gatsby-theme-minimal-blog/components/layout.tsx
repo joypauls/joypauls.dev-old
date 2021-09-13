@@ -35,8 +35,22 @@ const Layout = ({ children, className = `` }: LayoutProps) => (
         //   color: theme.colors.background,
         // },
         a: {
-          transition: `all 0.3s ease-in-out`,
+          // transition: `all 0.3s ease-in-out`,
           color: `text`,
+        },
+        ".gatsby-resp-image-wrapper": {
+          boxShadow: `none !important`,
+          marginTop: `2rem !important`,
+          marginBottom: `1rem !important`,
+        },
+        ".gatsby-resp-image-figure": {
+          marginLeft: `0 !important`,
+          marginRight: `0 !important`,
+        },
+        figcaption: {
+          textAlign: `center`,
+          fontSize: theme.fontSizes[1],
+          fontStyle: `italic`,
         },
       })}
     />

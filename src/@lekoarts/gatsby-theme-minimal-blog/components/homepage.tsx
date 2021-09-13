@@ -47,13 +47,13 @@ const Homepage = ({ posts }: PostsProps) => {
     <Layout>
       <h1 sx={visuallyHidden}>{siteTitle}</h1>
       <SignalAnimation />
-      <section sx={{ my: [3, 4, 5], p: { fontSize: [1, 2, 3], mt: 2 }, variant: `section_hero` }}>
+      <section sx={{ my: [3, 4, 5], p: { fontSize: [1, 2, 3], mt: 2 } }}>
         <Hero />
       </section>
-      <Title text="Latest Posts">
-        <Link to={replaceSlashes(`/${basePath}/${blogPath}`)}>Read all posts</Link>
+      <Title text="Latest Writing">
+        <Link to={replaceSlashes(`/${basePath}/${blogPath}`)}>View All</Link>
       </Title>
-      <Listing posts={posts} showTags={false} />
+      <Listing posts={posts} showTags={true} />
       {/* <List sx={{ variant: `section_bottom` }}>
         <Bottom />
       </List> */}

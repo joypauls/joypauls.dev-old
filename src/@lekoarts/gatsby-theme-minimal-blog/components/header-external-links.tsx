@@ -12,7 +12,7 @@ const HeaderExternalLinks = () => {
   return (
     <React.Fragment>
       {externalLinks && externalLinks.length > 0 && (
-        <div sx={{ "a:not(:first-of-type)": { ml: 3 }, fontSize: [3, `24px`], fontFamily: `Lato` }}>
+        <div sx={{ "a:not(:first-of-type)": { ml: 3 }, fontSize: [3, `24px`] }}>
           {externalLinks.map((link) => {
             let l = replaceLinkName(link.name);
             return (

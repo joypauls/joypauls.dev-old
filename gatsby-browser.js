@@ -5,3 +5,6 @@ import "katex/dist/katex.min.css";
 import "@fontsource/mulish";
 import "@fontsource/lato";
 import "@fontsource/ubuntu-mono";
+import "@fontsource/montserrat";
+// import "@fontsource/karma";
+// import "@fontsource/dosis";

@@ -13,12 +13,21 @@ type TagsProps = {
 
 const tagStyle = {
   backgroundColor: "tagBackground",
-  borderRadius: "10px",
+  // border: "2px solid",
+  borderColor: "tagBackground",
+  borderRadius: "15px",
   color: "tagText",
-  paddingLeft: "7px",
-  paddingRight: "7px",
+  paddingLeft: "10px",
+  paddingRight: "10px",
   textDecoration: "none",
-  ":hover": { textDecoration: "none", },
+  ":hover": { 
+    textDecoration: "none", 
+    border: "1px solid",
+    borderColor: "tagBackground",
+    backgroundColor: "transparent",
+    // color: "tagText",
+    color: "tagBackground",
+  },
   // fontWeight: "lighter",
 }
 

@@ -1,5 +1,5 @@
 ---
-title: Online Algorithms for the Sample Mean and Variance
+title: Online Algorithms with the Sample Mean and Variance
 description: Some simple variants of the basic summary statistic calculations
 date: 2021-02-07
 tags:
@@ -7,21 +7,62 @@ tags:
   - Python
 ---
 
+- could use class to maintain data
+
+
 To me it's kind of like viewing a building from multiple perspectives and getting a much deeper sense of how it occupies the space.
 
-### Mean
+## Online vs. Offline Algorithms
 
-#### Unseasoned Mean Formula
+
+## Sample Mean
+
+### Typical (Offline) Formula
 
 Given a sequence of $$n$$ real numbers $$x=\{x_{1}, x_{2}, ..., x_{n}\}$$, we define the arithmetic mean as:
 
 $$
-\overline{x} = \frac{1}{n} \sum^{n}_{i=1}x_{i}
+\overline{x} = \frac{1}{n} \sum^{n}_{i=1}x_{i} \tag{1}
 $$
 
-#### Online Mean Formula
+Something that is often taken for granted here is that we have to have access to the entire sequence in order to 
+calculate $$\overline{x}$$ this way. Sometimes it doesn't matter, but with huge samples and applications where 
+we deal with streaming data rather than batches of data, storing every sample is not realistic. To make matters 
+worse, if we calculate $$\overline{x}$$ with $$n$$ elements, what do we do when we get $$x_{n+1}$$? To update 
+the value of $$\overline{x}$$, we would have to add up all $$n+1$$ elements again. 
 
-To write this method out, we'll use a *recursive* formula. Let's define $$\overline{x}_{k}$$ as the mean of the first $$k$$ elements of the sequence $$x$$, where $$1 < k \leq n$$. Then:
+We can do better!
+
+### Online Algorithm
+
+#### Incremental Updates
+
+What happens when we add a new data point?
+
+Let's look at the sequence $$x$$ again. We know that the mean for the $$n$$ elements thanks to equation (1) 
+which we'll call $$\overline{x}_{n}$$. Now what happens when we get a new element $$n+1$$? We can easily 
+recalculate the entire mean:
+
+$$
+\overline{x}_{n+1} = \frac{1}{n+1} \sum^{n+1}_{i=1}x_{i}
+$$
+
+But doesn't this seem wasteful? I mean, we already iterated through the first $$n$$ elements, does adding a new 
+observation really require us to process everything again? Let's see how adding a new observation influenced 
+the previously calculated $$\overline{x}_{n}$$.
+
+$$
+\begin{aligned}
+\overline{x}_{n+1} = \frac{1}{n+1} \sum^{n+1}_{i=1}x_{i}
+\end{aligned}
+$$
+
+
+
+#### Formalize
+
+To write this method out, we'll use a *recursive* formula. Let's define $$\overline{x}_{k}$$ as the mean of 
+the first $$k$$ elements of the sequence $$x$$, where $$1 < k \leq n$$. Then:
 
 $$
 \begin{aligned}
@@ -55,15 +96,86 @@ And for the most part, the trick is in determining how to perform that update. I
 pop up when talking about *learning rates*. Typically it is a parameter we try to set so that we do a good job 
 converging to the optimal value of whatever quantity we are estimating.
 
+### Code
 
-### Variance
+First things first, here's some environment details for reproducibility:
 
-#### Unseasoned Variance Formula
+```python:title=Version&nbsp;Check
+import sys
+import numpy as np
+print("Python Version {}".format(sys.version.split(" ")[0]))
+print("Numpy Version {}".format(np.__version__))
+```
+```:title=Output noLineNumbers
+Python Version 3.9.1
+Numpy Version 1.21.2
+```
+
+Now let's build an object that can simulate the stream processing of data to prove to ourselves we can do it. 
+This will not be intended to be particularly efficient, just to test the calculations we've done.
+
+```python:title=Online&nbsp;Mean
+class OnlineMean():
+    def __init__(self):
+        self.mean = 0.0
+        self.k = 0
+    def update(self, x: float):
+        self.mean = self.mean + (1/(self.k+1)) * (x-self.mean)
+        self.k += 1
+
+# initialize and update
+m = OnlineMean()
+m.update(103.0)
+m.update(17.8)
+m.update(51.7)
+
+print("Current Mean: {}\nNum. Samples: {}".format(m.mean, m.k))
+```
+```:title=Output noLineNumbers
+Current Mean: 57.5
+Num. Samples: 3
+```
+ 
+Now let's do some quick back-of-the-envelope verification to feel confident.
+
+```python:title=Verify
+# test that our implementation makes sense
+def test_online_mean(n: int):
+    samples = np.random.sample(n)
+    m = OnlineMean()
+    # simulate sequential updating of data
+    for x in samples:
+        m.update(x)
+    sample_mean = np.mean(samples)
+    
+    # make sure these assumptions hold
+    assert np.isclose(m.mean, sample_mean)
+    assert m.k == len(samples)
+
+test_online_mean(100)
+```
+
+We get no `AssertionError` so it looks okay.
 
 
-#### Online Variance Formula (Welford's Algorithm)
+## Sample Variance
 
-This formulation has been around a lot longer than we might expect; it is due to Welford in 1962[^1].
+### Typical (Offline) Formula
+
+
+### Online Variance Formula (Welford's Algorithm)
+
+To write this method out, we'll use a *recursive* formula. Let's define $$s^{2}_{k}$$ as the sample variance 
+of the first $$k$$ elements of the sequence $$x$$, where $$1 < k \leq n$$. Then:
+
+$$
+\begin{aligned}
+s^{2}_{1} &= 0 \\
+s^{2}_{k} &= s^{2}_{k-1} + (x_{k} - \overline{x}_{k})(x_{k} - \overline{x}_{k-1})
+\end{aligned}
+$$
+
+This formulation is due to Welford in 1962[^1].
 
 
 [^1]: Welford, B. (1962). "Note on a Method for Calculating Corrected Sums of Squares and Products"

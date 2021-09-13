@@ -19,7 +19,11 @@
     "cross-env": "^7.0.2"
   },
   "dependencies": {
+    "@fontsource/dosis": "^4.5.0",
+    "@fontsource/gabriela": "^4.5.0",
+    "@fontsource/karma": "^4.5.0",
     "@fontsource/lato": "^4.5.0",
+    "@fontsource/montserrat": "^4.5.1",
     "@fontsource/mulish": "^4.5.1",
     "@fontsource/ubuntu-mono": "^4.5.0",
     "@lekoarts/gatsby-theme-minimal-blog": "^3.1.0",

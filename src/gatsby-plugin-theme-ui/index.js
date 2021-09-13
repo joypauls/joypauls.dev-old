@@ -10,7 +10,8 @@ const theme = merge(tailwind, {
     primary: tailwind.colors.purple[7],
     secondary: tailwind.colors.black,
     toggleIcon: tailwind.colors.black,
-    background: `#f6f5f7`,
+    // background: `#f6f5f7`,
+    background: `#ffffff`,
     backgroundLight: `#503254`,
     heading: `#5a35b8`,
     divide: tailwind.colors.gray[4],
@@ -87,6 +88,7 @@ const theme = merge(tailwind, {
       variant: `text.heading`,
       fontSize: [5, 6, 6, 7],
       mt: 4,
+      // fontFamily: `"Karma"`,
     },
     h2: {
       variant: `text.heading`,
@@ -121,7 +123,7 @@ const theme = merge(tailwind, {
     blockquote: {
       borderLeftColor: `heading`,
       borderLeftStyle: `solid`,
-      borderLeftWidth: `0.7rem`,
+      borderLeftWidth: `0.5rem`,
       backgroundColor: `primarySoft`,
       mx: [0, 4, 5],
       my: [1, 3, 4],
@@ -176,11 +178,12 @@ const theme = merge(tailwind, {
   },
   text: {
     heading: {
-      fontFamily: `heading`,
+      fontFamily: `Montserrat`,
       fontWeight: `bold`,
       lineHeight: `heading`,
       color: `heading`,
     },
+    // wtf is this used for
     headingAlt: {
       fontFamily: `heading`,
       fontWeight: `light`,
@@ -214,13 +217,13 @@ const theme = merge(tailwind, {
   dividers: {
     bottom: {
       borderBottomStyle: `solid`,
-      borderBottomWidth: `4px`,
+      borderBottomWidth: `5px`,
       borderBottomColor: `tagBackground`,
       pb: 3,
     },
     top: {
       borderTopStyle: `solid`,
-      borderTopWidth: `4px`,
+      borderTopWidth: `5px`,
       borderTopColor: `tagBackground`,
       pt: 3,
     },

@@ -42,7 +42,7 @@ const theme = merge(tailwind, {
     },
   },
   fonts: {
-    body: `Mulish,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`
+    body: `Nunito,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`
     // body: `"IBM Plex Sans", -apple-system, BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"`,
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 56, 64, 72],
@@ -88,7 +88,6 @@ const theme = merge(tailwind, {
       variant: `text.heading`,
       fontSize: [5, 6, 6, 7],
       mt: 4,
-      // fontFamily: `"Karma"`,
     },
     h2: {
       variant: `text.heading`,
@@ -178,7 +177,7 @@ const theme = merge(tailwind, {
   },
   text: {
     heading: {
-      fontFamily: `Montserrat`,
+      fontFamily: `Playfair Display`,
       fontWeight: `bold`,
       lineHeight: `heading`,
       color: `heading`,

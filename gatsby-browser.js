@@ -6,5 +6,5 @@ import "@fontsource/mulish";
 import "@fontsource/lato";
 import "@fontsource/ubuntu-mono";
 import "@fontsource/montserrat";
-// import "@fontsource/karma";
-// import "@fontsource/dosis";
+import "@fontsource/playfair-display";
+import "@fontsource/nunito";

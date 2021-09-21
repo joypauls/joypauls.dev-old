@@ -87,17 +87,18 @@ const theme = merge(tailwind, {
     h1: {
       variant: `text.heading`,
       fontSize: [5, 6, 6, 7],
-      mt: 4,
+      mt: 2,
+      mb: 3,
     },
     h2: {
       variant: `text.heading`,
       fontSize: [4, 5, 5, 6],
-      mt: 4,
+      mt: 3,
     },
     h3: {
       variant: `text.heading`,
       fontSize: [3, 4, 4, 5],
-      mt: 4,
+      mt: 3,
     },
     h4: {
       variant: `text.heading`,
@@ -216,13 +217,13 @@ const theme = merge(tailwind, {
   dividers: {
     bottom: {
       borderBottomStyle: `solid`,
-      borderBottomWidth: `5px`,
+      borderBottomWidth: `3px`,
       borderBottomColor: `tagBackground`,
       pb: 3,
     },
     top: {
       borderTopStyle: `solid`,
-      borderTopWidth: `5px`,
+      borderTopWidth: `3px`,
       borderTopColor: `tagBackground`,
       pt: 3,
     },

@@ -122,7 +122,7 @@ const makePrimaryLine = (x, y, animated) => {
   let coordsString = coords.join(" ");
   // let coords2 = data.x.map((d, i) => (d.toString() + "," + data.noisyY[i].toString())).join(" ");
 //   console.log(coordsString);
-  return <polyline sx={{stroke: "graphicPrimary", strokeLinecap: "round"}} pathLength="100" points={coordsString} fill="none" strokeWidth="13" className="primaryLine" opacity={0.85} />
+  return <polyline sx={{stroke: "graphicPrimary", strokeLinecap: "round"}} pathLength="100" points={coordsString} fill="none" strokeWidth="11" className="primaryLine" opacity={0.85} />
 }
 
 // original function

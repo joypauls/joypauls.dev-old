@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import React, { useState } from "react";
-import { jsx, Heading, Box, Label, useThemeUI, Grid, Link as TLink } from "theme-ui";
+import { jsx, Heading, Box, Label, Radio, useThemeUI, Grid, Link as TLink } from "theme-ui";
 import { Link } from "gatsby";
 import { Flex } from "@theme-ui/components";
 import Layout from "@lekoarts/gatsby-theme-minimal-blog/src/components/layout";
@@ -33,6 +33,13 @@ const options = [
   { value: 'chocolate', label: 'Chocolate' },
   { value: 'strawberry', label: 'Strawberry' },
   { value: 'vanilla', label: 'Vanilla' }
+]
+
+const sortOptions = [
+  { value: "date descending", label: "Date ↓" },
+  { value: "date ascending", label: "Date ↑" },
+  { value: "alphabetical descending", label: "Alphabetical ↓" },
+  { value: "alphabetical ascending", label: "Alphabetical ↑" },
 ]
 
 const getSelectTheme = (theme) => {
@@ -185,24 +192,44 @@ const Blog = ({ posts }: PostsProps) => {
         </TLink>
       </Flex>
       <Grid columns={[1, 2, 3]}>
-        <Select 
-          defaultValue={[]}
-          isMulti
-          name="filterTags"
-          options={options}
-          placeholder="Filter By Tag"
-          className="basic-multi-select"
-          classNamePrefix="select"
-          onChange={onSelectChange}
-          // styles={customSelectStyles}
-          theme={theme => ({
-            ...theme,
-            colors: {
-              ...formThemeColors
-            }})}
-        />
+        <Box>
+          <Label htmlFor="filterTags">Filter by Tags</Label>
+          <Select
+            sx={{ width: ["70%", "100%", "100%"] }}
+            defaultValue={[]}
+            isMulti
+            name="filterTags"
+            options={options}
+            placeholder="All"
+            className="basic-multi-select"
+            classNamePrefix="select"
+            onChange={onSelectChange}
+            // styles={customSelectStyles}
+            theme={theme => ({
+              ...theme,
+              colors: {
+                ...formThemeColors
+              }})}
+          />
+        </Box>
+        <Box>
+          <Label htmlFor="sortSelection">Sort</Label>
+          <Select
+            sx={{ width: ["70%", "70%", "70%"] }}
+            className="basic-single"
+            classNamePrefix="select"
+            defaultValue={sortOptions[0]}
+            name="sortSelection"
+            options={sortOptions}
+            theme={theme => ({
+              ...theme,
+              colors: {
+                ...formThemeColors
+              }})}
+          />
+        </Box>
       </Grid>
-      <Listing posts={posts} sx={{ mt: [4, 5], ml: [0, 0, 4]}} />
+      <Listing posts={posts} sx={{ mt: [4, 5], ml: [0, 0, 0]}} />
     </Layout>
   );
 }

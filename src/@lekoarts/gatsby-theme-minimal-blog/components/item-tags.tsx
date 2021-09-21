@@ -17,17 +17,19 @@ const tagStyle = {
   borderColor: "tagBackground",
   borderRadius: "15px",
   color: "tagText",
-  paddingLeft: "10px",
-  paddingRight: "10px",
+  paddingLeft: "0.5rem",
+  paddingRight: "0.5rem",
   textDecoration: "none",
+  marginLeft: "0.2rem",
   ":hover": { 
     textDecoration: "none", 
-    border: "1px solid",
+    // border: "1px solid",
     borderColor: "tagBackground",
     backgroundColor: "transparent",
     // color: "tagText",
     color: "tagBackground",
   },
+  fontSize: 1,
   // fontWeight: "lighter",
 }
 

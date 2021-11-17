@@ -26,7 +26,7 @@ const Header = () => {
         sx={{
           boxSizing: `border-box`,
           display: `flex`,
-          variant: `dividers.bottom`,
+          // variant: `dividers.bottom`,
           pb: 1,
           alignItems: `center`,
           justifyContent: `space-between`,

@@ -1,0 +1,52 @@
+/** @jsx jsx */
+import React from "react";
+import { jsx, Card, Flex, Text, Link as TLink } from "theme-ui";
+import { Box } from "@theme-ui/components";
+import { Link } from "gatsby";
+// import ItemTags from "@lekoarts/gatsby-theme-minimal-blog/src/components/item-tags";
+import "font-awesome/css/font-awesome.min.css";
+
+import Hero from "@lekoarts/gatsby-theme-minimal-blog/src/texts/hero";
+
+// type FlashyCardProps = {
+//   post: {
+//     slug: string
+//     title: string
+//     date: string
+//     excerpt: string
+//     description: string
+//     timeToRead?: number
+//     tags?: {
+//       name: string
+//       slug: string
+//     }[]
+//   }
+//   showTags?: boolean
+// }
+
+const FlashyCard = (text) => (
+  <Card mb={4} mx={1} p={3} 
+    sx={{ 
+      width: ["50%", "80%", "80%"],
+      maxWidth: "600px",
+      minHeight: [null, "200px", "250px"], 
+      border: `3px solid`, 
+      borderRadius: "20px", 
+      borderColor: "heading",
+      // boxShadow: '12px 12px rgba(0, 0, 0), 12px 12px 0 3px black',
+      boxShadow: theme => `8px 8px ${theme.colors.tagBackground}, 8px 8px 0 3px ${theme.colors.heading}`,
+      // boxShadow: theme => `8px 8px ${theme.colors.tagBackground}`,
+    }}
+  >
+    <Flex sx={{ flexDirection: `column`, justifyContent: `space-between`, height: "100%",}}>
+      <Box>
+        <section sx={{ my: [2, 2, 2], p: { fontSize: [1, 2, 3], mt: 2 } }}>
+          <Hero />
+        </section>
+      </Box>
+    </Flex>
+  </Card>
+);
+
+export default FlashyCard;
+

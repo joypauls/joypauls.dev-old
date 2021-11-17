@@ -17,6 +17,7 @@ import Bottom from "@lekoarts/gatsby-theme-minimal-blog/src/texts/bottom";
 import SEO from "@lekoarts/gatsby-theme-minimal-blog/src/components/seo";
 
 import SignalAnimation from "../../../components/signal-animation";
+import FlashyCard from "../../../components/flashy-card";
 
 
 type PostsProps = {
@@ -46,7 +47,10 @@ const Homepage = ({ posts }: PostsProps) => {
     // </Layout>
     <Layout>
       <h1 sx={visuallyHidden}>{siteTitle}</h1>
-      <SignalAnimation />
+      {/* <SignalAnimation /> */}
+      <Flex sx={{ alignItems: `center`, justifyContent: `center`}}>
+        <FlashyCard text="words and other things" />
+      </Flex>
       <section sx={{ my: [3, 4, 5], p: { fontSize: [1, 2, 3], mt: 2 } }}>
         <Hero />
       </section>

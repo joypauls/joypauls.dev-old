@@ -117,7 +117,7 @@ const getSelectTheme = (theme) => {
      * indicators/color(focused)
      * indicators/color:hover(focused)
      */
-    neutral80: "#FFFFFF",
+    neutral80: theme.colors.text,
 
     // no idea
     neutral90: "pink",

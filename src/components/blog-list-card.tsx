@@ -23,7 +23,7 @@ type BlogListCardProps = {
 }
 
 const BlogListCard = ({ post, showTags = true }: BlogListCardProps) => (
-  <Card mb={4} mx={1} p={3} sx={{ minHeight: [null, "200px", "250px"], border: `3px solid`, borderRadius: "0.8rem", borderColor: "tagBackground" }}>
+  <Card mb={4} mx={1} p={3} sx={{ minHeight: [null, "200px", "250px"], border: `3px solid`, borderRadius: "0.8rem", borderColor: "heading" }}>
     <Flex sx={{ flexDirection: `column`, justifyContent: `space-between`, height: "100%",}}>
       <Box>
         <TLink as={Link} to={post.slug} sx={{ fontSize: [2, 3, 3], color: `heading` }}>

@@ -45,7 +45,7 @@ const Post = ({ data: { post } }: PostProps) => (
       pathname={post.slug}
       canonicalUrl={post.canonicalUrl}
     />
-    <Heading as="h1" variant="styles.h1" sx={{fontFamily: `Playfair Display`}}>
+    <Heading as="h1" variant="styles.h1">
       {post.title}
     </Heading>
     <Heading as="h5" variant="styles.h5Alt">

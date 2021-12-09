@@ -13,19 +13,21 @@ const HeaderTitle = () => {
     <Link
       to={replaceSlashes(`/${basePath}`)}
       aria-label={`${siteTitle} - Back to home`}
-      sx={{ color: `heading`, textDecoration: `none` }}
+      sx={{ color: `text`, textDecoration: `none` }}
     >
       <div sx={{
         my: 0, 
-        fontWeight: `bold`,
-        fontSize: [2, 3, 3], 
+        // fontWeight: `bold`,
+        fontSize: [3, 3, 4], 
         // fontFamily: `Montserrat`,
         // fontFamily: `Karma`,
-        // fontStyle: `italic`, 
+        // fontStyle: `italic`,
+        display: `flex`,
+        alignItems: `center`,
       }}>
         {siteTitle}
         {`  `}
-        {/* <span role="img" aria-label="blossom">🌼</span> */}
+        <img role="img" aria-label="logo" src="logo.png" sx={{ height: [`2.5rem`, `2.5rem`, `2.5rem`], ml: `1rem` }} />
       </div>
     </Link>
   );

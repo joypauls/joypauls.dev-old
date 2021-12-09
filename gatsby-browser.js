@@ -8,3 +8,4 @@ import "@fontsource/ubuntu-mono";
 import "@fontsource/montserrat";
 import "@fontsource/playfair-display";
 import "@fontsource/nunito";
+import "@fontsource/merriweather";

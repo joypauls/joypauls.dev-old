@@ -88,18 +88,18 @@ const theme = merge(tailwind, {
     },
     h1: {
       variant: `text.heading`,
-      fontSize: [5, 6, 6, 7],
+      fontSize: [5, 5, 6, 6],
       mt: 2,
       mb: 3,
     },
     h2: {
       variant: `text.heading`,
-      fontSize: [4, 5, 5, 6],
+      fontSize: [4, 4, 5, 5],
       mt: 3,
     },
     h3: {
       variant: `text.heading`,
-      fontSize: [3, 4, 4, 5],
+      fontSize: [3, 3, 4, 4],
       mt: 3,
     },
     h4: {
@@ -180,10 +180,10 @@ const theme = merge(tailwind, {
   },
   text: {
     heading: {
-      fontFamily: `Merriweather`,
+      // fontFamily: `Merriweather`,
       // fontWeight: `bold`,
       lineHeight: `heading`,
-      color: `heading`,
+      // color: `heading`,
     },
     // wtf is this used for
     headingAlt: {

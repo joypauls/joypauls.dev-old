@@ -30,17 +30,17 @@ const FlashyCard = (text) => (
       width: ["90%", "70%", "50%"],
       maxWidth: "600px",
       minHeight: [null, null, "200px"], 
-      border: `3px solid`, 
-      borderRadius: "20px", 
+      border: `2px solid`, 
+      borderRadius: "0", 
       borderColor: "text",
       // boxShadow: '12px 12px rgba(0, 0, 0), 12px 12px 0 3px black',
-      boxShadow: theme => `8px 8px ${theme.colors.tagBackground}, 8px 8px 0 3px ${theme.colors.text}`,
+      boxShadow: theme => `8px 8px ${theme.colors.tagBackground}, 8px 8px 0 2px ${theme.colors.text}`,
       // boxShadow: theme => `8px 8px ${theme.colors.tagBackground}`,
     }}
   >
     <Flex sx={{ flexDirection: `column`, justifyContent: `space-between`, height: "100%",}}>
       <Box>
-        <section sx={{ my: [2, 2, 2], ml: [1, 1, 2], p: { fontSize: [1, 2, 3], mt: 2 } }}>
+        <section sx={{ my: [1, 1, 2], ml: [1, 1, 2], p: { fontSize: [1, 2, 3], mt: [1, 1, 2] } }}>
           <Hero />
         </section>
       </Box>

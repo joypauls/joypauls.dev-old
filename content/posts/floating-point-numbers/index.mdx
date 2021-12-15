@@ -9,20 +9,23 @@ tags:
 
 ## $$\mathbb{R}$$ in a Discrete World
 
-In computation that deals with real-world quantities, we have to deal with approximation. This is not unique to 
-digital computation; for example, with a pen and paper, we will never be able to write the quantity $$\frac{1}{3}$$ 
-as a decimal number, just a decent approximation (0.3333333333333....). How we choose to represent a number 
-impacts the quality of the approximation, but we will always be bound by the finite world. 
+In computation that deals with real-world quantities, we need approximation. This is not unique to 
+digital computation; with a humble pen and paper, we will never be able to write the quantity $$\frac{1}{3}$$ 
+as a decimal number, just a decent approximation (0.3333333333333....). The core issue is that of represesentation. 
+How we choose to represent a number impacts the quality of the approximation, but we will always be 
+bound by the finite world. 
 
 Later on, we'll 
 take a look at the [core tradeoffs](#range-versus-precision) to consider.
 
-In digital computation, the core representation format we use is a foregone conclusion, we use binary. Since working 
-with real numbers is so critical to nearly every important scientific endeavor, how we represent them in binary 
+In digital computation, the core representation format we use is a foregone conclusion. We use binary numbers! Since working 
+with the real numbers is so critical to nearly every scientific endeavor, how we represent them in binary 
 is an incredibly important topic. Here, we'll focus on the [IEEE-754](https://en.wikipedia.org/wiki/IEEE_754) 
 specification of 32-bit and 64-bit floating-point 
 numbers[^1]. Since it's a mouthful, let's use the official alternate names for these from now on: **binary32** and 
 **binary64**, respectively.
+
+But first, some context.
 
 ### The Integers ($$\mathbb{Z}$$)
 

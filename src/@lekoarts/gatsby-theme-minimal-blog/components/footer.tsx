@@ -18,7 +18,7 @@ const Footer = () => {
           variant: `links.secondary`,
         },
         flexDirection: [`column`, `column`, `row`],
-        variant: `dividers.top`,
+        // variant: `dividers.top`,
         fontSize: [0, 1, 1],
       }}
     >

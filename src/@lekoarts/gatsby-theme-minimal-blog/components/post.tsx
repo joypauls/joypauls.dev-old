@@ -52,6 +52,7 @@ const Post = ({ data: { post } }: PostProps) => (
       {post.description}
     </Heading>
     <p sx={{ color: `secondary`, mt: 3, fontSize: [1, 1, 2] }}>
+      <i className="fa fa-calendar" sx={{ marginRight: `5px` }}></i>
       <time sx={{ mr: 3 }}>{post.date}</time>
       {post.tags && (
         <React.Fragment>
@@ -65,10 +66,11 @@ const Post = ({ data: { post } }: PostProps) => (
     <section
       sx={{
         my: 5,
-        mx: [0, 1, 4],
+        mx: [0, 0, 4],
         ".gatsby-resp-image-wrapper": { my: [4, 4, 5], boxShadow: shadow.join(`, `) },
         variant: `layout.content`,
         ".footnotes>ol>li": { fontSize: "1rem" },
+        ".footnotes>ol>li>.footnote-backref": { marginLeft: "0.5rem" },
         // ".footnotes>hr": { color: `#FFF` },
       }}
     >

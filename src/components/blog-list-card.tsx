@@ -29,10 +29,10 @@ const BlogListCard = ({ post, showTags = true }: BlogListCardProps) => (
     p={3} 
     sx={{ 
       minHeight: [null, "200px", "250px"], 
-      border: `2px solid`, 
+      border: `1px solid`, 
       borderRadius: "0", 
-      borderColor: "text",
-      boxShadow: theme => `6px 6px ${theme.colors.tagBackground}, 6px 6px 0 2px ${theme.colors.text}`,
+      borderColor: "cardBorder",
+      boxShadow: theme => `6px 6px ${theme.colors.cardShadow}, 6px 6px 0 0px ${theme.colors.cardBorder}`,
     }}
   >
     <Flex sx={{ flexDirection: `column`, justifyContent: `space-between`, height: "100%",}}>
@@ -41,6 +41,7 @@ const BlogListCard = ({ post, showTags = true }: BlogListCardProps) => (
           {post.title}
         </TLink>
         <p sx={{ color: `secondary`, mt: 1, fontSize: [1, 1, 2] }}>
+          <i className="fa fa-calendar" sx={{ marginRight: `5px` }}></i>
           <time style={{ marginRight: "1rem" }}>{post.date}</time>
         </p>
       </Box>

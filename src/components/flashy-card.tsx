@@ -32,9 +32,9 @@ const FlashyCard = (text) => (
       minHeight: [null, null, "200px"], 
       border: `2px solid`, 
       borderRadius: "0", 
-      borderColor: "text",
+      borderColor: "cardBorder",
       // boxShadow: '12px 12px rgba(0, 0, 0), 12px 12px 0 3px black',
-      boxShadow: theme => `8px 8px ${theme.colors.tagBackground}, 8px 8px 0 2px ${theme.colors.text}`,
+      boxShadow: theme => `10px 10px ${theme.colors.cardShadow}, 10px 10px 0 0px ${theme.colors.cardBorder}`,
       // boxShadow: theme => `8px 8px ${theme.colors.tagBackground}`,
     }}
   >

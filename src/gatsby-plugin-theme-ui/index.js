@@ -2,9 +2,11 @@ import { merge } from "theme-ui";
 import { transparentize } from "@theme-ui/color";
 import { tailwind } from "@theme-ui/presets";
 
+
 const theme = merge(tailwind, {
   initialColorModeName: `dark`,
   useCustomProperties: true,
+  // clean this up pleaseeeee
   colors: {
     text: tailwind.colors.black,
     primary: tailwind.colors.purple[7],
@@ -23,23 +25,30 @@ const theme = merge(tailwind, {
     graphicPrimary: `#5a35b8`,
     graphicSecondary: `#65b897`,
     primarySoft: `#ded7f7`,
+    ////// NEW DESIGNATED
+    cardBorder: tailwind.colors.black,
+    cardShadow: `#f09386`,
     modes: {
       dark: {
         text: tailwind.colors.white,
         primary: tailwind.colors.purple[5],
         secondary: tailwind.colors.white,
         toggleIcon: tailwind.colors.white,
-        background: `#221524`,
+        // background: `#221524`,
+        background: `#221220`,
         backgroundLight: `#503254`,
         // heading: `#ffc6c4`,
         heading: `#fcbbbb`,
         divide: tailwind.colors.gray[6],
         muted: tailwind.colors.gray[6],
         tagText: tailwind.colors.gray[1],
-        tagBackground: `#876ccc`, // MAIN
+        tagBackground: `#6349ef`, // MAIN
         graphicPrimary: `#fcbbbb`,
         graphicSecondary: `#876ccc`,
         primarySoft: `#58425c`,
+        ////// NEW DESIGNATED
+        cardBorder: `#ffffff`,
+        cardShadow: `#6349ef`,
       },
     },
   },

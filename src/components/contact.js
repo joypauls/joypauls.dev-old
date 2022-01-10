@@ -6,7 +6,14 @@ import {
   Label,
   Input,
   Textarea,
+  Text,
 } from "theme-ui";
+
+import FlashyCard from "./flashy-card";
+
+var formText = <Text sx={{ fontSize: [3, 3, 3], variant: "text.heading" }}>
+  Feel free to let me know what you think or just say hi and I'll get back to you when I can 😊
+</Text>
 
 
 const encode = (data) => {
@@ -56,16 +63,19 @@ const ContactForm = () => {
 
   return(
     <Flex sx={{ alignItems: "center", justifyContent: "center"}}>
-      <Box as="form" onSubmit={handleSubmit} sx={{width: ['100%', '75%', '50%'],}} name="contact" data-netlify="true" data-netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="contact" />
-        <Label htmlFor="name">Name</Label>
-        <Input name="name" id="name" mb={3} value={name} onChange={e => setName(e.target.value)}/>
-        <Label htmlFor="email">Email Address</Label>
-        <Input name="email" id="email" mb={3} value={email} onChange={e => setEmail(e.target.value)}/>
-        <Label htmlFor="message">Message</Label>
-        <Textarea name="message" id="comment" rows={6} mb={3} value={message} onChange={e => setMessage(e.target.value)}/>
-        <Button type="submit">Submit</Button>
-      </Box>
+      <FlashyCard>
+        {formText}
+        <Box as="form" onSubmit={handleSubmit} sx={{width: "100%"}} name="contact" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact" />
+          <Label htmlFor="name">Name</Label>
+          <Input name="name" id="name" mb={3} value={name} onChange={e => setName(e.target.value)}/>
+          <Label htmlFor="email">Email Address</Label>
+          <Input name="email" id="email" mb={3} value={email} onChange={e => setEmail(e.target.value)}/>
+          <Label htmlFor="message">Message</Label>
+          <Textarea name="message" id="comment" rows={6} mb={3} value={message} onChange={e => setMessage(e.target.value)}/>
+          <Button type="submit">Submit</Button>
+        </Box>
+      </FlashyCard>
     </Flex>
   );
 }

@@ -13,11 +13,10 @@ import { visuallyHidden } from "@lekoarts/gatsby-theme-minimal-blog/src/styles/u
 import Hero from "@lekoarts/gatsby-theme-minimal-blog/src/texts/hero";
 // @ts-ignore
 import Bottom from "@lekoarts/gatsby-theme-minimal-blog/src/texts/bottom";
-
 import SEO from "@lekoarts/gatsby-theme-minimal-blog/src/components/seo";
 
-import SignalAnimation from "../../../components/signal-animation";
-import FlashyCard from "../../../components/flashy-card";
+// import SignalAnimation from "../../../components/signal-animation";
+import HeroContent from "../../../components/hero-content";
 
 
 type PostsProps = {
@@ -41,15 +40,12 @@ const Homepage = ({ posts }: PostsProps) => {
   const { siteTitle } = useSiteMetadata();
 
   return (
-    // <Layout>
-    //   <SEO title="Blog" />
-    //   <SignalAnimation />
-    // </Layout>
     <Layout>
+      <SEO title="Reference Frame" />
       <h1 sx={visuallyHidden}>{siteTitle}</h1>
       {/* <SignalAnimation /> */}
       <Flex sx={{ alignItems: `center`, justifyContent: `center`}}>
-        <FlashyCard text="words and other things" />
+        <HeroContent />
       </Flex>
       <section sx={{ my: [3, 4, 5], p: { fontSize: [1, 2, 3], mt: 2 } }}>
         <Hero />

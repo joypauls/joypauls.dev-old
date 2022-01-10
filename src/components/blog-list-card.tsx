@@ -32,7 +32,7 @@ const BlogListCard = ({ post, showTags = true }: BlogListCardProps) => (
       border: `1px solid`, 
       borderRadius: "0", 
       borderColor: "cardBorder",
-      boxShadow: theme => `6px 6px ${theme.colors.cardShadow}, 6px 6px 0 0px ${theme.colors.cardBorder}`,
+      boxShadow: theme => `6px 6px ${theme.colors.cardShadow}, 6px 6px 0 1px ${theme.colors.cardBorder}`,
     }}
   >
     <Flex sx={{ flexDirection: `column`, justifyContent: `space-between`, height: "100%",}}>

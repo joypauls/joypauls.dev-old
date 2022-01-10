@@ -24,7 +24,7 @@ import Hero from "@lekoarts/gatsby-theme-minimal-blog/src/texts/hero";
 //   showTags?: boolean
 // }
 
-const FlashyCard = (text) => (
+const FlashyCard = (props) => (
   <Card mb={4} mx={1} p={3} 
     sx={{ 
       width: ["90%", "70%", "50%"],
@@ -34,15 +34,13 @@ const FlashyCard = (text) => (
       borderRadius: "0", 
       borderColor: "cardBorder",
       // boxShadow: '12px 12px rgba(0, 0, 0), 12px 12px 0 3px black',
-      boxShadow: theme => `10px 10px ${theme.colors.cardShadow}, 10px 10px 0 0px ${theme.colors.cardBorder}`,
+      boxShadow: theme => `10px 10px ${theme.colors.cardShadow}, 10px 10px 0 2px ${theme.colors.cardBorder}`,
       // boxShadow: theme => `8px 8px ${theme.colors.tagBackground}`,
     }}
   >
     <Flex sx={{ flexDirection: `column`, justifyContent: `space-between`, height: "100%",}}>
       <Box>
-        <section sx={{ my: [1, 1, 2], ml: [1, 1, 2], p: { fontSize: [1, 2, 3], mt: [1, 1, 2] } }}>
-          <Hero />
-        </section>
+        {props.children}
       </Box>
     </Flex>
   </Card>

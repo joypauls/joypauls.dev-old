@@ -28,6 +28,7 @@ const theme = merge(tailwind, {
     ////// NEW DESIGNATED
     cardBorder: tailwind.colors.black,
     cardShadow: `#f09386`,
+    cardBackground: `#fffbfd`,
     modes: {
       dark: {
         text: tailwind.colors.white,
@@ -49,6 +50,7 @@ const theme = merge(tailwind, {
         ////// NEW DESIGNATED
         cardBorder: `#ffffff`,
         cardShadow: `#6349ef`,
+        cardBackground: `#2c192a`,
       },
     },
   },
@@ -260,6 +262,7 @@ const theme = merge(tailwind, {
     primary: {
       color: 'background',
       bg: 'heading',
+      cursor: 'pointer',
     },
   },
 });

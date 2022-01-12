@@ -25,14 +25,15 @@ type BlogListCardProps = {
 const BlogListCard = ({ post, showTags = true }: BlogListCardProps) => (
   <Card 
     mb={4} 
-    mx={1} 
+    mx={[4, 2, 1]} 
     p={3} 
     sx={{ 
-      minHeight: [null, "200px", "250px"], 
+      minHeight: ["100px", "150px", "200px"], 
       border: `1px solid`, 
-      borderRadius: "0", 
-      borderColor: "cardBorder",
-      boxShadow: theme => `6px 6px ${theme.colors.cardShadow}, 6px 6px 0 1px ${theme.colors.cardBorder}`,
+      borderRadius: "7px", 
+      borderColor: "cardShadow",
+      backgroundColor: "cardBackground"
+      // boxShadow: theme => `1px 1px 5px 0px rgba(0, 0, 0, 0.4)`,
     }}
   >
     <Flex sx={{ flexDirection: `column`, justifyContent: `space-between`, height: "100%",}}>

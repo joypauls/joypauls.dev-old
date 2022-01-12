@@ -3,3 +3,6 @@ run-dev:
 
 deploy:
 	npm run deploy 
+
+clean:
+	gatsby clean

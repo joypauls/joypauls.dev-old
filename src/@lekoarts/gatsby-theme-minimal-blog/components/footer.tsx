@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Link } from "theme-ui";
+import { jsx, Link, Flex } from "theme-ui";
 import useSiteMetadata from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-site-metadata";
 
 const Footer = () => {
@@ -22,12 +22,12 @@ const Footer = () => {
         fontSize: [0, 1, 1],
       }}
     >
-      <div>
+      <Flex sx={{ alignItems: "center" }}>
         &copy;{new Date().getFullYear()} by {siteTitle}
         <Link style={{ marginLeft: `10px` }} rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/">
             <img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/80x15.png" />
         </Link>
-      </div>
+      </Flex>
       {/* <div>
         Theme by
         {` `}

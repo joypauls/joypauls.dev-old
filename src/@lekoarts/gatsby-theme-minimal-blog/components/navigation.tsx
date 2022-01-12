@@ -22,7 +22,8 @@ const Navigation = ({ nav }: NavigationProps) => {
       {nav && nav.length > 0 && (
         <nav sx={{ 
             "a:not(:last-of-type)": { mr: 3 }, 
-            fontSize: [1, `18px`], 
+            // fontSize: [1, `18px`], 
+            fontSize: [2, 2, 2],
             // fontFamily: `Mulish`,
             ".active": { 
                 color: `heading`,

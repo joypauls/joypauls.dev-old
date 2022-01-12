@@ -47,7 +47,7 @@ const Homepage = ({ posts }: PostsProps) => {
       <Flex sx={{ alignItems: `center`, justifyContent: `center`}}>
         <HeroContent />
       </Flex>
-      <section sx={{ my: [3, 4, 5], p: { fontSize: [1, 2, 3], mt: 2 } }}>
+      <section sx={{ my: [3, 4, 5], p: { fontSize: [1, 2, 3], mt: 2, mx: [0, 3, 6] } }}>
         <Hero />
       </section>
       <Title text="Latest Writing">

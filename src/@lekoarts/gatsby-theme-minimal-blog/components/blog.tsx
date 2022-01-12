@@ -8,6 +8,7 @@ import Listing from "@lekoarts/gatsby-theme-minimal-blog/src/components/listing"
 import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-minimal-blog-config";
 import replaceSlashes from "@lekoarts/gatsby-theme-minimal-blog/src/utils/replaceSlashes";
 import SEO from "@lekoarts/gatsby-theme-minimal-blog/src/components/seo";
+import Title from "@lekoarts/gatsby-theme-minimal-blog/src/components/title";
 import Select from "react-select";
 
 import SignalAnimation from "../../../components/signal-animation";
@@ -179,23 +180,14 @@ const Blog = ({ posts }: PostsProps) => {
     <Layout>
       <SEO title="Writing" />
       {/* <SignalAnimation /> */}
-      <Flex sx={{ alignItems: `center`, justifyContent: `space-between`, flexFlow: `wrap` }}>
-        <Heading as="h1" variant="styles.h1" sx={{ marginTop: 2, marginBottom: 3 }}>
-          All Writing
-        </Heading>
-        <TLink
-          as={Link}
-          sx={{ variant: `links.secondary`, marginY: 2 }}
-          to={replaceSlashes(`/${basePath}/${tagsPath}`)}
-        >
-          All Tags
-        </TLink>
-      </Flex>
-      <Grid columns={[1, 2, 3]}>
+      <Title text="All Writing">
+        <Link to={replaceSlashes(`/${basePath}/${tagsPath}`)}>All Tags</Link>
+      </Title>
+      <Grid columns={[2, 2, 3]}>
         <Box>
           <Label htmlFor="filterTags">Filter by Tags</Label>
           <Select
-            sx={{ width: ["70%", "100%", "100%"] }}
+            sx={{ width: ["100%", "100%", "100%"] }}
             defaultValue={[]}
             isMulti
             name="filterTags"
@@ -215,7 +207,7 @@ const Blog = ({ posts }: PostsProps) => {
         <Box>
           <Label htmlFor="sortSelection">Sort</Label>
           <Select
-            sx={{ width: ["70%", "70%", "70%"] }}
+            sx={{ width: ["100%", "100%", "100%"] }}
             className="basic-single"
             classNamePrefix="select"
             defaultValue={sortOptions[0]}

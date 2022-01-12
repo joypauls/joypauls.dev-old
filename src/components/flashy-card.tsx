@@ -30,12 +30,16 @@ const FlashyCard = (props) => (
       width: ["90%", "70%", "50%"],
       maxWidth: "600px",
       minHeight: [null, null, "200px"], 
-      border: `2px solid`, 
-      borderRadius: "0", 
-      borderColor: "cardBorder",
-      // boxShadow: '12px 12px rgba(0, 0, 0), 12px 12px 0 3px black',
-      boxShadow: theme => `10px 10px ${theme.colors.cardShadow}, 10px 10px 0 2px ${theme.colors.cardBorder}`,
-      // boxShadow: theme => `8px 8px ${theme.colors.tagBackground}`,
+      border: `1px solid`, 
+      borderRadius: "7px", 
+      borderColor: "cardShadow",
+      backgroundColor: "cardBackground",
+      // border: `2px solid`, 
+      // borderRadius: "0", 
+      // borderColor: "cardBorder",
+      // // boxShadow: '12px 12px rgba(0, 0, 0), 12px 12px 0 3px black',
+      // boxShadow: theme => `8px 8px ${theme.colors.cardShadow}, 8px 8px 0 2px ${theme.colors.cardBorder}`,
+      // // boxShadow: theme => `8px 8px ${theme.colors.tagBackground}`,
     }}
   >
     <Flex sx={{ flexDirection: `column`, justifyContent: `space-between`, height: "100%",}}>

@@ -24,19 +24,28 @@ const Tags = ({ list }: PostsProps) => {
         Tags
       </Heading>
       <Box mt={[4, 5]}>
-        {list.map((listItem) => (
-          <Flex key={listItem.fieldValue} mb={[1, 1, 2]} sx={{ alignItems: `center` }}>
-            <TLink
-              as={Link}
-              sx={{ variant: `links.listItem`, mr: 2 }}
-              to={replaceSlashes(`/${basePath}/${tagsPath}/${kebabCase(listItem.fieldValue)}`)}
-            >
-              {listItem.fieldValue}
-            </TLink>
-            <div sx={{ width: "1rem", height: "1rem", backgroundColor: "#000", mx: 2 }} />
-            <span sx={{ color: `secondary`, variant: `links.listItem` }}>({listItem.totalCount})</span>
-          </Flex>
-        ))}
+        <table>
+          {list.map((listItem) => (
+            <tr sx={{my: 2}}>
+              <td>
+                <TLink
+                  as={Link}
+                  sx={{ variant: `links.listItem`, mr: 2 }}
+                  to={replaceSlashes(`/${basePath}/${tagsPath}/${kebabCase(listItem.fieldValue)}`)}
+                >
+                  {listItem.fieldValue}
+                </TLink>
+              </td>
+              <td>
+                <Flex>
+                  <div sx={{ width: (listItem.totalCount * 1.5).toString().concat("rem"), height: "1.5rem", backgroundColor: "heading", mx: 2 }} />
+                  <span sx={{ color: `secondary`, variant: `links.listItem` }}>({listItem.totalCount})</span>
+                </Flex>
+              </td>
+              <td></td>
+            </tr>
+          ))}
+        </table>
       </Box>
     </Layout>
   )

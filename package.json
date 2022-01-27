@@ -29,6 +29,7 @@
     "@fontsource/nunito": "^4.5.0",
     "@fontsource/playfair-display": "^4.5.0",
     "@fontsource/ubuntu-mono": "^4.5.0",
+    "@fontsource/zilla-slab": "^4.5.0",
     "@lekoarts/gatsby-theme-minimal-blog": "^3.1.0",
     "@wellyshen/use-web-animations": "^0.9.1",
     "d3": "^7.0.1",
@@ -50,6 +51,8 @@
     "react-select": "^4.3.1",
     "react-tooltip": "^4.2.21",
     "remark-html-katex": "^3.0.0",
-    "remark-math": "^3.0.1"
+    "remark-math": "^3.0.1",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^2.1.1"
   }
 }

@@ -21,12 +21,12 @@ const theme = merge(tailwind, {
     tagText: tailwind.colors.gray[1],
     // tagBackground: `#a9d1bb`,
     // tagBackground: `#65b897`,
-    tagBackground: `#f09386`,
+    tagBackground: `#cb7fa6`,
     graphicPrimary: `#5a35b8`,
     graphicSecondary: `#65b897`,
     primarySoft: `#ded7f7`,
     ////// NEW DESIGNATED
-    cardBorder: tailwind.colors.black,
+    cardBorder: `#cb7fa6`,
     cardShadow: `#f09386`,
     cardBackground: `#fffbfd`,
     modes: {
@@ -191,7 +191,7 @@ const theme = merge(tailwind, {
   },
   text: {
     heading: {
-      // fontFamily: `Merriweather`,
+      fontFamily: `Zilla Slab`,
       // fontWeight: `bold`,
       lineHeight: `heading`,
       // color: `heading`,

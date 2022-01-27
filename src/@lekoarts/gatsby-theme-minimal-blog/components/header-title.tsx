@@ -19,7 +19,7 @@ const HeaderTitle = () => {
         my: 0, 
         // fontWeight: `bold`,
         fontSize: [3, 3, 4], 
-        // fontFamily: `Montserrat`,
+        fontFamily: `Zilla Slab`,
         // fontFamily: `Karma`,
         // fontStyle: `italic`,
         display: `flex`,

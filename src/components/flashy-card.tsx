@@ -32,7 +32,7 @@ const FlashyCard = (props) => (
       minHeight: [null, null, "200px"], 
       border: `1px solid`, 
       borderRadius: "7px", 
-      borderColor: "cardShadow",
+      borderColor: "cardBorder",
       backgroundColor: "cardBackground",
       // border: `2px solid`, 
       // borderRadius: "0", 

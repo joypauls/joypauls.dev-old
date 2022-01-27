@@ -28,17 +28,17 @@ const BlogListCard = ({ post, showTags = true }: BlogListCardProps) => (
     mx={[4, 2, 1]} 
     p={3} 
     sx={{ 
-      minHeight: ["100px", "150px", "200px"], 
+      minHeight: ["150px", "200px", "250px"], 
       border: `1px solid`, 
       borderRadius: "7px", 
-      borderColor: "cardShadow",
-      backgroundColor: "cardBackground"
-      // boxShadow: theme => `1px 1px 5px 0px rgba(0, 0, 0, 0.4)`,
+      borderColor: "cardBorder",
+      backgroundColor: "cardBackground",
+      // boxShadow: theme => `1px 1px 7px 0px rgba(150, 150, 150, 0.4)`,
     }}
   >
     <Flex sx={{ flexDirection: `column`, justifyContent: `space-between`, height: "100%",}}>
       <Box>
-        <TLink as={Link} to={post.slug} sx={{ fontSize: [2, 3, 3], color: `heading` }}>
+        <TLink as={Link} to={post.slug} sx={{ fontSize: [3, 3, 4], color: `heading`, fontFamily: `Zilla Slab`, }}>
           {post.title}
         </TLink>
         <p sx={{ color: `secondary`, mt: 1, fontSize: [1, 1, 2] }}>

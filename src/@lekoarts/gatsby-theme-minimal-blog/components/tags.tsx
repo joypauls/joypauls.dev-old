@@ -31,8 +31,10 @@ const Tags = ({ list }: PostsProps) => {
               sx={{ variant: `links.listItem`, mr: 2 }}
               to={replaceSlashes(`/${basePath}/${tagsPath}/${kebabCase(listItem.fieldValue)}`)}
             >
-              {listItem.fieldValue} <span sx={{ color: `secondary` }}>({listItem.totalCount})</span>
+              {listItem.fieldValue}
             </TLink>
+            <div sx={{ width: "1rem", height: "1rem", backgroundColor: "#000", mx: 2 }} />
+            <span sx={{ color: `secondary`, variant: `links.listItem` }}>({listItem.totalCount})</span>
           </Flex>
         ))}
       </Box>

@@ -9,7 +9,8 @@ import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/
 import replaceSlashes from "@lekoarts/gatsby-theme-minimal-blog/src/utils/replaceSlashes";
 import SEO from "@lekoarts/gatsby-theme-minimal-blog/src/components/seo";
 import Title from "@lekoarts/gatsby-theme-minimal-blog/src/components/title";
-import Select from "react-select";
+// import Select from "react-select";
+import { Dropdown } from 'semantic-ui-react'
 
 import SignalAnimation from "../../../components/signal-animation";
 
@@ -43,106 +44,154 @@ const sortOptions = [
   { value: "alphabetical ascending", label: "Alphabetical ↑" },
 ]
 
-const getSelectTheme = (theme) => {
-  return ({
-    /*
-    * multiValue(remove)/color:hover
-    */
-    danger: "purple",
+const friendOptions = [
+  {
+    key: 'Jenny Hess',
+    text: 'Jenny Hess',
+    value: 'Jenny Hess',
+    image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/jenny.jpg' },
+  },
+  {
+    key: 'Elliot Fu',
+    text: 'Elliot Fu',
+    value: 'Elliot Fu',
+    image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/elliot.jpg' },
+  },
+  {
+    key: 'Stevie Feliciano',
+    text: 'Stevie Feliciano',
+    value: 'Stevie Feliciano',
+    image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/stevie.jpg' },
+  },
+  {
+    key: 'Christian',
+    text: 'Christian',
+    value: 'Christian',
+    image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/christian.jpg' },
+  },
+  {
+    key: 'Matt',
+    text: 'Matt',
+    value: 'Matt',
+    image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/matt.jpg' },
+  },
+  {
+    key: 'Justen Kitsune',
+    text: 'Justen Kitsune',
+    value: 'Justen Kitsune',
+    image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/justen.jpg' },
+  },
+]
 
-    /*
-     * multiValue(remove)/backgroundColor(focused)
-     * multiValue(remove)/backgroundColor:hover
-     */
-    // dangerLight: theme.palette.grey[200],
+const DropdownExampleSelection = () => (
+  <Dropdown
+    placeholder='Select Friend'
+    fluid
+    selection
+    options={friendOptions}
+  />
+)
 
-    /*
-     * control/backgroundColor
-     * menu/backgroundColor
-     * option/color(selected)
-     */
-    neutral0: theme.colors.background,
+// const getSelectTheme = (theme) => {
+//   return ({
+//     /*
+//     * multiValue(remove)/color:hover
+//     */
+//     danger: "purple",
 
-    /*
-      * control/backgroundColor(disabled)
-     */
-    neutral5: "orange",
+//     /*
+//      * multiValue(remove)/backgroundColor(focused)
+//      * multiValue(remove)/backgroundColor:hover
+//      */
+//     // dangerLight: theme.palette.grey[200],
 
-    /*
-     * control/borderColor(disabled)
-     * multiValue/backgroundColor
-     * indicators(separator)/backgroundColor(disabled)
-     */
-    neutral10: theme.colors.tagBackground,
+//     /*
+//      * control/backgroundColor
+//      * menu/backgroundColor
+//      * option/color(selected)
+//      */
+//     neutral0: theme.colors.background,
 
-    /*
-     * control/borderColor
-     * option/color(disabled)
-     * indicators/color
-     * indicators(separator)/backgroundColor
-     * indicators(loading)/color
-     */
-    neutral20: theme.colors.text,
+//     /*
+//       * control/backgroundColor(disabled)
+//      */
+//     neutral5: "orange",
 
-    /*
-     * control/borderColor(focused)
-     * control/borderColor:hover
-     */
-    // this should be the white, that's normally selected
-    // neutral30: theme.palette.text.primary,
+//     /*
+//      * control/borderColor(disabled)
+//      * multiValue/backgroundColor
+//      * indicators(separator)/backgroundColor(disabled)
+//      */
+//     neutral10: theme.colors.tagBackground,
 
-    /*
-     * menu(notice)/color
-     * singleValue/color(disabled)
-     * indicators/color:hover
-     */
-    neutral40: 'green',
+//     /*
+//      * control/borderColor
+//      * option/color(disabled)
+//      * indicators/color
+//      * indicators(separator)/backgroundColor
+//      * indicators(loading)/color
+//      */
+//     neutral20: theme.colors.text,
 
-    /*
-     * placeholder/color
-     */
-    // seen in placeholder text
-    // neutral50: theme.palette.grey['A200'],
+//     /*
+//      * control/borderColor(focused)
+//      * control/borderColor:hover
+//      */
+//     // this should be the white, that's normally selected
+//     // neutral30: theme.palette.text.primary,
 
-    /*
-     * indicators/color(focused)
-     * indicators(loading)/color(focused)
-     */
-    neutral60: 'purple',
-    neutral70: 'purple',
+//     /*
+//      * menu(notice)/color
+//      * singleValue/color(disabled)
+//      * indicators/color:hover
+//      */
+//     neutral40: 'green',
 
-    /*
-     * input/color
-     * multiValue(label)/color
-      * singleValue/color
-     * indicators/color(focused)
-     * indicators/color:hover(focused)
-     */
-    neutral80: theme.colors.text,
+//     /*
+//      * placeholder/color
+//      */
+//     // seen in placeholder text
+//     // neutral50: theme.palette.grey['A200'],
 
-    // no idea
-    neutral90: "pink",
+//     /*
+//      * indicators/color(focused)
+//      * indicators(loading)/color(focused)
+//      */
+//     neutral60: 'purple',
+//     neutral70: 'purple',
 
-    /*
-     * control/boxShadow(focused)
-     * control/borderColor(focused)
-     * control/borderColor:hover(focused)
-     * option/backgroundColor(selected)
-     * option/backgroundColor:active(selected)
-     */
-    // primary: theme.palette.text.primary,
+//     /*
+//      * input/color
+//      * multiValue(label)/color
+//       * singleValue/color
+//      * indicators/color(focused)
+//      * indicators/color:hover(focused)
+//      */
+//     neutral80: theme.colors.text,
 
-    /*
-     * option/backgroundColor(focused)
-     */
-    primary25: theme.colors.background,
+//     // no idea
+//     neutral90: "pink",
 
-    /*
-     * option/backgroundColor:active
-     */
-    primary50: theme.colors.background,
-    primary75: theme.colors.background,
-  })}
+//     /*
+//      * control/boxShadow(focused)
+//      * control/borderColor(focused)
+//      * control/borderColor:hover(focused)
+//      * option/backgroundColor(selected)
+//      * option/backgroundColor:active(selected)
+//      */
+//     // primary: theme.palette.text.primary,
+
+//     /*
+//      * option/backgroundColor(focused)
+//      */
+//     primary25: theme.colors.background,
+
+//     /*
+//      * option/backgroundColor:active
+//      */
+//     primary50: theme.colors.background,
+//     primary75: theme.colors.background,
+//   })}
 
 // const customSelectStyles = {
 //   // option: (provided, state) => ({
@@ -168,7 +217,7 @@ const Blog = ({ posts }: PostsProps) => {
   const { tagsPath, basePath } = useMinimalBlogConfig();
   const context = useThemeUI();
   const { theme, colorMode, setColorMode } = context;
-  const formThemeColors = getSelectTheme(theme);
+  // const formThemeColors = getSelectTheme(theme);
   const [filters, setFilters] = useState([]);
 
   const onSelectChange = values => {
@@ -186,7 +235,8 @@ const Blog = ({ posts }: PostsProps) => {
       <Grid columns={[2, 2, 3]}>
         <Box>
           <Label htmlFor="filterTags">Filter by Tags</Label>
-          <Select
+          <DropdownExampleSelection />
+          {/* <Select
             sx={{ width: ["100%", "100%", "100%"] }}
             defaultValue={[]}
             isMulti
@@ -202,11 +252,12 @@ const Blog = ({ posts }: PostsProps) => {
               colors: {
                 ...formThemeColors
               }})}
-          />
+          /> */}
         </Box>
         <Box>
           <Label htmlFor="sortSelection">Sort</Label>
-          <Select
+          <DropdownExampleSelection />
+          {/* <Select
             sx={{ width: ["100%", "100%", "100%"] }}
             className="basic-single"
             classNamePrefix="select"
@@ -218,7 +269,7 @@ const Blog = ({ posts }: PostsProps) => {
               colors: {
                 ...formThemeColors
               }})}
-          />
+          /> */}
         </Box>
       </Grid>
       <Listing posts={posts} sx={{ mt: [4, 5], ml: [0, 0, 0]}} />

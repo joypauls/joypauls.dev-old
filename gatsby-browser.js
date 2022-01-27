@@ -9,3 +9,4 @@ import "@fontsource/montserrat";
 import "@fontsource/playfair-display";
 import "@fontsource/nunito";
 import "@fontsource/merriweather";
+import "@fontsource/zilla-slab";

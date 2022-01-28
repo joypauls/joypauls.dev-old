@@ -21,7 +21,7 @@ type ListingProps = {
 }
 
 const Listing = ({ posts, className = ``, showTags = true }: ListingProps) => (
-  <section sx={{ mb: [5, 6, 7] }} className={className}>
+  <section sx={{ mb: [5, 6, 7], mt: [4, 5], mx: [4, 3, 0] }} className={className}>
     <Grid columns={[1, 2, 3]}>
       {posts.map((post) => (
         <BlogListCard key={post.slug} post={post} showTags={showTags} />

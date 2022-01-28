@@ -38,7 +38,8 @@ const FlashyCard = (props) => (
       // borderRadius: "0", 
       // borderColor: "cardBorder",
       // // boxShadow: '12px 12px rgba(0, 0, 0), 12px 12px 0 3px black',
-      // boxShadow: theme => `8px 8px ${theme.colors.cardShadow}, 8px 8px 0 2px ${theme.colors.cardBorder}`,
+      // boxShadow: theme => `8px 8px transparent, 8px 8px 0 2px ${theme.colors.cardBorder}`,
+      // boxShadow: theme => `8px 8px ${theme.colors.cardBackground}, 8px 8px 0 2px ${theme.colors.cardBorder}`,
       // // boxShadow: theme => `8px 8px ${theme.colors.tagBackground}`,
     }}
   >

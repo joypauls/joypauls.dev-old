@@ -14,6 +14,15 @@ import { Dropdown } from 'semantic-ui-react'
 
 import SignalAnimation from "../../../components/signal-animation";
 
+import "semantic-ui-css/semantic.min.css"
+
+
+// type TagsProps = {
+//   list: {
+//     fieldValue: string
+//     totalCount: number
+//   }[]
+// }
 
 type PostsProps = {
   posts: {
@@ -31,64 +40,20 @@ type PostsProps = {
   [key: string]: any
 }
 
-const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' }
-]
-
 const sortOptions = [
-  { value: "date descending", label: "Date ↓" },
-  { value: "date ascending", label: "Date ↑" },
-  { value: "alphabetical descending", label: "Alphabetical ↓" },
-  { value: "alphabetical ascending", label: "Alphabetical ↑" },
+  { key: "date descending", value: "date descending", text: "Date ↓" },
+  { key: "date ascending", value: "date ascending", text: "Date ↑" },
+  { key: "alphabetical descending", value: "alphabetical descending", text: "Alphabetical ↓" },
+  { key: "alphabetical ascending", value: "alphabetical ascending", text: "Alphabetical ↑" },
 ]
 
-const friendOptions = [
-  {
-    key: 'Jenny Hess',
-    text: 'Jenny Hess',
-    value: 'Jenny Hess',
-    image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/jenny.jpg' },
-  },
-  {
-    key: 'Elliot Fu',
-    text: 'Elliot Fu',
-    value: 'Elliot Fu',
-    image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/elliot.jpg' },
-  },
-  {
-    key: 'Stevie Feliciano',
-    text: 'Stevie Feliciano',
-    value: 'Stevie Feliciano',
-    image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/stevie.jpg' },
-  },
-  {
-    key: 'Christian',
-    text: 'Christian',
-    value: 'Christian',
-    image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/christian.jpg' },
-  },
-  {
-    key: 'Matt',
-    text: 'Matt',
-    value: 'Matt',
-    image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/matt.jpg' },
-  },
-  {
-    key: 'Justen Kitsune',
-    text: 'Justen Kitsune',
-    value: 'Justen Kitsune',
-    image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/justen.jpg' },
-  },
-]
-
-const DropdownExampleSelection = () => (
+const SortDropdown = (props) => (
   <Dropdown
-    placeholder='Select Friend'
+    placeholder="Sort Posts"
     fluid
     selection
-    options={friendOptions}
+    options={props.options}
+    defaultValue={props.default}
   />
 )
 
@@ -234,8 +199,11 @@ const Blog = ({ posts }: PostsProps) => {
       </Title>
       <Grid columns={[2, 2, 3]}>
         <Box>
-          <Label htmlFor="filterTags">Filter by Tags</Label>
-          <DropdownExampleSelection />
+          <Label htmlFor="sortSelection">Sort Posts</Label>
+          <SortDropdown options={sortOptions} default={sortOptions[1].value} />
+          {/* <TagsDropdown 
+            options={list.map((listItem) => (}
+          /> */}
           {/* <Select
             sx={{ width: ["100%", "100%", "100%"] }}
             defaultValue={[]}
@@ -255,8 +223,8 @@ const Blog = ({ posts }: PostsProps) => {
           /> */}
         </Box>
         <Box>
-          <Label htmlFor="sortSelection">Sort</Label>
-          <DropdownExampleSelection />
+          {/* <Label htmlFor="sortSelection">Sort</Label>
+          <SortDropdown options={sortOptions} default={sortOptions[1].value} /> */}
           {/* <Select
             sx={{ width: ["100%", "100%", "100%"] }}
             className="basic-single"
@@ -272,7 +240,7 @@ const Blog = ({ posts }: PostsProps) => {
           /> */}
         </Box>
       </Grid>
-      <Listing posts={posts} sx={{ mt: [4, 5], ml: [0, 0, 0]}} />
+      <Listing posts={posts} sx={{ mt: [4, 5], mx: [6, 4, 0]}} />
     </Layout>
   );
 }

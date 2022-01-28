@@ -4,7 +4,7 @@ import { tailwind } from "@theme-ui/presets";
 
 
 const theme = merge(tailwind, {
-  initialColorModeName: `dark`,
+  // initialColorModeName: `dark`,
   useCustomProperties: true,
   // clean this up pleaseeeee
   colors: {
@@ -21,12 +21,13 @@ const theme = merge(tailwind, {
     tagText: tailwind.colors.gray[1],
     // tagBackground: `#a9d1bb`,
     // tagBackground: `#65b897`,
-    tagBackground: `#cb7fa6`,
+    tagBorder: `#5a35b8`,
+    tagBackground: `#af9be0`,
     graphicPrimary: `#5a35b8`,
     graphicSecondary: `#65b897`,
     primarySoft: `#ded7f7`,
     ////// NEW DESIGNATED
-    cardBorder: `#cb7fa6`,
+    cardBorder: `#e5bad0`,
     cardShadow: `#f09386`,
     cardBackground: `#fffbfd`,
     modes: {
@@ -194,7 +195,7 @@ const theme = merge(tailwind, {
       fontFamily: `Zilla Slab`,
       // fontWeight: `bold`,
       lineHeight: `heading`,
-      // color: `heading`,
+      color: `heading`,
     },
     // wtf is this used for
     headingAlt: {

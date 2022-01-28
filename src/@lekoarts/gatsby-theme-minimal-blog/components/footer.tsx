@@ -3,7 +3,7 @@ import { jsx, Link, Flex } from "theme-ui";
 import useSiteMetadata from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-site-metadata";
 
 const Footer = () => {
-  const { siteTitle } = useSiteMetadata();
+  const { author } = useSiteMetadata();
 
   return (
     <footer
@@ -23,10 +23,10 @@ const Footer = () => {
       }}
     >
       <Flex sx={{ alignItems: "center" }}>
-        &copy;{new Date().getFullYear()} by {siteTitle}
-        <Link style={{ marginLeft: `10px` }} rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/">
+        &copy;{new Date().getFullYear()} by {author}
+        {/* <Link style={{ marginLeft: `10px` }} rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/">
             <img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/80x15.png" />
-        </Link>
+        </Link> */}
       </Flex>
       {/* <div>
         Theme by

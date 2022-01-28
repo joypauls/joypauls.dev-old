@@ -8,7 +8,6 @@ import Footer from "@lekoarts/gatsby-theme-minimal-blog/src/components/footer"
 import CodeStyles from "@lekoarts/gatsby-theme-minimal-blog/src/styles/code"
 import SkipNavLink from "@lekoarts/gatsby-theme-minimal-blog/src/components/skip-nav"
 
-import "semantic-ui-css/semantic.min.css"
 
 type LayoutProps = { children: React.ReactNode; className?: string }
 

@@ -13,24 +13,23 @@ type TagsProps = {
 
 const tagStyle = {
   backgroundColor: "tagBackground",
-  // border: "2px solid",
-  borderColor: "tagBackground",
-  borderRadius: "15px",
+  border: "1px solid",
+  borderColor: "tagBorder",
+  borderRadius: "5px",
   color: "tagText",
   paddingLeft: "0.5rem",
   paddingRight: "0.5rem",
   textDecoration: "none",
-  marginLeft: "0.2rem",
+  marginRight: "0.5rem",
   ":hover": { 
     textDecoration: "none", 
     // border: "1px solid",
-    borderColor: "tagBackground",
+    borderColor: "tagBorder",
     backgroundColor: "transparent",
     // color: "tagText",
-    color: "tagBackground",
+    color: "tagBorder",
   },
   fontSize: 1,
-  // fontWeight: "lighter",
 }
 
 const ItemTags = ({ tags }: TagsProps) => {

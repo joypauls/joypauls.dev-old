@@ -11,7 +11,7 @@ import {
 
 import FlashyCard from "./flashy-card";
 
-var formText = <Text sx={{ fontSize: [2, 2, 3], variant: "text.heading" }}>
+var formText = <Text sx={{ fontSize: [2, 2, 3] }}>
   Feel free to let me know what you think or just say hi and I'll get back to you when I can.
 </Text>
 
